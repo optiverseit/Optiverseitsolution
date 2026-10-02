@@ -1,4 +1,4 @@
-import { MessageSquareQuote, Building2, CalendarDays, Star } from "lucide-react";
+import { MessageSquareQuote, Building2, Star } from "lucide-react";
 
 type Testimonial = {
   id: number;
@@ -92,49 +92,46 @@ export default function TestimonialsSection() {
               key={item.id}
               className={`rounded-[35px] border border-slate-200/80 ${item.softBg} px-7 py-7 shadow-[0_8px_24px_rgba(15,23,42,0.06)] transition duration-300 hover:-translate-y-1`}
             >
-              {/* top */}
-              <div className="flex items-start justify-between gap-4">
-                <div className="flex min-w-0 items-start gap-4">
-                  <div className="relative shrink-0">
-                    <img
-                      src={item.avatar}
-                      alt={item.name}
-                      className="h-16 w-16 rounded-[18px] object-cover ring-2 ring-white shadow-[0_8px_20px_rgba(0,0,0,0.10)]"
+              {/* Stars row — always at top right */}
+              <div className="mb-3 flex justify-end">
+                <div className="flex items-center gap-[2px] rounded-full bg-white/60 px-2.5 py-1.5">
+                  {Array.from({ length: 5 }).map((_, index) => (
+                    <Star
+                      key={index}
+                      className="h-4 w-4 fill-yellow-400 text-yellow-400"
                     />
+                  ))}
+                </div>
+              </div>
 
-                    <div
-                      className={`absolute -bottom-1 -right-1 flex h-7 w-7 items-center justify-center rounded-full border-[3px] border-white ${item.iconBg}`}
-                    >
-                      <MessageSquareQuote className="h-3.5 w-3.5" />
-                    </div>
+              {/* Avatar + Name row */}
+              <div className="flex min-w-0 items-start gap-4">
+                <div className="relative shrink-0">
+                  <img
+                    src={item.avatar}
+                    alt={item.name}
+                    className="h-16 w-16 rounded-[18px] object-cover ring-2 ring-white shadow-[0_8px_20px_rgba(0,0,0,0.10)]"
+                  />
+                  <div
+                    className={`absolute -bottom-1 -right-1 flex h-7 w-7 items-center justify-center rounded-full border-[3px] border-white ${item.iconBg}`}
+                  >
+                    <MessageSquareQuote className="h-3.5 w-3.5" />
                   </div>
-
-                  <div className="flex-1 pt-1">
-  <h3 className="text-[17px] font-extrabold leading-tight text-slate-900">
-    {item.name}
-  </h3>
-
-  <p className={`mt-1 text-[15px] font-semibold leading-6 ${item.roleColor} truncate`}>
-    {item.role}
-  </p>
-</div>
                 </div>
 
-                <div className="shrink-0 rounded-full bg-white/60 px-2.5 py-1.5">
-  <div className="flex items-center gap-[2px]">
-    {Array.from({ length: 5 }).map((_, index) => (
-      <Star
-        key={index}
-        className="h-4 w-4 fill-yellow-400 text-yellow-400"
-      />
-    ))}
-  </div>
-</div>
+                <div className="flex-1 pt-1">
+                  <h3 className="text-[17px] font-extrabold leading-tight text-slate-900">
+                    {item.name}
+                  </h3>
+                  <p className={`mt-1 text-[15px] font-semibold leading-6 ${item.roleColor}`}>
+                    {item.role}
+                  </p>
+                </div>
               </div>
 
               {/* review */}
               <div className="mt-8">
-                <p className="text-[15px] leading-10 text-slate-700">
+                <p className="text-[15px] leading-7 text-slate-700">
                   {item.review}
                 </p>
               </div>
@@ -155,16 +152,9 @@ export default function TestimonialsSection() {
                     <h4 className="text-[16px] font-extrabold leading-tight text-slate-900">
                       {item.company}
                     </h4>
-                    <p className="mt-1 text-[14px] leading-6 text-slate-600">
-                      {item.companySize}
-                    </p>
                   </div>
                 </div>
 
-                <div className={`flex items-center gap-2.5 text-[15px] font-semibold ${item.dateColor}`}>
-                  <CalendarDays className="h-4.5 w-4.5" />
-                  <span>{item.date}</span>
-                </div>
               </div>
             </article>
           ))}
@@ -172,7 +162,7 @@ export default function TestimonialsSection() {
 
         {/* CTA */}
         <div className="mt-10 flex justify-center lg:justify-end">
-          <button className="rounded-2xl bg-green-600 px-10 py-4 text-lg font-extrabold text-white shadow-[0_10px_24px_rgba(22,163,74,0.20)] transition hover:bg-green-700">
+          <button className="rounded-xl bg-green-600 px-8 py-3 text-base font-bold text-white shadow-md transition hover:bg-green-700">
             See All
           </button>
         </div>

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { navItems } from "../../data/navItems";
 import logo from "../../assets/Logo/Logo.png";
@@ -13,7 +13,7 @@ import {
   BadgeDollarSign,
   MonitorCog,
   ChevronDown,
-  Info,
+  Building2,
   Briefcase,
   Menu,
   X,
@@ -22,12 +22,16 @@ import {
 export default function MainNavbar() {
   const [showServices, setShowServices] = useState(false);
   const [showAbout, setShowAbout] = useState(false);
+  const [pinnedServices, setPinnedServices] = useState(false);
+  const [pinnedAbout, setPinnedAbout] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       setShowServices(false);
       setShowAbout(false);
+      setPinnedServices(false);
+      setPinnedAbout(false);
       setMobileOpen(false);
     };
 
@@ -35,9 +39,23 @@ export default function MainNavbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Close dropdowns when clicking outside the navbar
+  const navRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (navRef.current && !navRef.current.contains(e.target as Node)) {
+        closeAll();
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
   const closeAll = () => {
     setShowServices(false);
     setShowAbout(false);
+    setPinnedServices(false);
+    setPinnedAbout(false);
     setMobileOpen(false);
   };
 
@@ -58,18 +76,18 @@ export default function MainNavbar() {
       title: "Introduction",
       desc: "Optiverse IT Solution Pvt. Ltd...",
       href: "/about",
-      icon: <Info size={24} className="text-green-600" />,
+      icon: <Building2 size={24} className="text-green-600" />,
     },
     {
       title: "Our Work Process",
-      desc: "We help businesses go digital...",
+      desc: "For Website Development Service",
       href: "/work-process",
       icon: <Briefcase size={24} className="text-green-600" />,
     },
   ];
 
   return (
-    <div className="relative w-full bg-green-700 shadow-sm">
+    <div ref={navRef} className="relative w-full bg-green-800 shadow-sm">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4">
         <Link to="/" onClick={closeAll} className="flex items-center">
           <img src={logo} alt="Company Logo" className="h-14 w-auto object-contain sm:h-16" />
@@ -79,33 +97,44 @@ export default function MainNavbar() {
           {navItems.map((item) => {
             if (item.label === "About") {
               return (
-                <div key={item.href} className="relative">
+                <div
+                  key={item.href}
+                  className="relative"
+                  onMouseEnter={() => { setShowAbout(true); setShowServices(false); setPinnedServices(false); }}
+                  onMouseLeave={() => { if (!pinnedAbout) setShowAbout(false); }}
+                >
                   <button
                     type="button"
                     onClick={() => {
-                      setShowAbout(!showAbout);
+                      const next = !pinnedAbout;
+                      setPinnedAbout(next);
+                      setShowAbout(next);
+                      setPinnedServices(false);
                       setShowServices(false);
                     }}
-                    className="flex items-center gap-1 font-medium text-white transition hover:text-green-200"
+                    className="flex items-center gap-1 rounded-lg px-3 py-1.5 font-bold text-white transition-all duration-200 hover:scale-110 hover:bg-[#F5F5F5] hover:text-[#166534]"
                   >
                     About
                     <ChevronDown size={16} className={`transition ${showAbout ? "rotate-180" : ""}`} />
                   </button>
 
                   {showAbout && (
-                    <div className="absolute left-1/2 top-full mt-4 w-[520px] -translate-x-1/2 rounded-xl border border-green-100 bg-white p-5 shadow-2xl">
-                      <div className="space-y-3">
+                    <div className="absolute left-1/2 top-full mt-3 w-[420px] -translate-x-1/2 overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-2xl">
+                      {/* Items */}
+                      <div className="p-3">
                         {aboutItems.map((about) => (
                           <Link
                             key={about.title}
                             to={about.href}
                             onClick={closeAll}
-                            className="flex gap-4 rounded-lg border-b px-2 py-3 transition last:border-b-0 hover:bg-green-50"
+                            className="flex items-start gap-4 rounded-xl px-4 py-3 transition hover:bg-green-50"
                           >
-                            <div>{about.icon}</div>
+                            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-green-100">
+                              {about.icon}
+                            </div>
                             <div>
-                              <h4 className="mb-1 font-bold text-gray-900">{about.title}</h4>
-                              <p className="text-sm leading-relaxed text-gray-600">{about.desc}</p>
+                              <h4 className="font-bold text-gray-900">{about.title}</h4>
+                              <p className="mt-0.5 text-sm leading-relaxed text-gray-500">{about.desc}</p>
                             </div>
                           </Link>
                         ))}
@@ -118,33 +147,49 @@ export default function MainNavbar() {
 
             if (item.label === "Services") {
               return (
-                <div key={item.href} className="relative">
+                <div
+                  key={item.href}
+                  className="relative"
+                  onMouseEnter={() => { setShowServices(true); setShowAbout(false); setPinnedAbout(false); }}
+                  onMouseLeave={() => { if (!pinnedServices) setShowServices(false); }}
+                >
                   <button
                     type="button"
                     onClick={() => {
-                      setShowServices(!showServices);
+                      const next = !pinnedServices;
+                      setPinnedServices(next);
+                      setShowServices(next);
+                      setPinnedAbout(false);
                       setShowAbout(false);
                     }}
-                    className="flex items-center gap-1 font-medium text-white transition hover:text-green-200"
+                    className="flex items-center gap-1 rounded-lg px-3 py-1.5 font-bold text-white transition-all duration-200 hover:scale-110 hover:bg-[#F5F5F5] hover:text-[#166534]"
                   >
                     Services
                     <ChevronDown size={16} className={`transition ${showServices ? "rotate-180" : ""}`} />
                   </button>
 
                   {showServices && (
-                    <div className="absolute left-1/2 top-full mt-4 w-[900px] -translate-x-1/2 rounded-xl border border-green-100 bg-white p-6 shadow-2xl xl:w-[1000px]">
-                      <div className="grid grid-cols-3 gap-4">
+                    <div className="absolute left-1/2 top-full mt-3 w-[860px] -translate-x-1/2 overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-2xl xl:w-[960px]">
+                      {/* Green inner border wrapping the grid */}
+                      <div className="grid grid-cols-3 gap-1 p-3">
                         {services.map((service) => (
-                          <div key={service.title} className="flex gap-4 rounded-lg p-4 transition hover:bg-green-50">
-                            <div>{service.icon}</div>
+                          <div
+                            key={service.title}
+                            className="group flex cursor-pointer items-start gap-3 rounded-xl p-4 transition-all duration-150 hover:bg-green-50"
+                          >
+                            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-green-100 transition group-hover:bg-green-200">
+                              {service.icon}
+                            </div>
                             <div>
-                              <h4 className="mb-1 text-[16px] font-bold text-gray-900">{service.title}</h4>
-                              <p className="text-sm text-gray-600">{service.desc}</p>
+                              <h4 className="text-[14px] font-bold text-gray-900 group-hover:text-green-800">{service.title}</h4>
+                              <p className="mt-0.5 text-xs leading-relaxed text-gray-500">{service.desc}</p>
                             </div>
                           </div>
                         ))}
                       </div>
                     </div>
+
+
                   )}
                 </div>
               );
@@ -155,7 +200,7 @@ export default function MainNavbar() {
                 key={item.href}
                 to={item.href}
                 onClick={closeAll}
-                className="font-medium text-white transition hover:text-green-200"
+                className="rounded-lg px-3 py-1.5 font-bold text-white transition-all duration-200 hover:scale-110 hover:bg-[#F5F5F5] hover:text-[#166534]"
               >
                 {item.label}
               </Link>
@@ -164,7 +209,7 @@ export default function MainNavbar() {
         </div>
 
         <div className="hidden md:block">
-          <button className="rounded-md bg-yellow-600 px-5 py-2 font-semibold text-white transition hover:bg-yellow-500">
+          <button className="rounded-md bg-white px-5 py-2 font-bold transition hover:bg-gray-100" style={{ color: '#166534' }}>
             Join With Us
           </button>
         </div>
@@ -179,7 +224,7 @@ export default function MainNavbar() {
       </div>
 
       {mobileOpen && (
-        <div className="absolute left-0 top-full w-full border-t border-white/10 bg-green-800 px-4 py-5 shadow-2xl md:hidden">
+        <div className="absolute left-0 top-full w-full border-t border-white/10 bg-green-900 px-4 py-5 shadow-2xl md:hidden">
           <div className="space-y-2">
             {navItems.map((item) => {
               if (item.label === "About") {
@@ -263,7 +308,7 @@ export default function MainNavbar() {
               );
             })}
 
-            <button className="mt-3 w-full rounded-xl bg-yellow-600 px-5 py-3 font-bold text-white transition hover:bg-yellow-500">
+            <button className="mt-3 w-full rounded-xl bg-white px-5 py-3 font-bold transition hover:bg-gray-100" style={{ color: '#166534' }}>
               Join With Us
             </button>
           </div>

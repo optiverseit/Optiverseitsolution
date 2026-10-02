@@ -1,3 +1,4 @@
+import darkTexture from "../../assets/section/dark-texture.jpg";
 
 type Blog = {
   id: number;
@@ -73,9 +74,28 @@ const blogs: Blog[] = [
 
 export default function BlogsSection() {
   return (
-    <section className="relative overflow-hidden bg-sky-500 py-16 sm:py-20 lg:py-24">
+    <section className="relative overflow-hidden bg-[#071328] py-16 sm:py-20 lg:py-24">
+      {/* Circuit Board Texture Overlay */}
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{
+          backgroundImage: `url(${darkTexture})`,
+          backgroundSize: "600px 600px",
+          backgroundRepeat: "repeat",
+          opacity: 0.55,
+        }}
+      />
+
+      {/* Ambient lighting depth */}
+      <div
+        className="pointer-events-none absolute inset-0"
+        style={{
+          backgroundImage: `radial-gradient(circle at 50% -10%, rgba(14, 165, 233, 0.22), transparent 60%), radial-gradient(circle at 85% 100%, rgba(16, 185, 129, 0.12), transparent 50%)`,
+        }}
+      />
+
       {/* decorative bottom waves */}
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 opacity-30">
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 opacity-20">
         <svg
           viewBox="0 0 1440 320"
           className="h-40 w-full"
@@ -119,39 +139,44 @@ export default function BlogsSection() {
         {/* cards */}
         <div className="mt-12 grid gap-8 sm:grid-cols-2 xl:grid-cols-3">
           {blogs.map((blog) => (
-            <article
+            <a
               key={blog.id}
-              className="overflow-hidden rounded-2xl bg-white shadow-[0_14px_40px_rgba(0,0,0,0.18)] transition duration-300 hover:-translate-y-1 hover:shadow-[0_20px_50px_rgba(0,0,0,0.22)]"
+              href={`/blogs/${blog.id}`}
+              className="group block cursor-pointer"
             >
-              <div className="h-52 w-full overflow-hidden">
-                <img
-                  src={blog.image}
-                  alt={blog.title}
-                  className="h-full w-full object-cover transition duration-500 hover:scale-105"
-                />
-              </div>
-
-              <div className="p-5">
-                <div className="mb-4 flex flex-wrap items-center gap-3 text-[11px] font-semibold uppercase tracking-wide text-slate-400">
-                  <span>{blog.date}</span>
-                  <span>{blog.readTime}</span>
+              <article
+                className="overflow-hidden rounded-2xl bg-white shadow-[0_14px_40px_rgba(0,0,0,0.18)] transition duration-300 group-hover:-translate-y-2 group-hover:shadow-[0_24px_56px_rgba(0,0,0,0.28)]"
+              >
+                <div className="h-52 w-full overflow-hidden">
+                  <img
+                    src={blog.image}
+                    alt={blog.title}
+                    className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                  />
                 </div>
 
-                <h3 className="line-clamp-2 text-xl font-extrabold leading-7 text-[#0b2a7a]">
-                  {blog.title}
-                </h3>
+                <div className="p-5">
+                  <div className="mb-4 flex flex-wrap items-center gap-3 text-[11px] font-semibold uppercase tracking-wide text-slate-400">
+                    <span>{blog.date}</span>
+                    <span>{blog.readTime}</span>
+                  </div>
 
-                <p className="mt-3 text-sm leading-7 text-green-700">
-                  {blog.excerpt}
-                </p>
+                  <h3 className="line-clamp-2 text-xl font-extrabold leading-7 text-[#0b2a7a] transition duration-300 group-hover:text-[#0d47a1]">
+                    {blog.title}
+                  </h3>
 
-                <div className="mt-5">
-                  <button className="text-sm font-bold text-orange-500 transition hover:text-orange-600">
-                    Read More
-                  </button>
+                  <p className="mt-3 text-sm leading-7 text-black">
+                    {blog.excerpt}
+                  </p>
+
+                  <div className="mt-5">
+                    <span className="text-sm font-bold text-green-800 transition duration-300 group-hover:text-green-900 group-hover:underline">
+                      Read More →
+                    </span>
+                  </div>
                 </div>
-              </div>
-            </article>
+              </article>
+            </a>
           ))}
         </div>
 

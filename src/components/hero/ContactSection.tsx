@@ -6,7 +6,17 @@ export default function ContactSection() {
   const [selected, setSelected] = useState("Select a service...");
   const dropdownRef = useRef<HTMLDivElement>(null);
 
-  const options = ["Web Development", "Digital Marketing", "Branding"];
+  const options = [
+    "Website Development",
+    "SEO",
+    "Digital Marketing",
+    "Video Production",
+    "Video Editing",
+    "Graphics Design",
+    "Social Media Management",
+    "Advertising",
+    "IT Technical Service",
+  ];
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -49,48 +59,58 @@ export default function ContactSection() {
   };
 
   return (
-    <section className="bg-[#020d0a] px-4 py-16">
-      <div className="mx-auto max-w-[1200px] rounded-3xl border border-green-900/40 bg-gradient-to-br from-[#021a14] via-[#02130f] to-[#010b08] p-8 shadow-[0_20px_60px_rgba(0,0,0,0.5)] sm:p-12">
+    <section className="bg-white px-4 py-16">
+      <div className="mx-auto max-w-[1200px] rounded-3xl border border-slate-300 bg-[#e2e8f0] p-8 shadow-[0_20px_60px_rgba(0,0,0,0.12)] sm:p-12">
         <div className="grid gap-10 lg:grid-cols-2">
           {/* LEFT CONTENT */}
           <div>
-            <p className="font-semibold text-green-400">— Connect with us</p>
+            <p className="font-semibold text-[#166534]">— Connect with us</p>
 
-            <h2 className="mt-4 text-3xl font-extrabold text-white sm:text-4xl">
+            <h2 className="mt-4 text-3xl font-extrabold text-slate-900 sm:text-4xl">
               Ready to Build <br />
               Something
-              <span className="text-green-400"> Great?</span>
+              <span className="text-[#166534]"> Great?</span>
             </h2>
 
-            <p className="mt-4 max-w-md text-sm text-white/60">
+            <p className="mt-4 max-w-md text-sm text-slate-600">
               Free 30-minute consultation. No pushy sales — just a real
               conversation about your project and whether we’re the right fit.
             </p>
 
-            <div className="mt-6 space-y-4 text-sm text-white/80">
+            <div className="mt-6 space-y-4 text-sm font-medium text-slate-700">
               <div className="flex items-center gap-4">
-                <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-green-500/30 bg-green-500/10 text-green-400 shadow-[0_0_15px_rgba(34,197,94,0.2)]">
+                <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-green-600/20 bg-green-600/10 text-[#166534] shadow-sm">
                   <MapPin size={18} />
                 </div>
-                <p>Kathmandu, Nepal</p>
+                <p>Jawalakhel, Lalitpur</p>
               </div>
 
               <div className="flex items-center gap-4">
-                <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-green-500/30 bg-green-500/10 text-green-400 shadow-[0_0_15px_rgba(34,197,94,0.2)]">
+                <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-green-600/20 bg-green-600/10 text-[#166534] shadow-sm">
                   <Mail size={18} />
                 </div>
-                <p>[email protected]</p>
+                <a
+                  href="mailto:info@optiverseits.com.np"
+                  className="transition hover:text-[#166534]"
+                >
+                  info@optiverseits.com.np
+                </a>
               </div>
 
               <div className="flex items-center gap-4">
-                <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-green-500/30 bg-green-500/10 text-green-400 shadow-[0_0_15px_rgba(34,197,94,0.2)]">
+                <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-green-600/20 bg-green-600/10 text-[#166534] shadow-sm">
                   <Phone size={18} />
                 </div>
-                <p>+977 9800000000</p>
+                <a
+                  href="tel:+9779803713931"
+                  className="transition hover:text-[#166534]"
+                >
+                  +977 - 9803713931 | +977 - 9824790012
+                </a>
               </div>
 
               <div className="flex items-center gap-4">
-                <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-green-500/30 bg-green-500/10 text-green-400 shadow-[0_0_15px_rgba(34,197,94,0.2)]">
+                <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-green-600/20 bg-green-600/10 text-[#166534] shadow-sm">
                   <Clock size={18} />
                 </div>
                 <p>Response within 24 hours</p>
@@ -105,14 +125,14 @@ export default function ContactSection() {
                 type="text"
                 name="fullName"
                 placeholder="Full Name"
-                className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-white/40 outline-none focus:ring-2 focus:ring-green-500"
+                className="w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-slate-900 placeholder-slate-400 outline-none transition focus:border-[#166534] focus:ring-2 focus:ring-[#166534]/20"
               />
 
               <input
                 type="email"
                 name="email"
                 placeholder="Email Address"
-                className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-white/40 outline-none focus:ring-2 focus:ring-green-500"
+                className="w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-slate-900 placeholder-slate-400 outline-none transition focus:border-[#166534] focus:ring-2 focus:ring-[#166534]/20"
               />
             </div>
 
@@ -120,7 +140,7 @@ export default function ContactSection() {
               type="text"
               name="phone"
               placeholder="Phone Number"
-              className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-white/40 outline-none focus:ring-2 focus:ring-green-500"
+              className="w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-slate-900 placeholder-slate-400 outline-none transition focus:border-[#166534] focus:ring-2 focus:ring-[#166534]/20"
             />
 
             {/* CUSTOM SELECT */}
@@ -128,17 +148,17 @@ export default function ContactSection() {
               <button
                 type="button"
                 onClick={() => setOpen((prev) => !prev)}
-                className={`flex w-full items-center justify-between rounded-xl border px-5 py-3 text-left text-white outline-none transition-all duration-300 ${
+                className={`flex w-full items-center justify-between rounded-lg border bg-white px-4 py-3 text-left outline-none transition-all duration-300 ${
                   open
-                    ? "border-green-500 bg-gradient-to-r from-green-500/10 to-transparent ring-2 ring-green-500/60"
-                    : "border-white/10 bg-gradient-to-r from-green-500/10 to-transparent"
+                    ? "border-[#166534] ring-2 ring-[#166534]/20 text-slate-900"
+                    : "border-slate-300 text-slate-900"
                 }`}
               >
                 <span
                   className={
                     selected === "Select a service..."
-                      ? "text-white"
-                      : "text-white"
+                      ? "text-slate-400"
+                      : "text-slate-900 font-medium"
                   }
                 >
                   {selected}
@@ -146,7 +166,7 @@ export default function ContactSection() {
 
                 <ChevronDown
                   size={18}
-                  className={`transition-transform duration-300 ${
+                  className={`text-slate-500 transition-transform duration-300 ${
                     open ? "rotate-180" : ""
                   }`}
                 />
@@ -159,13 +179,13 @@ export default function ContactSection() {
               />
 
               {open && (
-                <div className="absolute left-0 top-full z-50 mt-2 w-full overflow-hidden rounded-xl border border-white/10 bg-[#0b1f1a] shadow-[0_10px_30px_rgba(0,0,0,0.45)]">
+                <div className="absolute left-0 top-full z-50 mt-2 max-h-60 w-full overflow-y-auto rounded-xl border border-slate-300 bg-white shadow-[0_10px_30px_rgba(0,0,0,0.15)]">
                   {options.map((opt) => (
                     <button
                       key={opt}
                       type="button"
                       onClick={() => handleSelect(opt)}
-                      className="block w-full cursor-pointer px-5 py-3 text-left text-white transition hover:bg-green-500/20"
+                      className="block w-full cursor-pointer px-5 py-3 text-left text-slate-800 transition hover:bg-green-50 hover:text-[#166534]"
                     >
                       {opt}
                     </button>
@@ -178,17 +198,17 @@ export default function ContactSection() {
               rows={4}
               name="message"
               placeholder="Tell us about your project..."
-              className="w-full rounded-lg border border-white/10 bg-white/5 px-4 py-3 text-white placeholder-white/40 outline-none focus:ring-2 focus:ring-green-500"
+              className="w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-slate-900 placeholder-slate-400 outline-none transition focus:border-[#166534] focus:ring-2 focus:ring-[#166534]/20"
             />
 
             <button
               type="submit"
-              className="w-full rounded-lg bg-green-600 py-3 font-bold text-white transition hover:bg-green-700"
+              className="w-full rounded-lg bg-[#166534] py-3.5 font-bold text-white shadow-md transition hover:bg-[#14532d]"
             >
               Send Message →
             </button>
 
-            <p className="text-center text-xs text-white/40">
+            <p className="text-center text-xs text-slate-500">
               Your information is never shared. We respond within 24 hours.
             </p>
           </form>
