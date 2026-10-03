@@ -18,18 +18,12 @@ import {
   Megaphone,
   Scissors,
   Palette,
-  Shield,
   Clock,
   Code2,
   ShieldCheck,
   Sparkles,
-  Rocket,
-  Award,
   CheckCircle2,
   Check,
-  Layers,
-  Cpu,
-  Target,
   HelpCircle,
 } from "lucide-react";
 import Footer from "../components/hero/Footer";
