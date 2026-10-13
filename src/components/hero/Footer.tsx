@@ -17,16 +17,17 @@ export default function Footer() {
         <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-12 pb-12 border-b border-white/10">
           {/* BRAND */}
           <div className="lg:col-span-4">
-            <Link to="/" className="inline-block">
+            <Link to="/" className="inline-block" aria-label="Optiverse IT Solution Home">
               <img
                 src={logo}
-                alt="Company Logo"
+                alt="Optiverse IT Solution Pvt. Ltd. - Leading IT Company in Nepal Logo"
+                width={180}
+                height={56}
                 className="h-14 w-auto object-contain"
               />
             </Link>
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-white/65">
-              We help businesses across Nepal and beyond design, build, and grow
-              their digital presence with clarity and craft.
+              Optiverse IT Solution Pvt. Ltd. is a premier IT company in Lalitpur, Nepal. We help businesses design, build, and scale their digital presence with excellence and innovation.
             </p>
 
             <div className="mt-6 space-y-3 text-sm text-white/75">
@@ -55,7 +56,7 @@ export default function Footer() {
               {/* Location */}
               <div className="flex items-center gap-3">
                 <MapPin size={16} className="shrink-0 text-green-400" />
-                <span>Jawalakhel, Lalitpur</span>
+                <span>Jawalakhel, Lalitpur, Nepal</span>
               </div>
             </div>
           </div>
@@ -67,29 +68,44 @@ export default function Footer() {
             </h4>
             <ul className="space-y-3 text-sm text-white/65">
               <li>
-                <span className="transition hover:text-white hover:translate-x-1 inline-block duration-200 cursor-pointer">
-                  Website Development
-                </span>
+                <a
+                  href="/#services"
+                  className="transition hover:text-white hover:translate-x-1 inline-block duration-200"
+                >
+                  Web Development
+                </a>
               </li>
               <li>
-                <span className="transition hover:text-white hover:translate-x-1 inline-block duration-200 cursor-pointer">
+                <a
+                  href="/#services"
+                  className="transition hover:text-white hover:translate-x-1 inline-block duration-200"
+                >
                   Digital Marketing
-                </span>
+                </a>
               </li>
               <li>
-                <span className="transition hover:text-white hover:translate-x-1 inline-block duration-200 cursor-pointer">
+                <a
+                  href="/#services"
+                  className="transition hover:text-white hover:translate-x-1 inline-block duration-200"
+                >
                   Video Production
-                </span>
+                </a>
               </li>
               <li>
-                <span className="transition hover:text-white hover:translate-x-1 inline-block duration-200 cursor-pointer">
+                <a
+                  href="/#services"
+                  className="transition hover:text-white hover:translate-x-1 inline-block duration-200"
+                >
                   Graphics Design
-                </span>
+                </a>
               </li>
               <li>
-                <span className="transition hover:text-white hover:translate-x-1 inline-block duration-200 cursor-pointer">
+                <a
+                  href="/#services"
+                  className="transition hover:text-white hover:translate-x-1 inline-block duration-200"
+                >
                   SEO Optimization
-                </span>
+                </a>
               </li>
             </ul>
           </div>
@@ -97,28 +113,28 @@ export default function Footer() {
           {/* RESOURCES */}
           <div className="lg:col-span-2 lg:pl-2">
             <h4 className="text-base font-bold text-white tracking-wide mb-5">
-              Resources
+              Quick Links
             </h4>
             <ul className="space-y-3 text-sm text-white/65">
               <li>
                 <Link
-                  to="/blogs"
+                  to="/about"
                   className="transition hover:text-white hover:translate-x-1 inline-block duration-200"
                 >
-                  Blogs
+                  About Us
                 </Link>
               </li>
               <li>
                 <Link
-                  to="/process"
+                  to="/work-process"
                   className="transition hover:text-white hover:translate-x-1 inline-block duration-200"
                 >
-                  Process
+                  Work Process
                 </Link>
               </li>
               <li>
                 <a
-                  href="#testimonials"
+                  href="/#testimonials"
                   className="transition hover:text-white hover:translate-x-1 inline-block duration-200"
                 >
                   Testimonials
@@ -126,18 +142,10 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  to="/about"
+                  to="/connect-with-us"
                   className="transition hover:text-white hover:translate-x-1 inline-block duration-200"
                 >
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link
-                  to="/careers"
-                  className="transition hover:text-white hover:translate-x-1 inline-block duration-200"
-                >
-                  Careers
+                  Contact Us
                 </Link>
               </li>
             </ul>
@@ -149,24 +157,29 @@ export default function Footer() {
               Newsletter
             </h4>
             <p className="text-sm text-white/65 mb-4 leading-relaxed">
-              Subscribe for updates and digital growth insights.
+              Subscribe for updates, tech trends, and digital growth insights from Nepal.
             </p>
 
             <form onSubmit={(e) => e.preventDefault()} className="space-y-3">
               <input
                 type="text"
+                name="name"
+                aria-label="Enter your name"
                 placeholder="Enter your name"
                 className="w-full rounded-lg border border-white/15 bg-white/5 px-4 py-2.5 text-sm text-white placeholder-white/40 outline-none transition focus:border-green-500 focus:bg-white/10 focus:ring-1 focus:ring-green-500"
               />
 
               <input
                 type="email"
+                name="email"
+                aria-label="Your email address"
                 placeholder="Your email"
                 className="w-full rounded-lg border border-white/15 bg-white/5 px-4 py-2.5 text-sm text-white placeholder-white/40 outline-none transition focus:border-green-500 focus:bg-white/10 focus:ring-1 focus:ring-green-500"
               />
 
               <button
                 type="submit"
+                aria-label="Subscribe to newsletter"
                 className="w-full rounded-lg bg-[#166534] py-2.5 text-sm font-bold text-white shadow-md transition hover:bg-[#14532d] active:scale-[0.99]"
               >
                 SUBSCRIBE
@@ -206,6 +219,15 @@ export default function Footer() {
             >
               <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24">
                 <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+              </svg>
+            </a>
+            <a
+              href="#"
+              aria-label="TikTok"
+              className="flex h-9 w-9 items-center justify-center rounded-full bg-white/5 text-white/70 transition hover:bg-[#166534] hover:text-white"
+            >
+              <svg className="h-4 w-4 fill-current" viewBox="0 0 24 24">
+                <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.35 0 .69.06 1 .17V9.01a6.35 6.35 0 0 0-1-.08 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.75a8.18 8.18 0 0 0 4.76 1.52v-3.45c-.35 0-.71-.04-1.05-.13z" />
               </svg>
             </a>
           </div>

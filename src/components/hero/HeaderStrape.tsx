@@ -22,8 +22,7 @@ export default function HeaderStrape() {
           </h2>
 
           <p className="mt-3 text-sm leading-6 text-white/90 sm:text-base">
-            Optiverse I.T. Solution is a premier digital solutions provider
-            dedicated for helping businesses to achieve success digitally.
+            Optiverse I.T. Solution is a premier digital solutions provider dedicated for helping businesses to achieve success digitally.
           </p>
         </div>
 
@@ -33,9 +32,13 @@ export default function HeaderStrape() {
             CONNECT WITH US.
           </p>
 
-          <button className="inline-flex w-full sm:w-auto items-center justify-center rounded-md bg-white px-5 py-1.5 text-base sm:text-lg font-bold text-[#d97706] shadow-sm transition hover:bg-gray-100">
+          <a
+            href="tel:+9779803713931"
+            aria-label="Call Optiverse IT Solution"
+            className="inline-flex w-full sm:w-auto items-center justify-center rounded-md border-2 border-white bg-transparent px-5 py-2 text-base sm:text-lg font-bold text-white shadow-sm transition hover:bg-white hover:text-[#d97706] active:scale-95"
+          >
             Call Now...
-          </button>
+          </a>
         </div>
 
       </div>

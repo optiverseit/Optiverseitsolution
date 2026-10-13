@@ -12,14 +12,16 @@ function App() {
       <Navbar />
       <ScrollToTop />
 
-      <Routes>
-        <Route path="/" element={<Homepage />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/introduction" element={<About />} />
-        <Route path="/work-process" element={<WorkProcess />} />
-        <Route path="/connect-with-us" element={<ConnectWithUs />} />
-        <Route path="/contact" element={<Navigate to="/connect-with-us" replace />} />
-      </Routes>
+      <main id="main-content">
+        <Routes>
+          <Route path="/" element={<Homepage />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/introduction" element={<About />} />
+          <Route path="/work-process" element={<WorkProcess />} />
+          <Route path="/connect-with-us" element={<ConnectWithUs />} />
+          <Route path="/contact" element={<Navigate to="/connect-with-us" replace />} />
+        </Routes>
+      </main>
     </BrowserRouter>
   );
 }

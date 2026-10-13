@@ -1,0 +1,13 @@
+﻿# Optiverse IT Solution - robots.txt
+# https://optiverseits.com.np
+
+User-agent: *
+Allow: /
+Disallow: /dist/
+Disallow: /*.json$
+
+# Crawl-delay for bots
+Crawl-delay: 10
+
+# Sitemaps
+Sitemap: https://optiverseits.com.np/sitemap.xml

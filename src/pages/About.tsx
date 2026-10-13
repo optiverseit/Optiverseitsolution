@@ -1,3 +1,4 @@
+import SEOHead from "../components/seo/SEOHead";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import {
@@ -274,6 +275,83 @@ const faqs = [
   },
 ];
 
+/* ─── ABOUT PAGE SEO SCHEMAS ─── */
+const aboutPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "@id": "https://optiverseits.com.np/about#webpage",
+  "url": "https://optiverseits.com.np/about",
+  "name": "About Optiverse IT Solution | Top IT Company in Nepal",
+  "description": "Learn about Optiverse IT Solution Pvt. Ltd. — a Lalitpur-based IT company founded in 2020, providing web development, SEO, digital marketing, video production, and IT support across Nepal.",
+  "isPartOf": { "@id": "https://optiverseits.com.np/#website" },
+  "inLanguage": "en-US",
+  "breadcrumb": {
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://optiverseits.com.np/" },
+      { "@type": "ListItem", "position": 2, "name": "About", "item": "https://optiverseits.com.np/about" }
+    ]
+  }
+};
+
+const faqPageSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "@id": "https://optiverseits.com.np/about#faq",
+  "url": "https://optiverseits.com.np/about#faq-section",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Are you only for large businesses?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Not at all. Some of our favourite projects have been for solo founders, growing startups, small non-profits, and local stores in Nepal. If you have a clear objective and a realistic timeline, we would love to build together."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How long does a typical project take?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A standard production website or web application takes 4 to 10 weeks depending on complexity. We map out precise milestones and delivery dates directly in your proposal — no ambiguous open-ended estimates."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you work with our existing team or vendor?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolutely. We routinely collaborate with in-house product developers, UI/UX designers, marketing leads, or legacy agencies. Standard Git workflows, documentation, and open Slack/WhatsApp channels keep teamwork frictionless."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What happens if something breaks after launch?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We offer proactive ongoing maintenance. However, even without a maintenance contract, if any bug appears in features we built within 30 days of launch, our engineers fix it immediately at zero cost. That is our ironclad guarantee."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Are there any hidden fees or surprise invoices?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "None. We provide detailed, itemized quotes before any development begins. If project scope expands during production, we formally specify the exact timeline and pricing adjustments for your written sign-off first."
+      }
+    }
+  ]
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://optiverseits.com.np/" },
+    { "@type": "ListItem", "position": 2, "name": "About Us", "item": "https://optiverseits.com.np/about" }
+  ]
+};
+
 /* ─── FAQ ACCORDION ─── */
 function FAQAccordion() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
@@ -353,15 +431,27 @@ function FAQAccordion() {
 export default function About() {
   return (
     <div className="font-[Inter,sans-serif] text-gray-800 bg-white">
+      <SEOHead
+        title="About Optiverse IT Solution | Digital Marketing, SEO &amp; Creative Agency Nepal"
+        description="Optiverse IT Solution Pvt. Ltd. (est. 2020, Lalitpur, Nepal) is a full-service agency specializing in digital marketing, SEO, branding, video creation &amp; production, graphic designing, social media management &amp; web development."
+        keywords="about Optiverse IT Solution, digital marketing company Nepal, SEO agency Nepal, branding agency Lalitpur, video production company Nepal, video creation Nepal, graphic design agency Kathmandu, social media agency Nepal, web development company Nepal, IT company Lalitpur"
+        canonicalPath="/about"
+        structuredData={[aboutPageSchema, faqPageSchema, breadcrumbSchema]}
+      />
 
       {/* ════ HERO ════ */}
-      <section className="relative overflow-hidden bg-white">
+      <section aria-label="About Optiverse IT Solution" className="relative overflow-hidden bg-white">
         <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-[#166534] via-emerald-400 to-[#166534]" />
 
         <div className="max-w-6xl mx-auto px-6 pt-16 pb-16 grid lg:grid-cols-2 gap-10 items-start">
           {/* Left */}
           <div className="pt-4">
-            <h1 className="text-4xl sm:text-[52px] font-extrabold leading-[1.1] text-gray-900 mb-6">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-green-50 border border-green-200/80 text-[#166534] text-xs font-bold uppercase tracking-wider mb-4 shadow-xs">
+              <span>Optiverse IT Solution Pvt. Ltd. • Nepal</span>
+            </div>
+
+            <h1 className="text-4xl sm:text-[50px] font-extrabold leading-[1.12] text-gray-900 mb-6">
+              Nepal's Trusted IT Partner — <br />
               The team that <br />
               <span className="relative inline-block">
                 <span className="relative z-10 text-[#166534]">actually shows up</span>
@@ -384,6 +474,7 @@ export default function About() {
             <div className="flex flex-wrap gap-3">
               <Link
                 to="/connect-with-us"
+                aria-label="Get in touch with Optiverse IT Solution"
                 className="inline-flex items-center gap-2 bg-[#d97706] hover:bg-[#b45309] text-white font-semibold px-7 py-3.5 rounded-xl transition-all text-[14px] shadow-lg shadow-amber-900/20 hover:-translate-y-0.5"
               >
                 Get in touch <ArrowRight className="h-4 w-4" />
@@ -397,7 +488,11 @@ export default function About() {
             <div className="relative z-10 w-full max-w-[540px] p-6">
               <img
                 src={heroImg}
-                alt="Optiverse team reviewing code together"
+                alt="Optiverse IT Solution team reviewing code and web applications in Lalitpur Nepal"
+                loading="eager"
+                fetchPriority="high"
+                width={540}
+                height={400}
                 className="w-full rounded-2xl object-cover shadow-2xl"
               />
               <div className="absolute top-10 -left-3 bg-white rounded-2xl px-4 py-3 shadow-xl border border-gray-100 flex items-center gap-3">
@@ -424,7 +519,7 @@ export default function About() {
       </section>
 
       {/* ════ OUR SERVICES ════ */}
-      <section className="py-24 bg-gradient-to-b from-white via-slate-50/60 to-white border-y border-gray-100 relative overflow-hidden" id="services-section">
+      <section aria-label="Complete IT and Digital Services in Nepal" className="py-24 bg-gradient-to-b from-white via-slate-50/60 to-white border-y border-gray-100 relative overflow-hidden" id="services-section">
         {/* Subtle background ambient lights */}
         <div className="absolute top-10 right-1/4 w-96 h-96 bg-green-100/30 rounded-full blur-3xl pointer-events-none" />
         <div className="absolute bottom-10 left-1/4 w-96 h-96 bg-emerald-100/20 rounded-full blur-3xl pointer-events-none" />
@@ -432,7 +527,7 @@ export default function About() {
         <div className="max-w-6xl mx-auto px-6 relative z-10">
           <div className="text-center max-w-2xl mx-auto mb-14">
             <h2 className="text-4xl sm:text-5xl font-extrabold text-[#071c54] tracking-tight">
-              Our Services
+              Complete IT &amp; Digital Services in Nepal
             </h2>
             <p className="mt-3 text-gray-600 text-[15px] leading-relaxed">
               Providing specialized technical expertise, data-backed marketing, and creative production.
@@ -584,10 +679,8 @@ export default function About() {
                   That should be the baseline — we treat it as the floor, not the ceiling."
                 </p>
               </div>
-              <p className="text-gray-500 text-[14px] leading-relaxed">
-                We are a registered IT company founded in 2020. Our team includes
-                developers, designers, SEO specialists, and digital marketers who
-                work closely with each client — not as vendors, but as an extended part of your team.
+              <p className="text-gray-600 text-[14px] leading-relaxed">
+                Optiverse IT Solution Pvt. Ltd. is an officially registered private limited IT company in Nepal (established in 2020), headquartered in Jawalakhel, Lalitpur. Registered under the Government of Nepal Office of the Company Registrar, our core in-house team includes full-stack software engineers, graphic designers, video producers, certified SEO analysts, and digital marketers who work directly with your business — without intermediaries or sub-contracting.
               </p>
             </div>
 

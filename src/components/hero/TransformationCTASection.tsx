@@ -29,6 +29,7 @@ export default function TransformationCTASection() {
             <div className="mt-5 flex flex-col gap-3 sm:flex-row">
               <Link
                 to="/connect-with-us"
+                aria-label="Quick Chat with Optiverse IT Solution"
                 className="rounded-xl border-2 border-white bg-transparent px-6 py-2.5 text-sm font-bold text-white transition hover:bg-white hover:text-[#bf7a00] sm:text-base text-center"
               >
                 Quick Chat
@@ -36,6 +37,7 @@ export default function TransformationCTASection() {
 
               <Link
                 to="/connect-with-us"
+                aria-label="Schedule a digital marketing or IT consultation"
                 className="rounded-xl bg-[#166534] px-6 py-2.5 text-sm font-bold text-white shadow-md transition hover:bg-[#14532d] sm:text-base text-center"
               >
                 Schedule Consultation
@@ -48,8 +50,8 @@ export default function TransformationCTASection() {
             <p className="text-sm font-bold leading-relaxed text-white sm:text-base">
               Transformed your business with our expertise.
             </p>
-            <p className="mt-1 text-sm font-bold leading-relaxed text-white sm:text-base">
-              Let&apos;s discuss your vision.
+            <p className="mt-1 text-sm font-medium leading-relaxed text-white/85 sm:text-base">
+              Let's discuss your vision.
             </p>
           </div>
         </div>

@@ -12,69 +12,69 @@ type Blog = {
 const blogs: Blog[] = [
   {
     id: 1,
-    title: "Best Website Design and Development Cost in Nepal",
+    title: "Website Design & Development Cost in Nepal (2026 Practical Guide)",
     excerpt:
-      "In today's digital era, having a strong online presence is crucial for any businesses and individuals. A well-designed and functioning website stands as one of the key aspects of establishing such a presence. However, as the saying goes, there is a ...",
+      "A transparent breakdown of website design costs in Nepal for small businesses, consultancies, and e-commerce stores. Learn what factors determine pricing, hosting, and long-term maintenance.",
     image:
       "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=1200&q=80&fit=crop",
-    date: "SEPT 21, 2025",
-    readTime: "8 MIN READ",
+    date: "OCT 10, 2026",
+    readTime: "7 MIN READ",
   },
   {
     id: 2,
-    title: "Best Website Design and Development Cost in Nepal",
+    title: "SEO in Nepal: Proven Strategies to Rank on Google's First Page",
     excerpt:
-      "In today's digital era, having a strong online presence is crucial for any businesses and individuals. A well-designed and functioning website stands as one of the key aspects of establishing such a presence. However, as the saying goes, there is a ...",
+      "How Nepali businesses outrank competitors using technical SEO, local schema markup, high-intent Nepali keyword research, and Google Business Profile optimization.",
     image:
       "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=1200&q=80&fit=crop",
-    date: "SEPT 21, 2025",
-    readTime: "8 MIN READ",
+    date: "OCT 05, 2026",
+    readTime: "9 MIN READ",
   },
   {
     id: 3,
-    title: "Best Website Design and Development Cost in Nepal",
+    title: "ROI-Driven Digital Marketing & Meta Ads for Growing Nepali Brands",
     excerpt:
-      "In today's digital era, having a strong online presence is crucial for any businesses and individuals. A well-designed and functioning website stands as one of the key aspects of establishing such a presence. However, as the saying goes, there is a ...",
+      "Why vanity likes fail and how structured performance marketing funnels across Facebook, Instagram, and Google generate qualified inquiries and real revenue.",
     image:
       "https://images.unsplash.com/photo-1518770660439-4636190af475?w=1200&q=80&fit=crop",
-    date: "SEPT 21, 2025",
-    readTime: "8 MIN READ",
+    date: "SEP 28, 2026",
+    readTime: "6 MIN READ",
   },
   {
     id: 4,
-    title: "Best Website Design and Development Cost in Nepal",
+    title: "Why Commercial Video Creation & Reels Drive Modern Brand Reach",
     excerpt:
-      "In today's digital era, having a strong online presence is crucial for any businesses and individuals. A well-designed and functioning website stands as one of the key aspects of establishing such a presence. However, as the saying goes, there is a ...",
+      "From cinematic 4K corporate videos to viral promotional reels, discover why video production delivers the highest engagement rates across TikTok, YouTube, and Meta.",
     image:
       "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1200&q=80&fit=crop",
-    date: "SEPT 21, 2025",
-    readTime: "8 MIN READ",
+    date: "SEP 18, 2026",
+    readTime: "5 MIN READ",
   },
   {
     id: 5,
-    title: "Best Website Design and Development Cost in Nepal",
+    title: "Brand Identity & Graphic Designing That Builds Immediate Client Trust",
     excerpt:
-      "In today's digital era, having a strong online presence is crucial for any businesses and individuals. A well-designed and functioning website stands as one of the key aspects of establishing such a presence. However, as the saying goes, there is a ...",
+      "Branding goes far beyond a logo. Explore how cohesive typography, visual hierarchy, and professional marketing graphics communicate authority to your customers.",
     image:
       "https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1200&q=80&fit=crop",
-    date: "SEPT 21, 2025",
-    readTime: "8 MIN READ",
+    date: "SEP 12, 2026",
+    readTime: "6 MIN READ",
   },
   {
     id: 6,
-    title: "Best Website Design and Development Cost in Nepal",
+    title: "Social Media Management & Advertising Workflows for Businesses",
     excerpt:
-      "In today's digital era, having a strong online presence is crucial for any businesses and individuals. A well-designed and functioning website stands as one of the key aspects of establishing such a presence. However, as the saying goes, there is a ...",
+      "How planned monthly content calendars, consistent storytelling, and strategic community management convert passive social scrollers into loyal repeat clients.",
     image:
       "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=1200&q=80&fit=crop",
-    date: "SEPT 21, 2025",
+    date: "AUG 30, 2026",
     readTime: "8 MIN READ",
   },
 ];
 
 export default function BlogsSection() {
   return (
-    <section className="relative overflow-hidden bg-[#071328] py-16 sm:py-20 lg:py-24">
+    <section aria-label="Digital Marketing & Technology Insights Blog" className="relative overflow-hidden bg-[#071328] py-16 sm:py-20 lg:py-24">
       {/* Circuit Board Texture Overlay */}
       <div
         className="pointer-events-none absolute inset-0"
@@ -126,7 +126,7 @@ export default function BlogsSection() {
           <div className="mb-4 flex items-center justify-center gap-4">
             <span className="h-[3px] w-16 bg-lime-400 sm:w-24" />
             <p className="text-lg font-extrabold text-white sm:text-xl">
-              Our Blogs
+              Digital Marketing &amp; Tech Insights
             </p>
             <span className="h-[3px] w-16 bg-lime-400 sm:w-24" />
           </div>
@@ -139,10 +139,9 @@ export default function BlogsSection() {
         {/* cards */}
         <div className="mt-12 grid gap-8 sm:grid-cols-2 xl:grid-cols-3">
           {blogs.map((blog) => (
-            <a
+            <div
               key={blog.id}
-              href={`/blogs/${blog.id}`}
-              className="group block cursor-pointer"
+              className="group block"
             >
               <article
                 className="overflow-hidden rounded-2xl bg-white shadow-[0_14px_40px_rgba(0,0,0,0.18)] transition duration-300 group-hover:-translate-y-2 group-hover:shadow-[0_24px_56px_rgba(0,0,0,0.28)]"
@@ -151,6 +150,10 @@ export default function BlogsSection() {
                   <img
                     src={blog.image}
                     alt={blog.title}
+                    width={400}
+                    height={220}
+                    loading="lazy"
+                    decoding="async"
                     className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
                   />
                 </div>
@@ -176,7 +179,7 @@ export default function BlogsSection() {
                   </div>
                 </div>
               </article>
-            </a>
+            </div>
           ))}
         </div>
 

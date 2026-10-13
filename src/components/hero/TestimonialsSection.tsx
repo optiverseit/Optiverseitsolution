@@ -18,15 +18,15 @@ type Testimonial = {
 const testimonials: Testimonial[] = [
   {
     id: 1,
-    name: "Marcus Chen",
-    role: "VP of Engineering",
-    company: "TechVenture Global",
-    companySize: "Enterprise (5000+ employees)",
+    name: "Aayush Shrestha",
+    role: "Founder & Managing Director",
+    company: "Himalayan Craft & Exports",
+    companySize: "Growing E-Commerce Brand (Kathmandu)",
     date: "March 2026",
     review:
-      "The AI-driven analytics platform they built for us has fundamentally changed how we make business decisions. We're now predicting market trends with 94% accuracy and staying ahead of our competitors. The team's expertise in machine learning is unmatched.",
+      "Optiverse rebuilt our e-commerce platform from scratch and took charge of our SEO and digital marketing. Within four months, our organic search traffic grew significantly, and the website loads with lightning speed across mobile devices worldwide.",
     avatar:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&q=80&fit=crop",
+      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&q=80&fit=crop",
     softBg: "bg-[#eaf8ff]",
     roleColor: "text-sky-500",
     iconBg: "bg-sky-100 text-sky-500",
@@ -34,15 +34,15 @@ const testimonials: Testimonial[] = [
   },
   {
     id: 2,
-    name: "Samantha Rodriguez",
-    role: "Chief Information Security Officer",
-    company: "Healthcare Systems United",
-    companySize: "Large (1000-5000 employees)",
+    name: "Sunita Maharjan",
+    role: "Head of Marketing & Admissions",
+    company: "Apex Education & Career Consultancy",
+    companySize: "Education Institution (Lalitpur)",
     date: "February 2026",
     review:
-      "Their zero-trust security architecture implementation exceeded all expectations. We achieved SOC 2 Type II and HIPAA compliance within 6 months. The proactive threat detection system has blocked over 10,000 potential breaches. Patient data has never been more secure.",
+      "Their creative team produced our commercial promotional videos, redesigned our brand identity, and managed our paid ad funnels across Meta and Google. Student consultation inquiries doubled during our primary intake season.",
     avatar:
-      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&q=80&fit=crop",
+      "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&q=80&fit=crop",
     softBg: "bg-[#edf9f1]",
     roleColor: "text-green-500",
     iconBg: "bg-green-100 text-green-500",
@@ -50,15 +50,14 @@ const testimonials: Testimonial[] = [
   },
   {
     id: 3,
-    name: "James Whitaker",
-    role: "Director of Cloud Operations",
-    company: "RetailNext Commerce",
-    companySize: "Medium (250-1000 employees)",
+    name: "Bikash Thapa",
+    role: "Co-Founder & COO",
+    company: "Summit Horizon Tech",
+    companySize: "Technology Partner (Kathmandu)",
     date: "January 2026",
     review:
-      "The multi-cloud migration strategy was flawless. Moving 500+ microservices from legacy systems to AWS and Azure with zero downtime was incredible. Our operational costs dropped 62% while performance improved dramatically. Black Friday handled 10M+ transactions seamlessly.",
-    avatar:
-      "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&q=80&fit=crop",
+      "We partnered with Optiverse IT Solution for dedicated web application engineering, modern UI/UX design, and IT support. Their technical excellence, transparent communication, and reliable sprint deadlines make them a trusted long-term partner.",
+    avatar: "/images/nepali-founder-avatar.jpg",
     softBg: "bg-[#fbf6df]",
     roleColor: "text-amber-500",
     iconBg: "bg-amber-100 text-amber-500",
@@ -68,7 +67,7 @@ const testimonials: Testimonial[] = [
 
 export default function TestimonialsSection() {
   return (
-    <section className="bg-white py-16 sm:py-20 lg:py-24">
+    <section id="testimonials" aria-label="Client Testimonials and Reviews" className="bg-white py-16 sm:py-20 lg:py-24">
       <div className="mx-auto max-w-[1400px] px-4 sm:px-6 lg:px-8">
         {/* Heading */}
         <div className="mb-12 sm:mb-14">
@@ -80,8 +79,7 @@ export default function TestimonialsSection() {
           </div>
 
           <p className="mt-4 max-w-2xl text-base leading-8 text-slate-600">
-            Real feedback from real clients. We let our work and relationships
-            speak for themselves.
+            Real feedback from businesses powered by Optiverse IT Solution. We let our work, results, and client partnerships speak for themselves.
           </p>
         </div>
 
@@ -94,11 +92,12 @@ export default function TestimonialsSection() {
             >
               {/* Stars row — always at top right */}
               <div className="mb-3 flex justify-end">
-                <div className="flex items-center gap-[2px] rounded-full bg-white/60 px-2.5 py-1.5">
+                <div className="flex items-center gap-[2px] rounded-full bg-white/60 px-2.5 py-1.5" aria-label="5 out of 5 stars">
                   {Array.from({ length: 5 }).map((_, index) => (
                     <Star
                       key={index}
                       className="h-4 w-4 fill-yellow-400 text-yellow-400"
+                      aria-hidden="true"
                     />
                   ))}
                 </div>
@@ -109,7 +108,11 @@ export default function TestimonialsSection() {
                 <div className="relative shrink-0">
                   <img
                     src={item.avatar}
-                    alt={item.name}
+                    alt={`${item.name} - ${item.role} at ${item.company}`}
+                    width={64}
+                    height={64}
+                    loading="lazy"
+                    decoding="async"
                     className="h-16 w-16 rounded-[18px] object-cover ring-2 ring-white shadow-[0_8px_20px_rgba(0,0,0,0.10)]"
                   />
                   <div
@@ -136,11 +139,11 @@ export default function TestimonialsSection() {
                 </p>
               </div>
 
-              {/* divider */}
-              <div className="my-8 h-px w-full bg-white/80" />
+              {/* divider - commented for now */}
+              {/* <div className="my-8 h-px w-full bg-white/80" /> */}
 
-              {/* bottom */}
-              <div className="space-y-5">
+              {/* bottom - company name commented for now */}
+              {/* <div className="space-y-5">
                 <div className="flex items-center gap-4">
                   <div
                     className={`flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl ${item.iconBg}`}
@@ -154,8 +157,7 @@ export default function TestimonialsSection() {
                     </h4>
                   </div>
                 </div>
-
-              </div>
+              </div> */}
             </article>
           ))}
         </div>
