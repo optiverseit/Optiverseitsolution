@@ -38,7 +38,7 @@ export default function ConnectWithUs() {
             </div>
 
             {/* RIGHT — Contact info cards */}
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               {/* Office */}
               <div className="flex flex-col gap-2 bg-white/8 border border-white/10 rounded-2xl p-4 backdrop-blur-sm">
                 <div className="w-9 h-9 rounded-xl bg-[#d97706]/20 border border-[#d97706]/30 flex items-center justify-center text-[#d97706]">
@@ -56,7 +56,7 @@ export default function ConnectWithUs() {
                 <p className="text-white/50 text-[11px] font-semibold uppercase tracking-wider">Email Us</p>
                 <a
                   href="mailto:info@optiverseits.com.np"
-                  className="text-white text-sm font-semibold leading-snug hover:text-[#d97706] transition-colors"
+                  className="break-all text-white text-sm font-semibold leading-snug hover:text-[#d97706] transition-colors"
                 >
                   info@optiverseits.com.np
                 </a>

@@ -450,7 +450,7 @@ export default function About() {
               <span>Optiverse IT Solution Pvt. Ltd. • Nepal</span>
             </div>
 
-            <h1 className="text-4xl sm:text-[50px] font-extrabold leading-[1.12] text-gray-900 mb-6">
+            <h1 className="text-3xl sm:text-4xl lg:text-[50px] font-extrabold leading-[1.15] text-gray-900 mb-6">
               Nepal's Trusted IT Partner — <br />
               The team that <br />
               <span className="relative inline-block">
@@ -460,13 +460,13 @@ export default function About() {
               <br />for your business.
             </h1>
 
-            <p className="text-gray-500 text-[16px] leading-relaxed mb-5 max-w-[480px]">
+            <p className="text-gray-500 text-[15px] sm:text-[16px] leading-relaxed mb-5 max-w-[480px]">
               Optiverse IT Solution Pvt. Ltd. is a Lalitpur-based technology company
               helping businesses — from local startups to international clients — build
               software they can rely on and understand.
             </p>
 
-            <p className="text-gray-500 text-[16px] leading-relaxed mb-10 max-w-[480px]">
+            <p className="text-gray-500 text-[15px] sm:text-[16px] leading-relaxed mb-8 sm:mb-10 max-w-[480px]">
               We keep things simple: clear communication, honest pricing, and code that
               works long after we hand it over. No disappearing acts. No jargon walls.
             </p>
@@ -475,7 +475,7 @@ export default function About() {
               <Link
                 to="/connect-with-us"
                 aria-label="Get in touch with Optiverse IT Solution"
-                className="inline-flex items-center gap-2 bg-[#d97706] hover:bg-[#b45309] text-white font-semibold px-7 py-3.5 rounded-xl transition-all text-[14px] shadow-lg shadow-amber-900/20 hover:-translate-y-0.5"
+                className="inline-flex items-center gap-2 bg-[#d97706] hover:bg-[#b45309] text-white font-semibold px-6 sm:px-7 py-3 sm:py-3.5 rounded-xl transition-all text-[14px] shadow-lg shadow-amber-900/20 hover:-translate-y-0.5"
               >
                 Get in touch <ArrowRight className="h-4 w-4" />
               </Link>
@@ -485,7 +485,7 @@ export default function About() {
           {/* Right: Image */}
           <div className="relative flex items-start justify-center lg:justify-end pt-4">
             <div className="absolute inset-x-0 top-0 bottom-0 bg-gradient-to-br from-green-50 to-emerald-50 rounded-3xl" />
-            <div className="relative z-10 w-full max-w-[540px] p-6">
+            <div className="relative z-10 w-full max-w-[540px] p-3 sm:p-6">
               <img
                 src={heroImg}
                 alt="Optiverse IT Solution team reviewing code and web applications in Lalitpur Nepal"
@@ -495,22 +495,22 @@ export default function About() {
                 height={400}
                 className="w-full rounded-2xl object-cover shadow-2xl"
               />
-              <div className="absolute top-10 -left-3 bg-white rounded-2xl px-4 py-3 shadow-xl border border-gray-100 flex items-center gap-3">
-                <div className="w-9 h-9 rounded-xl bg-green-100 flex items-center justify-center">
-                  <CheckCircle className="h-5 w-5 text-green-600" />
+              <div className="absolute top-6 left-1 sm:top-10 sm:-left-3 bg-white rounded-2xl px-3 py-2 sm:px-4 sm:py-3 shadow-xl border border-gray-100 flex items-center gap-2.5 sm:gap-3">
+                <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-green-100 flex items-center justify-center shrink-0">
+                  <CheckCircle className="h-4 w-4 sm:h-5 sm:w-5 text-green-600" />
                 </div>
                 <div>
-                  <p className="text-[11px] text-gray-400 font-medium">Client satisfaction</p>
-                  <p className="text-[15px] font-extrabold text-gray-800">98%</p>
+                  <p className="text-[10px] sm:text-[11px] text-gray-400 font-medium">Client satisfaction</p>
+                  <p className="text-[13px] sm:text-[15px] font-extrabold text-gray-800">98%</p>
                 </div>
               </div>
-              <div className="absolute bottom-10 -right-3 bg-[#d97706] text-white rounded-2xl px-4 py-3 shadow-xl flex items-center gap-3">
-                <div className="w-9 h-9 rounded-xl bg-white/20 flex items-center justify-center">
-                  <Users className="h-5 w-5 text-white" />
+              <div className="absolute bottom-6 right-1 sm:bottom-10 sm:-right-3 bg-[#d97706] text-white rounded-2xl px-3 py-2 sm:px-4 sm:py-3 shadow-xl flex items-center gap-2.5 sm:gap-3">
+                <div className="w-8 h-8 sm:w-9 sm:h-9 rounded-xl bg-white/20 flex items-center justify-center shrink-0">
+                  <Users className="h-4 w-4 sm:h-5 sm:w-5 text-white" />
                 </div>
                 <div>
-                  <p className="text-[11px] text-amber-100 font-medium">Team members</p>
-                  <p className="text-[15px] font-extrabold">Expert Teams</p>
+                  <p className="text-[10px] sm:text-[11px] text-amber-100 font-medium">Team members</p>
+                  <p className="text-[13px] sm:text-[15px] font-extrabold">Expert Teams</p>
                 </div>
               </div>
             </div>

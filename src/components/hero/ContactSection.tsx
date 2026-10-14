@@ -59,9 +59,9 @@ export default function ContactSection() {
   };
 
   return (
-    <section className="bg-white px-4 py-16">
-      <div className="mx-auto max-w-[1200px] rounded-3xl border border-slate-300 bg-[#e2e8f0] p-8 shadow-[0_20px_60px_rgba(0,0,0,0.12)] sm:p-12">
-        <div className="grid gap-10 lg:grid-cols-2">
+    <section className="bg-white px-3 py-12 sm:px-4 sm:py-16">
+      <div className="mx-auto max-w-[1200px] rounded-2xl sm:rounded-3xl border border-slate-300 bg-[#e2e8f0] p-5 sm:p-8 md:p-12 shadow-[0_20px_60px_rgba(0,0,0,0.12)]">
+        <div className="grid gap-8 lg:grid-cols-2 lg:gap-10">
           {/* LEFT CONTENT */}
           <div>
             <p className="font-semibold text-[#166534]">— Connect with us</p>
@@ -79,34 +79,43 @@ export default function ContactSection() {
 
             <div className="mt-6 space-y-4 text-sm font-medium text-slate-700">
               <div className="flex items-center gap-4">
-                <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-green-600/20 bg-green-600/10 text-[#166534] shadow-sm">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-green-600/20 bg-green-600/10 text-[#166534] shadow-sm">
                   <MapPin size={18} />
                 </div>
                 <p>Jawalakhel, Lalitpur</p>
               </div>
 
               <div className="flex items-center gap-4">
-                <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-green-600/20 bg-green-600/10 text-[#166534] shadow-sm">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-green-600/20 bg-green-600/10 text-[#166534] shadow-sm">
                   <Mail size={18} />
                 </div>
                 <a
                   href="mailto:info@optiverseits.com.np"
-                  className="transition hover:text-[#166534]"
+                  className="break-all transition hover:text-[#166534]"
                 >
                   info@optiverseits.com.np
                 </a>
               </div>
 
               <div className="flex items-center gap-4">
-                <div className="flex h-10 w-10 items-center justify-center rounded-lg border border-green-600/20 bg-green-600/10 text-[#166534] shadow-sm">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-green-600/20 bg-green-600/10 text-[#166534] shadow-sm">
                   <Phone size={18} />
                 </div>
-                <a
-                  href="tel:+9779803713931"
-                  className="transition hover:text-[#166534]"
-                >
-                  +977 - 9803713931 | +977 - 9824790012
-                </a>
+                <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
+                  <a
+                    href="tel:+9779803713931"
+                    className="whitespace-nowrap transition hover:text-[#166534]"
+                  >
+                    +977 - 9803713931
+                  </a>
+                  <span className="text-slate-400">|</span>
+                  <a
+                    href="tel:+9779824790012"
+                    className="whitespace-nowrap transition hover:text-[#166534]"
+                  >
+                    +977 - 9824790012
+                  </a>
+                </div>
               </div>
 
               <div className="flex items-center gap-4">

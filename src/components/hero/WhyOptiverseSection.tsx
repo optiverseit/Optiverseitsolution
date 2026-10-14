@@ -52,12 +52,12 @@ export default function WhyOptiverseSection() {
               Where Innovation Meets Impact!
             </h3>
 
-            <div className="mt-5 space-y-5 text-sm leading-8 text-gray-700 sm:text-base">
-              <p className="text-justify" style={{ textAlign: "justify" }}>
+            <div className="mt-5 space-y-5 text-sm leading-relaxed sm:leading-8 text-gray-700 sm:text-base">
+              <p className="text-left sm:text-justify">
                 As a leading IT solutions provider in Nepal, we specialize in delivering custom web development, innovative branding, digital marketing, and video production services, all designed to drive growth, engagement, and measurable results.
               </p>
 
-              <p className="text-justify" style={{ textAlign: "justify" }}>
+              <p className="text-left sm:text-justify">
                 We craft digital experiences that help your business grow and succeed in the ever-evolving online world. From dynamic and custom web development to creative branding, video storytelling, and data-driven digital marketing, we provide end-to-end solutions tailored to your unique business goals.
               </p>
             </div>
@@ -119,12 +119,12 @@ export default function WhyOptiverseSection() {
               Building Long-Term Partnerships Through Reliable Technology, Collaboration and Success.
             </p>
 
-            <div className="mt-8 space-y-6 text-sm leading-8 text-gray-700 sm:text-base">
-              <p className="text-justify" style={{ textAlign: "justify" }}>
+            <div className="mt-8 space-y-6 text-sm leading-relaxed sm:leading-8 text-gray-700 sm:text-base">
+              <p className="text-left sm:text-justify">
                 Our approach goes beyond simply building products, we focus on creating value through innovation that aligns with your business goals. We are fully committed to understanding your challenges and transforming them into opportunities for growth and success. Whether you require highly skilled professionals to seamlessly integrate with your team or need end-to-end project execution, we ensure excellence at every step. Our team is carefully curated not only for technical expertise but also for collaboration, adaptability, and a client-first mindset.
               </p>
 
-              <p className="text-justify" style={{ textAlign: "justify" }}>
+              <p className="text-left sm:text-justify">
                 Our focus is not just on building systems, but on understanding your challenges and turning them into opportunities for growth. When you entrust us with your project, we take ownership with accountability and precision—delivering results on time, without compromise. We believe in building long-term partnerships rooted in trust, transparency, and measurable outcomes.
               </p>
             </div>

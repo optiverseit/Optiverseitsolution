@@ -135,7 +135,7 @@ export default function WorkProcess() {
                     stepRefs.current[index] = el;
                   }}
                   data-index={index}
-                  className="relative grid grid-cols-[56px_1fr] items-center gap-4 md:grid-cols-[1fr_96px_1fr]"
+                  className="relative grid grid-cols-[44px_1fr] sm:grid-cols-[56px_1fr] items-center gap-3 sm:gap-4 md:grid-cols-[1fr_96px_1fr]"
                 >
                   <div
                     className={`hidden md:block ${
@@ -156,9 +156,9 @@ export default function WorkProcess() {
                     <button
                       type="button"
                       onClick={() => setActive(index)}
-                      className={`relative z-10 flex h-14 w-14 items-center justify-center rounded-full border transition-all duration-300 md:h-[72px] md:w-[72px] ${
+                      className={`relative z-10 flex h-11 w-11 sm:h-14 sm:w-14 items-center justify-center rounded-full border transition-all duration-300 md:h-[72px] md:w-[72px] ${
                         isActive
-                          ? "scale-110 border-green-400 bg-green-500 text-white shadow-[0_0_35px_rgba(34,197,94,0.65)]"
+                          ? "scale-105 sm:scale-110 border-green-400 bg-green-500 text-white shadow-[0_0_35px_rgba(34,197,94,0.65)]"
                           : isDone
                           ? "border-green-500/50 bg-green-500/10 text-green-400"
                           : "border-white/10 bg-[#101014] text-green-500/50"
@@ -217,13 +217,13 @@ function ProcessCard({
     <button
       type="button"
       onClick={onClick}
-      className={`group relative w-full overflow-hidden rounded-2xl border p-6 text-left transition-all duration-300 ${
+      className={`group relative w-full overflow-hidden rounded-2xl border p-4 sm:p-6 text-left transition-all duration-300 ${
         active
           ? "border-green-500/40 bg-green-500/10 shadow-[0_20px_60px_rgba(0,0,0,0.45)]"
           : "border-white/10 bg-white/[0.035] hover:border-green-500/30 hover:bg-green-500/[0.06]"
       }`}
     >
-      <div className="absolute right-4 bottom-[-22px] text-8xl font-black leading-none text-white/[0.035]">
+      <div className="absolute right-4 bottom-[-22px] text-7xl sm:text-8xl font-black leading-none text-white/[0.035]">
         {String(index + 1).padStart(2, "0")}
       </div>
 

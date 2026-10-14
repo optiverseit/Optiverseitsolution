@@ -84,11 +84,13 @@ export default function TestimonialsSection() {
         </div>
 
         {/* Cards */}
-        <div className="grid gap-6 lg:grid-cols-3 xl:gap-8">
-          {testimonials.map((item) => (
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-8">
+          {testimonials.map((item, index) => (
             <article
               key={item.id}
-              className={`rounded-[35px] border border-slate-200/80 ${item.softBg} px-7 py-7 shadow-[0_8px_24px_rgba(15,23,42,0.06)] transition duration-300 hover:-translate-y-1`}
+              className={`rounded-[28px] sm:rounded-[35px] border border-slate-200/80 ${item.softBg} p-5 sm:p-7 shadow-[0_8px_24px_rgba(15,23,42,0.06)] transition duration-300 hover:-translate-y-1 ${
+                index === 2 ? "sm:col-span-2 lg:col-span-1" : ""
+              }`}
             >
               {/* Stars row — always at top right */}
               <div className="mb-3 flex justify-end">

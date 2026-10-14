@@ -123,21 +123,21 @@ export default function BlogsSection() {
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* heading */}
         <div className="text-center">
-          <div className="mb-4 flex items-center justify-center gap-4">
-            <span className="h-[3px] w-16 bg-lime-400 sm:w-24" />
-            <p className="text-lg font-extrabold text-white sm:text-xl">
+          <div className="mb-4 flex items-center justify-center gap-3 sm:gap-4">
+            <span className="hidden xs:block sm:block h-[3px] w-8 sm:w-16 md:w-24 bg-lime-400" />
+            <p className="text-base font-extrabold text-white sm:text-lg md:text-xl">
               Digital Marketing &amp; Tech Insights
             </p>
-            <span className="h-[3px] w-16 bg-lime-400 sm:w-24" />
+            <span className="hidden xs:block sm:block h-[3px] w-8 sm:w-16 md:w-24 bg-lime-400" />
           </div>
 
-          <h2 className="text-3xl font-extrabold text-white drop-shadow-[0_4px_10px_rgba(0,0,0,0.18)] sm:text-4xl lg:text-5xl">
+          <h2 className="text-2xl font-extrabold text-white drop-shadow-[0_4px_10px_rgba(0,0,0,0.18)] sm:text-4xl lg:text-5xl">
             Latest and Popular <span className="text-lime-400">Blogs</span>
           </h2>
         </div>
 
         {/* cards */}
-        <div className="mt-12 grid gap-8 sm:grid-cols-2 xl:grid-cols-3">
+        <div className="mt-10 sm:mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 xl:gap-8">
           {blogs.map((blog) => (
             <div
               key={blog.id}

@@ -36,21 +36,30 @@ export default function Footer() {
                 <Mail size={16} className="shrink-0 text-green-400" />
                 <a
                   href="mailto:info@optiverseits.com.np"
-                  className="transition hover:text-white"
+                  className="break-all transition hover:text-white"
                 >
                   info@optiverseits.com.np
                 </a>
               </div>
 
               {/* Phone */}
-              <div className="flex items-center gap-3">
-                <Phone size={16} className="shrink-0 text-green-400" />
-                <a
-                  href="tel:+9779803713931"
-                  className="transition hover:text-white"
-                >
-                  +977 - 9803713931 | +977 - 9824790012
-                </a>
+              <div className="flex items-start gap-3">
+                <Phone size={16} className="shrink-0 text-green-400 mt-0.5" />
+                <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
+                  <a
+                    href="tel:+9779803713931"
+                    className="whitespace-nowrap transition hover:text-white"
+                  >
+                    +977 - 9803713931
+                  </a>
+                  <span className="text-white/40">|</span>
+                  <a
+                    href="tel:+9779824790012"
+                    className="whitespace-nowrap transition hover:text-white"
+                  >
+                    +977 - 9824790012
+                  </a>
+                </div>
               </div>
 
               {/* Location */}
