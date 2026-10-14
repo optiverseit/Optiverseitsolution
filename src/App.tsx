@@ -6,6 +6,9 @@ import About from "./pages/About";
 import ConnectWithUs from "./pages/ConnectWithUs";
 import ScrollToTop from "./components/scroll/ScrollToTop";
 
+import BlogsPage from "./pages/BlogsPage";
+import BlogDetailPage from "./pages/BlogDetailPage";
+
 function App() {
   return (
     <BrowserRouter>
@@ -20,6 +23,10 @@ function App() {
           <Route path="/work-process" element={<WorkProcess />} />
           <Route path="/connect-with-us" element={<ConnectWithUs />} />
           <Route path="/contact" element={<Navigate to="/connect-with-us" replace />} />
+          <Route path="/blogs" element={<BlogsPage />} />
+          <Route path="/blogs/:slug" element={<BlogDetailPage />} />
+          <Route path="/blog/:slug" element={<BlogDetailPage />} />
+          <Route path="/blog" element={<Navigate to="/blogs" replace />} />
         </Routes>
       </main>
     </BrowserRouter>

@@ -71,7 +71,7 @@ export default function HeroSection() {
         </div>
       ))}
 
-      <div className="relative z-10 mx-auto flex h-full max-w-7xl items-center px-4 py-20 sm:px-6 sm:pt-16 sm:pb-8 lg:px-8 lg:pt-20">
+      <div className="relative z-10 mx-auto flex h-full max-w-7xl items-center px-4 py-16 sm:px-6 sm:pt-12 sm:pb-8 lg:px-8 lg:pt-14">
         <div className="max-w-3xl text-white">
           {/* H1 Heading */}
           <h1 className="text-4xl font-black leading-[1.2] tracking-tight drop-shadow-[0_4px_16px_rgba(0,0,0,0.4)] sm:text-5xl md:text-5xl lg:text-[52px] lg:leading-[1.16]">
@@ -82,11 +82,11 @@ export default function HeroSection() {
             We design, build, and scale digital solutions for the businesses by providing best services of website development, digital marketing and tech consulting – engineered to accelerate business growth.
           </p>
 
-          <h2 className="mt-5 sm:mt-7 text-lg font-extrabold tracking-wide sm:text-xl md:text-2xl">
+          <h2 className="mt-12 sm:mt-16 text-lg font-extrabold tracking-wide sm:text-xl md:text-2xl">
             Your Success Our Mission
           </h2>
 
-          <div className="mt-8 flex flex-col gap-4 sm:flex-row">
+          <div className="mt-5 sm:mt-6 flex flex-col gap-4 sm:flex-row">
             <a
               href="#services"
               className="inline-flex items-center justify-center rounded-md bg-amber-600 px-6 py-3 text-base font-semibold text-white transition hover:bg-amber-700 shadow-lg shadow-amber-950/20"

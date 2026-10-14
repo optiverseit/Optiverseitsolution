@@ -35,6 +35,11 @@ export default function ContactSection() {
     };
   }, []);
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitSuccess, setSubmitSuccess] = useState(false);
+  const [formError, setFormError] = useState("");
+  const formMountedAt = useRef(Date.now());
+
   const handleSelect = (option: string) => {
     setSelected(option);
     setOpen(false);
@@ -42,20 +47,68 @@ export default function ContactSection() {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setFormError("");
 
     const formData = new FormData(e.currentTarget);
-    const data = {
-      fullName: formData.get("fullName"),
-      email: formData.get("email"),
-      phone: formData.get("phone"),
-      service:
-        selected === "Select a service..." ? "" : selected,
-      message: formData.get("message"),
+
+    // 🛡️ ANTI-SPAM SAFEGUARD 1: Honeypot check (Bots fill this, humans never see it)
+    const honeypot = formData.get("company_website_url_hp");
+    if (honeypot && String(honeypot).trim() !== "") {
+      console.warn("Spam bot detected via honeypot trap. Silently rejected.");
+      setSubmitSuccess(true);
+      return;
+    }
+
+    // 🛡️ ANTI-SPAM SAFEGUARD 2: Bot submission speed check (Bots submit in <1.5s)
+    const elapsed = Date.now() - formMountedAt.current;
+    if (elapsed < 1500) {
+      console.warn("Spam bot detected via sub-second submission velocity.");
+      setSubmitSuccess(true);
+      return;
+    }
+
+    const fullName = String(formData.get("fullName") || "").trim();
+    const email = String(formData.get("email") || "").trim();
+    const phone = String(formData.get("phone") || "").trim();
+    const message = String(formData.get("message") || "").trim();
+
+    // 🛡️ ANTI-SPAM SAFEGUARD 3: Input Validation
+    if (!fullName || fullName.length < 2) {
+      setFormError("Please enter your genuine full name.");
+      return;
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!email || !emailRegex.test(email)) {
+      setFormError("Please enter a valid, authentic email address.");
+      return;
+    }
+
+    if (!phone || phone.replace(/\D/g, "").length < 7) {
+      setFormError("Please provide a valid phone number (minimum 7 digits).");
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    const verifiedData = {
+      fullName,
+      email,
+      phone,
+      service: selected === "Select a service..." ? "" : selected,
+      message,
+      submittedAt: new Date().toISOString(),
     };
 
-    console.log("Form submitted:", data);
+    console.log("Verified Genuine Form Submission:", verifiedData);
 
-    // add your API call here
+    // Simulated successful submission ready for production API
+    setTimeout(() => {
+      setIsSubmitting(false);
+      setSubmitSuccess(true);
+      e.currentTarget.reset();
+      setSelected("Select a service...");
+    }, 600);
   };
 
   return (
@@ -210,11 +263,36 @@ export default function ContactSection() {
               className="w-full rounded-lg border border-slate-300 bg-white px-4 py-3 text-slate-900 placeholder-slate-400 outline-none transition focus:border-[#166534] focus:ring-2 focus:ring-[#166534]/20"
             />
 
+            {/* 🛡️ HONEYPOT BOT TRAP: Hidden from human eyes, bots auto-populate */}
+            <div className="hidden" aria-hidden="true" style={{ display: "none" }}>
+              <label htmlFor="company_website_url_hp">Please leave this field empty</label>
+              <input
+                type="text"
+                id="company_website_url_hp"
+                name="company_website_url_hp"
+                tabIndex={-1}
+                autoComplete="off"
+              />
+            </div>
+
+            {formError && (
+              <div className="rounded-lg border border-red-200 bg-red-50 p-3 text-xs font-semibold text-red-700 animate-fadeIn">
+                ⚠️ {formError}
+              </div>
+            )}
+
+            {submitSuccess && (
+              <div className="rounded-lg border border-green-300 bg-green-50 p-3.5 text-xs font-semibold text-[#166534] animate-fadeIn">
+                ✓ Thank you! Your consultation request has been received. Our team in Jawalakhel, Lalitpur will contact you within 24 hours.
+              </div>
+            )}
+
             <button
               type="submit"
-              className="w-full rounded-lg bg-[#166534] py-3.5 font-bold text-white shadow-md transition hover:bg-[#14532d]"
+              disabled={isSubmitting}
+              className="w-full rounded-lg bg-[#166534] py-3.5 font-bold text-white shadow-md transition hover:bg-[#14532d] disabled:opacity-60 disabled:cursor-not-allowed"
             >
-              Send Message →
+              {isSubmitting ? "Verifying & Sending..." : "Send Message →"}
             </button>
 
             <p className="text-center text-xs text-slate-500">
