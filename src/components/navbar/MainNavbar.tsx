@@ -95,13 +95,13 @@ export default function MainNavbar() {
           <img src={logo} alt="Optiverse IT Solution Pvt. Ltd. - Nepal Logo" width={180} height={56} className="h-14 w-auto object-contain sm:h-16" />
         </Link>
 
-        <div className="hidden items-center gap-2 lg:flex xl:gap-5 2xl:gap-7">
+        <div className="hidden items-center lg:flex gap-1 xl:gap-2 2xl:gap-3">
           {navItems.map((item) => {
             if (item.label === "About") {
               return (
                 <div
                   key={item.href}
-                  className="relative"
+                  className="relative flex justify-center"
                   onMouseEnter={() => { setShowAbout(true); setShowServices(false); setPinnedServices(false); }}
                   onMouseLeave={() => { if (!pinnedAbout) setShowAbout(false); }}
                 >
@@ -114,10 +114,10 @@ export default function MainNavbar() {
                       setPinnedServices(false);
                       setShowServices(false);
                     }}
-                    className="flex items-center gap-1 rounded-lg px-2 xl:px-3 py-1.5 text-sm xl:text-base font-bold text-white transition-all duration-200 hover:scale-105 hover:bg-[#F5F5F5] hover:text-[#166534]"
+                    className="inline-flex min-w-[78px] xl:min-w-[94px] 2xl:min-w-[102px] items-center justify-center rounded-lg px-2 xl:px-2.5 py-1.5 text-sm xl:text-base font-bold text-white transition-all duration-200 hover:scale-105 hover:bg-[#F5F5F5] hover:text-[#166534] whitespace-nowrap"
                   >
-                    About
-                    <ChevronDown size={16} className={`transition ${showAbout ? "rotate-180" : ""}`} />
+                    <span>About</span>
+                    <ChevronDown size={14} className={`ml-1 transition-transform duration-200 ${showAbout ? "rotate-180" : ""}`} />
                   </button>
 
                   {showAbout && (
@@ -151,7 +151,7 @@ export default function MainNavbar() {
               return (
                 <div
                   key={item.href}
-                  className="relative"
+                  className="relative flex justify-center"
                   onMouseEnter={() => { setShowServices(true); setShowAbout(false); setPinnedAbout(false); }}
                   onMouseLeave={() => { if (!pinnedServices) setShowServices(false); }}
                 >
@@ -164,10 +164,10 @@ export default function MainNavbar() {
                       setPinnedAbout(false);
                       setShowAbout(false);
                     }}
-                    className="flex items-center gap-1 rounded-lg px-2 xl:px-3 py-1.5 text-sm xl:text-base font-bold text-white transition-all duration-200 hover:scale-105 hover:bg-[#F5F5F5] hover:text-[#166534]"
+                    className="inline-flex min-w-[78px] xl:min-w-[94px] 2xl:min-w-[102px] items-center justify-center rounded-lg px-2 xl:px-2.5 py-1.5 text-sm xl:text-base font-bold text-white transition-all duration-200 hover:scale-105 hover:bg-[#F5F5F5] hover:text-[#166534] whitespace-nowrap"
                   >
-                    Services
-                    <ChevronDown size={16} className={`transition ${showServices ? "rotate-180" : ""}`} />
+                    <span>Services</span>
+                    <ChevronDown size={14} className={`ml-1 transition-transform duration-200 ${showServices ? "rotate-180" : ""}`} />
                   </button>
 
                   {showServices && (
@@ -202,7 +202,7 @@ export default function MainNavbar() {
                 key={item.href}
                 to={item.href}
                 onClick={closeAll}
-                className="rounded-lg px-2 xl:px-3 py-1.5 text-sm xl:text-base font-bold text-white transition-all duration-200 hover:scale-105 hover:bg-[#F5F5F5] hover:text-[#166534]"
+                className="inline-flex min-w-[78px] xl:min-w-[94px] 2xl:min-w-[102px] items-center justify-center rounded-lg px-2 xl:px-2.5 py-1.5 text-sm xl:text-base font-bold text-white transition-all duration-200 hover:scale-105 hover:bg-[#F5F5F5] hover:text-[#166534] whitespace-nowrap"
               >
                 {item.label}
               </Link>
