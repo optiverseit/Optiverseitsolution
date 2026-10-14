@@ -90,7 +90,7 @@ export default function MainNavbar() {
 
   return (
     <div ref={navRef} className="relative w-full bg-green-800 shadow-sm">
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4">
+      <div className="relative z-50 mx-auto flex h-16 max-w-7xl items-center justify-between px-4">
         <Link to="/" onClick={closeAll} className="flex items-center" aria-label="Optiverse IT Solution Home">
           <img src={logo} alt="Optiverse IT Solution Pvt. Ltd. - Nepal Logo" width={180} height={56} className="h-14 w-auto object-contain sm:h-16" />
         </Link>
@@ -121,7 +121,7 @@ export default function MainNavbar() {
                   </button>
 
                   {showAbout && (
-                    <div className="absolute left-1/2 top-full mt-3 w-[420px] -translate-x-1/2 overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-2xl">
+                    <div className="absolute left-1/2 top-full z-50 mt-3 w-[420px] -translate-x-1/2 overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-2xl">
                       {/* Items */}
                       <div className="p-3">
                         {aboutItems.map((about) => (
@@ -171,7 +171,7 @@ export default function MainNavbar() {
                   </button>
 
                   {showServices && (
-                    <div className="absolute left-1/2 top-full mt-3 w-[860px] -translate-x-1/2 overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-2xl xl:w-[960px]">
+                    <div className="absolute left-1/2 top-full z-50 mt-3 w-[860px] -translate-x-1/2 overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-2xl xl:w-[960px]">
                       {/* Green inner border wrapping the grid */}
                       <div className="grid grid-cols-3 gap-1 p-3">
                         {services.map((service) => (
@@ -231,7 +231,7 @@ export default function MainNavbar() {
       </div>
 
       {/* Contact Info Tab attached under navbar on bottom-left */}
-      <div className="absolute left-0 top-full z-40 hidden md:flex items-center gap-2.5 lg:gap-3.5 bg-white py-2 pl-4 sm:pl-6 lg:pl-8 pr-7 sm:pr-9 rounded-br-[32px] shadow-[0_4px_16px_rgba(0,0,0,0.08)] border-r border-b border-gray-100">
+      <div className="absolute left-0 top-full z-20 hidden md:flex items-center gap-2.5 lg:gap-3.5 bg-white py-2 pl-4 sm:pl-6 lg:pl-8 pr-7 sm:pr-9 rounded-br-[32px] shadow-[0_4px_16px_rgba(0,0,0,0.08)] border-r border-b border-gray-100">
         {/* Phone numbers */}
         <div className="flex items-center gap-2">
           <Phone className="h-4 w-4 text-[#166534] fill-[#166534] shrink-0" />
@@ -276,7 +276,9 @@ export default function MainNavbar() {
             </svg>
           </a>
           <a
-            href="#"
+            href="https://www.instagram.com/optiverseitsolution/"
+            target="_blank"
+            rel="noreferrer"
             aria-label="Instagram"
             className="flex h-6 w-6 items-center justify-center rounded-full bg-[#166534] text-white hover:bg-[#14532d] transition"
           >
@@ -285,7 +287,9 @@ export default function MainNavbar() {
             </svg>
           </a>
           <a
-            href="#"
+            href="https://np.linkedin.com/company/optiverse-it-solution"
+            target="_blank"
+            rel="noreferrer"
             aria-label="LinkedIn"
             className="flex h-6 w-6 items-center justify-center rounded-full bg-[#166534] text-white hover:bg-[#14532d] transition"
           >
@@ -306,7 +310,7 @@ export default function MainNavbar() {
       </div>
 
       {mobileOpen && (
-        <div className="absolute left-0 top-full w-full border-t border-white/10 bg-green-900 px-4 py-5 shadow-2xl md:hidden">
+        <div className="absolute left-0 top-full z-50 w-full border-t border-white/10 bg-green-900 px-4 py-5 shadow-2xl md:hidden">
           <div className="space-y-2">
             {navItems.map((item) => {
               if (item.label === "About") {
@@ -431,7 +435,9 @@ export default function MainNavbar() {
                   </svg>
                 </a>
                 <a
-                  href="#"
+                  href="https://www.instagram.com/optiverseitsolution/"
+                  target="_blank"
+                  rel="noreferrer"
                   aria-label="Instagram"
                   className="flex h-7 w-7 items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 transition"
                 >
@@ -440,7 +446,9 @@ export default function MainNavbar() {
                   </svg>
                 </a>
                 <a
-                  href="#"
+                  href="https://np.linkedin.com/company/optiverse-it-solution"
+                  target="_blank"
+                  rel="noreferrer"
                   aria-label="LinkedIn"
                   className="flex h-7 w-7 items-center justify-center rounded-full bg-white/10 text-white hover:bg-white/20 transition"
                 >

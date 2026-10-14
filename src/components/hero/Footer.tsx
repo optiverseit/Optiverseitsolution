@@ -204,7 +204,9 @@ export default function Footer() {
               </svg>
             </a>
             <a
-              href="#"
+              href="https://www.instagram.com/optiverseitsolution/"
+              target="_blank"
+              rel="noreferrer"
               aria-label="Instagram"
               className="flex h-9 w-9 items-center justify-center rounded-full bg-white/5 text-white/70 transition hover:bg-[#166534] hover:text-white"
             >
@@ -213,7 +215,9 @@ export default function Footer() {
               </svg>
             </a>
             <a
-              href="#"
+              href="https://np.linkedin.com/company/optiverse-it-solution"
+              target="_blank"
+              rel="noreferrer"
               aria-label="LinkedIn"
               className="flex h-9 w-9 items-center justify-center rounded-full bg-white/5 text-white/70 transition hover:bg-[#166534] hover:text-white"
             >
@@ -234,7 +238,7 @@ export default function Footer() {
 
           {/* RIGHT: Copyright */}
           <p className="text-xs sm:text-sm text-white/50">
-            © {new Date().getFullYear()} Optiverse I.T. Solution Pvt. Ltd. All rights reserved.
+            © 2025 Optiverse I.T. Solution Pvt. Ltd. All rights reserved.
           </p>
         </div>
       </div>

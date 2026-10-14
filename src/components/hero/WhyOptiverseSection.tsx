@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import topIllustration from "../../assets/section/bottom.png";
-import bottomIllustration from "../../assets/section/top.png";
+import bottomIllustration from "../../assets/section/partnership_illustration.png";
 import lightTexture from "../../assets/section/light-texture.jpg";
 
 export default function WhyOptiverseSection() {
@@ -99,7 +99,7 @@ export default function WhyOptiverseSection() {
             <div className="w-full max-w-[420px] sm:max-w-[500px] lg:max-w-[580px]">
               <img
                 src={bottomIllustration}
-                alt="Optiverse IT Solution technology and digital partner Nepal"
+                alt="Optiverse IT Solution — Strategic Partnership, Trust, Scalable Growth, and Advanced Technology Nepal"
                 loading="lazy"
                 decoding="async"
                 width={580}
