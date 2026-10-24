@@ -77,12 +77,12 @@ export default function Footer() {
             </h4>
             <ul className="space-y-3 text-sm text-white/65">
               <li>
-                <a
-                  href="/#services"
+                <Link
+                  to="/services/website-development"
                   className="transition hover:text-white hover:translate-x-1 inline-block duration-200"
                 >
                   Web Development
-                </a>
+                </Link>
               </li>
               <li>
                 <a

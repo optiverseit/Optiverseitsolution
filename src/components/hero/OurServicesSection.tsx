@@ -1,4 +1,5 @@
-﻿import { useMemo, useState } from "react";
+import { useMemo, useState } from "react";
+import { Link } from "react-router-dom";
 import {
   Globe,
   Share2,
@@ -6,6 +7,8 @@ import {
   TrendingUp,
   CheckCircle2,
   ChevronRight,
+  ArrowRight,
+  Sparkles,
 } from "lucide-react";
 
 type Highlight = {
@@ -798,6 +801,30 @@ export default function OurServicesSection() {
                     </div>
                   ))}
                 </div>
+
+                {activeCategory.id === "web" && (
+                  <div className="mt-6 rounded-2xl bg-gradient-to-r from-emerald-950/80 via-green-900/60 to-slate-900 p-4 sm:p-5 border border-emerald-500/40 shadow-lg flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                    <div>
+                      <div className="inline-flex items-center gap-1.5 text-xs font-bold text-yellow-300 mb-1">
+                        <Sparkles size={13} />
+                        <span>Fixed Pricing for Nepal</span>
+                      </div>
+                      <h4 className="text-sm sm:text-base font-bold text-white">
+                        Looking for SME Website Packages? (Starter, Growth, Custom)
+                      </h4>
+                      <p className="text-xs text-slate-300 mt-0.5">
+                        Starting from 24,999/- with guaranteed timelines, local SEO & eSewa integration.
+                      </p>
+                    </div>
+                    <Link
+                      to="/services/website-development"
+                      className="shrink-0 inline-flex items-center gap-2 rounded-xl bg-emerald-500 px-4 py-2.5 text-xs font-black text-slate-950 hover:bg-emerald-400 transition shadow"
+                    >
+                      <span>Explore Website Packages</span>
+                      <ArrowRight size={14} />
+                    </Link>
+                  </div>
+                )}
               </div>
             </div>
 

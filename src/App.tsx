@@ -8,6 +8,8 @@ import ScrollToTop from "./components/scroll/ScrollToTop";
 
 import BlogsPage from "./pages/BlogsPage";
 import BlogDetailPage from "./pages/BlogDetailPage";
+import WebsiteDevelopmentPage from "./pages/WebsiteDevelopmentPage";
+import WebsitePackageDetailPage from "./pages/WebsitePackageDetailPage";
 
 function App() {
   return (
@@ -27,6 +29,12 @@ function App() {
           <Route path="/blogs/:slug" element={<BlogDetailPage />} />
           <Route path="/blog/:slug" element={<BlogDetailPage />} />
           <Route path="/blog" element={<Navigate to="/blogs" replace />} />
+          
+          {/* Website Development Service & Package Details Pages */}
+          <Route path="/services/website-development" element={<WebsiteDevelopmentPage />} />
+          <Route path="/services/website-development/:packageId" element={<WebsitePackageDetailPage />} />
+          <Route path="/website-development" element={<Navigate to="/services/website-development" replace />} />
+          <Route path="/website-development/:packageId" element={<WebsitePackageDetailPage />} />
         </Routes>
       </main>
     </BrowserRouter>

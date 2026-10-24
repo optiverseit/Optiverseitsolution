@@ -62,15 +62,15 @@ export default function MainNavbar() {
   };
 
   const services = [
-    { title: "Website Development", desc: "Specialized custom website development services.", icon: <Globe size={24} className="text-green-600" /> },
-    { title: "SEO", desc: "Improve rankings and traffic.", icon: <Search size={24} className="text-green-600" /> },
-    { title: "Digital Marketing", desc: "Grow globally with measurable ROI.", icon: <Megaphone size={24} className="text-green-600" /> },
-    { title: "Video Production", desc: "Engaging video content.", icon: <Video size={24} className="text-green-600" /> },
-    { title: "Video Editing", desc: "Transform footage professionally.", icon: <Scissors size={24} className="text-green-600" /> },
-    { title: "Graphics Design", desc: "Brand identity visuals.", icon: <PenTool size={24} className="text-green-600" /> },
-    { title: "Social Media Management", desc: "Audience growth strategy.", icon: <Users size={24} className="text-green-600" /> },
-    { title: "Advertising", desc: "Promote products effectively.", icon: <BadgeDollarSign size={24} className="text-green-600" /> },
-    { title: "IT Technical Service", desc: "Hardware & network support.", icon: <MonitorCog size={24} className="text-green-600" /> },
+    { title: "Website Development", desc: "Specialized custom website development services.", icon: <Globe size={24} className="text-green-600" />, href: "/services/website-development" },
+    { title: "SEO", desc: "Improve rankings and traffic.", icon: <Search size={24} className="text-green-600" />, href: "/#services" },
+    { title: "Digital Marketing", desc: "Grow globally with measurable ROI.", icon: <Megaphone size={24} className="text-green-600" />, href: "/#services" },
+    { title: "Video Production", desc: "Engaging video content.", icon: <Video size={24} className="text-green-600" />, href: "/#services" },
+    { title: "Video Editing", desc: "Transform footage professionally.", icon: <Scissors size={24} className="text-green-600" />, href: "/#services" },
+    { title: "Graphics Design", desc: "Brand identity visuals.", icon: <PenTool size={24} className="text-green-600" />, href: "/#services" },
+    { title: "Social Media Management", desc: "Audience growth strategy.", icon: <Users size={24} className="text-green-600" />, href: "/#services" },
+    { title: "Advertising", desc: "Promote products effectively.", icon: <BadgeDollarSign size={24} className="text-green-600" />, href: "/#services" },
+    { title: "IT Technical Service", desc: "Hardware & network support.", icon: <MonitorCog size={24} className="text-green-600" />, href: "/#services" },
   ];
 
   const aboutItems = [
@@ -177,7 +177,7 @@ export default function MainNavbar() {
                         {services.map((service) => (
                           <Link
                             key={service.title}
-                            to="/#services"
+                            to={service.href || "/#services"}
                             onClick={closeAll}
                             className="group flex cursor-pointer items-start gap-3 rounded-xl p-4 transition-all duration-150 hover:bg-green-50"
                           >
@@ -334,7 +334,7 @@ export default function MainNavbar() {
                         {services.map((service) => (
                           <Link
                             key={service.title}
-                            to="/#services"
+                            to={service.href || "/#services"}
                             onClick={closeAll}
                             className="flex gap-3 rounded-lg bg-white p-3"
                           >
