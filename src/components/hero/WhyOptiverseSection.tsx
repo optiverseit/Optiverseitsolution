@@ -39,7 +39,7 @@ export default function WhyOptiverseSection() {
           </h2>
 
           <p className="mx-auto mt-4 max-w-3xl text-sm leading-7 text-gray-600 sm:text-base">
-            Optiverse IT Solution (OptiverseIT / OptiverseITSolution) delivers premier IT solutions, custom software, and digital growth strategies in Nepal.
+            Optiverse IT Solution<span className="sr-only"> (OptiverseIT / OptiverseITSolution)</span> delivers premier IT solutions, custom software, and digital growth strategies in Nepal.
           </p>
         </div>
 

@@ -363,11 +363,10 @@ function FAQAccordion() {
         return (
           <div
             key={i}
-            className={`rounded-2xl transition-all duration-300 overflow-hidden border ${
-              isOpen
-                ? "bg-white border-[#166534] shadow-lg shadow-green-950/5 ring-1 ring-[#166534]/20"
-                : "bg-white border-gray-200/90 hover:border-green-300 shadow-sm hover:shadow-md"
-            }`}
+            className={`rounded-2xl transition-all duration-300 overflow-hidden border ${isOpen
+              ? "bg-white border-[#166534] shadow-lg shadow-green-950/5 ring-1 ring-[#166534]/20"
+              : "bg-white border-gray-200/90 hover:border-green-300 shadow-sm hover:shadow-md"
+              }`}
           >
             <button
               onClick={() => setOpenIndex(isOpen ? null : i)}
@@ -375,11 +374,10 @@ function FAQAccordion() {
             >
               <div className="flex items-center gap-3.5 sm:gap-4">
                 <div
-                  className={`w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 transition-colors ${
-                    isOpen
-                      ? "bg-green-100 text-[#166534]"
-                      : "bg-slate-100 text-gray-500"
-                  }`}
+                  className={`w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 transition-colors ${isOpen
+                    ? "bg-green-100 text-[#166534]"
+                    : "bg-slate-100 text-gray-500"
+                    }`}
                 >
                   {f.icon}
                 </div>
@@ -388,20 +386,18 @@ function FAQAccordion() {
                     {f.category}
                   </span>
                   <span
-                    className={`font-bold text-[15px] sm:text-[16px] leading-snug transition-colors ${
-                      isOpen ? "text-[#071c54]" : "text-gray-900"
-                    }`}
+                    className={`font-bold text-[15px] sm:text-[16px] leading-snug transition-colors ${isOpen ? "text-[#071c54]" : "text-gray-900"
+                      }`}
                   >
                     {f.q}
                   </span>
                 </div>
               </div>
               <div
-                className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-300 ${
-                  isOpen
-                    ? "bg-[#166534] text-white rotate-180 shadow-sm"
-                    : "bg-gray-100 text-gray-400 hover:text-gray-600"
-                }`}
+                className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-300 ${isOpen
+                  ? "bg-[#166534] text-white rotate-180 shadow-sm"
+                  : "bg-gray-100 text-gray-400 hover:text-gray-600"
+                  }`}
               >
                 <ChevronDown className="h-4 w-4" />
               </div>
@@ -446,12 +442,12 @@ export default function About() {
         <div className="max-w-6xl mx-auto px-6 pt-16 pb-16 grid lg:grid-cols-2 gap-10 items-start">
           {/* Left */}
           <div className="pt-4">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-green-50 border border-green-200/80 text-[#166534] text-xs font-bold uppercase tracking-wider mb-4 shadow-xs">
+            <div className="sr-only">
               <span>Optiverse IT Solution Pvt. Ltd. • Nepal</span>
             </div>
 
             <h1 className="text-3xl sm:text-4xl lg:text-[50px] font-extrabold leading-[1.15] text-gray-900 mb-6">
-              Nepal's Trusted IT Partner — <br />
+              Nepal's Trusted IT Partner <br />
               The team that <br />
               <span className="relative inline-block">
                 <span className="relative z-10 text-[#166534]">actually shows up</span>
@@ -462,7 +458,7 @@ export default function About() {
 
             <p className="text-gray-500 text-[15px] sm:text-[16px] leading-relaxed mb-5 max-w-[480px]">
               Optiverse IT Solution Pvt. Ltd. is a Lalitpur-based technology company
-              helping businesses — from local startups to international clients — build
+              helping businesses, from local startups to international clients, build
               software they can rely on and understand.
             </p>
 
@@ -606,11 +602,11 @@ export default function About() {
         <div className="max-w-6xl mx-auto px-6 grid lg:grid-cols-2 gap-12 items-center">
           <div>
             <h2 className="text-3xl sm:text-4xl font-extrabold mt-0 mb-5 leading-tight text-white">
-              We invest in the next generation — not just our bottom line
+              We invest in the next generation - not just our bottom line
             </h2>
             <p className="text-gray-300 text-[15px] leading-relaxed mb-4">
-              Since 2022, we have taken on interns from universities across Nepal and
-              treated them like junior team members from day one — real projects, real
+              Since 2025, we have taken on interns from universities across Nepal and
+              treated them like junior team members from day one, real projects, real
               deadlines, real code reviews. Not a coffee-fetching programme.
             </p>
             <p className="text-gray-300 text-[15px] leading-relaxed">
