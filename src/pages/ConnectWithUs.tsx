@@ -3,6 +3,7 @@ import ContactSection from "../components/hero/ContactSection";
 import Footer from "../components/hero/Footer";
 import waveTexture from "../assets/hero/wave-texture.png";
 import { MapPin, Mail, Phone, Clock } from "lucide-react";
+import SEOHead from "../components/seo/SEOHead";
 
 export default function ConnectWithUs() {
   useEffect(() => {
@@ -11,6 +12,12 @@ export default function ConnectWithUs() {
 
   return (
     <>
+      <SEOHead
+        title="Contact Optiverse IT Solution Pvt. Ltd. | IT Company in Lalitpur Nepal"
+        description="Contact Optiverse IT Solution Pvt. Ltd. (OptiverseIT) in Jawalakhel, Lalitpur, Nepal. Reach out for custom web development, SEO, digital marketing, and IT solutions."
+        keywords="contact Optiverse IT Solution, Optiverse IT Solution Lalitpur, IT company Kathmandu Nepal, optiverseit contact, optiverse phone email"
+        canonicalPath="/connect-with-us"
+      />
       {/* ── Page Hero Banner ── */}
       <section className="relative overflow-hidden bg-[#071c54] py-12 sm:py-16 px-6">
         {/* Wave texture overlay */}

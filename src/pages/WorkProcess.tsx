@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import SEOHead from "../components/seo/SEOHead";
 import {
   MessageCircle,
   FileText,
@@ -79,10 +80,17 @@ export default function WorkProcess() {
   }, []);
 
   return (
-    <section
-      id="process"
-      className="relative overflow-hidden bg-[#040a05] py-24 sm:py-28 lg:py-36"
-    >
+    <>
+      <SEOHead
+        title="Our Work Process | Website Development & IT Solutions — Optiverse IT Solution"
+        description="Explore Optiverse IT Solution's 6-step project delivery process — from consultation and UI/UX design to modern full-stack development, QA testing, and launch."
+        keywords="Optiverse work process, web development process Nepal, IT project workflow, agile web development Kathmandu"
+        canonicalPath="/work-process"
+      />
+      <section
+        id="process"
+        className="relative overflow-hidden bg-[#040a05] py-24 sm:py-28 lg:py-36"
+      >
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_20%,rgba(34,197,94,0.22),transparent_32%),radial-gradient(circle_at_80%_70%,rgba(20,184,166,0.16),transparent_34%)]" />
 
       <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
@@ -199,7 +207,8 @@ export default function WorkProcess() {
         </div>
       </div>
     </section>
-  );
+  </>
+);
 }
 
 function ProcessCard({

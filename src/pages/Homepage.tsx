@@ -16,9 +16,9 @@ const homePageSchema = {
   "@type": "WebPage",
   "@id": "https://optiverseits.com.np/#webpage",
   "url": "https://optiverseits.com.np/",
-  "name": "Optiverse IT Solution | #1 IT Company in Nepal — Web Development, SEO & Digital Marketing",
+  "name": "Optiverse IT Solution Pvt. Ltd. | Premier IT Solutions, Web Development & Digital Marketing Nepal",
   "isPartOf": { "@id": "https://optiverseits.com.np/#website" },
-  "description": "Optiverse IT Solution Pvt. Ltd. is a full-service IT company in Lalitpur, Nepal. We specialize in custom web development, SEO, digital marketing, video production, graphic design, social media management, and enterprise IT support.",
+  "description": "Optiverse IT Solution Pvt. Ltd. (OptiverseIT / OptiverseITSolution) is a premier IT company in Lalitpur, Nepal. We specialize in complete IT solutions, custom web development, SEO, digital marketing, AI video creation, and branding.",
   "inLanguage": "en-US",
   "potentialAction": {
     "@type": "ReadAction",
@@ -31,6 +31,17 @@ const localBusinessSchema = {
   "@type": ["LocalBusiness", "ProfessionalService", "ITService"],
   "@id": "https://optiverseits.com.np/#business",
   "name": "Optiverse IT Solution Pvt. Ltd.",
+  "legalName": "Optiverse IT Solution Pvt. Ltd.",
+  "alternateName": [
+    "Optiverse IT Solution",
+    "OptiverseIT",
+    "OptiverseITSolution",
+    "Optiverse ITS",
+    "Optiverse IT Solutions",
+    "Optiverse IT",
+    "Optiverse I.T. Solution Pvt. Ltd.",
+    "IT Solution"
+  ],
   "image": "https://optiverseits.com.np/og-image.jpg",
   "url": "https://optiverseits.com.np",
   "telephone": "+9779803713931",
@@ -40,7 +51,7 @@ const localBusinessSchema = {
   "paymentAccepted": "Cash, Bank Transfer, eSewa, Khalti",
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "Jawalakhel, Lalitpur",
+    "streetAddress": "Pulchowk - Dhobighat Rd, Jawalakhel",
     "addressLocality": "Lalitpur",
     "addressRegion": "Bagmati Province",
     "postalCode": "44700",
@@ -59,6 +70,9 @@ const localBusinessSchema = {
     { "@type": "AdministrativeArea", "name": "Bagmati Province" }
   ],
   "knowsAbout": [
+    "IT Solutions",
+    "IT Solution",
+    "Optiverse IT Solution",
     "Custom Web Development",
     "React & TypeScript",
     "Node.js Backend Engineering",
@@ -84,8 +98,10 @@ const localBusinessSchema = {
   ],
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
-    "name": "Digital Marketing, Creative & IT Services in Nepal",
+    "name": "IT Solutions, Digital Marketing, Creative & Tech Services in Nepal",
     "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "IT Solutions Nepal", "description": "Enterprise IT solutions, infrastructure setup, network support, and cloud systems across Nepal." } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Web Development Nepal", "description": "Custom high-performance websites, e-commerce stores, news portals, and web applications built with modern frameworks." } },
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Digital Marketing Nepal", "description": "Full-funnel digital marketing, performance advertising, lead generation, and ROI campaigns across Nepal and internationally." } },
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "SEO Services Nepal", "description": "Technical SEO, local SEO, keyword ranking, and Google 1st page search engine optimization." } },
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Branding & Brand Identity Design Nepal", "description": "Brand strategy, logo design, visual identity guidelines, and corporate branding solutions." } },
@@ -93,8 +109,7 @@ const localBusinessSchema = {
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "AI Video Content & Creation Nepal", "description": "State-of-the-art AI video synthesis, digital avatars, automated video workflows, and prompt-to-video reels in Nepal." } },
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Graphic Designing & UI/UX Nepal", "description": "Marketing graphics, social media designs, infographics, packaging, and digital UI/UX creation." } },
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Social Media Management Nepal", "description": "End-to-end social media growth, daily content calendars, community engagement, and viral creative campaigns." } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Paid Advertising & PPC Management Nepal", "description": "Targeted Google Ads, Meta Facebook & Instagram ads, TikTok ads, and conversion-optimized ad funnels." } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Web Development Nepal", "description": "Custom high-performance websites, e-commerce stores, news portals, and web applications built with modern frameworks." } }
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Paid Advertising & PPC Management Nepal", "description": "Targeted Google Ads, Meta Facebook & Instagram ads, TikTok ads, and conversion-optimized ad funnels." } }
     ]
   },
   "aggregateRating": {
@@ -134,7 +149,17 @@ const websiteSchema = {
   "@id": "https://optiverseits.com.np/#website",
   "url": "https://optiverseits.com.np",
   "name": "Optiverse IT Solution",
-  "description": "Leading digital agency in Nepal offering digital marketing, SEO, branding, video production, graphic designing, and web development.",
+  "alternateName": [
+    "Optiverse IT Solution Pvt. Ltd.",
+    "OptiverseIT",
+    "OptiverseITSolution",
+    "Optiverse ITS",
+    "Optiverse IT Solutions",
+    "Optiverse IT",
+    "Optiverse I.T. Solution Pvt. Ltd.",
+    "IT Solution Nepal"
+  ],
+  "description": "Leading IT solutions and digital agency in Nepal offering web development, SEO, digital marketing, video production, graphic designing, and enterprise IT services.",
   "publisher": { "@id": "https://optiverseits.com.np/#business" },
   "potentialAction": {
     "@type": "SearchAction",
@@ -153,9 +178,9 @@ export default function HomePage() {
   return (
     <>
       <SEOHead
-        title="Optiverse IT Solution | Digital Marketing, SEO, Branding & Web Agency Nepal"
-        description="Optiverse IT Solution Pvt. Ltd. — Top digital agency in Lalitpur, Nepal. We provide custom web development, SEO, digital marketing, AI video creation, commercial video production, and social media management."
-        keywords="digital marketing Nepal, SEO services Nepal, branding agency Nepal, video creation Nepal, video production Nepal, AI video content Nepal, news portal website Nepal, ecommerce development Nepal, booking appointment system Nepal, graphic designing Nepal, social media management Nepal, advertising agency Nepal, web development Nepal, IT company Nepal, website design Kathmandu Lalitpur"
+        title="Optiverse IT Solution Pvt. Ltd. | Best IT Solution & Web Agency Nepal"
+        description="Optiverse IT Solution Pvt. Ltd. (OptiverseIT / OptiverseITSolution) is Nepal's premier IT solution company in Lalitpur. Custom web development, SEO services, digital marketing, AI video creation & tech consulting."
+        keywords="optiverse it solution, optiverse it solution pvt ltd, optiverseit, optiverseitsolution, it solution, itsolution, it solutions nepal, it company nepal, optiverse, optiverse its, optiverse it, best it solution company nepal, digital marketing Nepal, SEO services Nepal, branding agency Nepal, web development Nepal, IT company Lalitpur Kathmandu"
         canonicalPath="/"
         structuredData={[
           homePageSchema,

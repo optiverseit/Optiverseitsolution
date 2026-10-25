@@ -35,12 +35,11 @@ export default function WhyOptiverseSection() {
         {/* Top Heading */}
         <div className="mx-auto max-w-4xl text-center">
           <h2 className="text-3xl font-extrabold tracking-tight text-[#071c54] sm:text-4xl lg:text-5xl">
-            Optiverse IT Solution
+            Why Choose Optiverse IT Solution Pvt. Ltd.
           </h2>
 
           <p className="mx-auto mt-4 max-w-3xl text-sm leading-7 text-gray-600 sm:text-base">
-            Delivering quality tech solutions &amp; growth opportunities in Nepal.
-            Digital services that empower your business for tomorrow.
+            Optiverse IT Solution (OptiverseIT / OptiverseITSolution) delivers premier IT solutions, custom software, and digital growth strategies in Nepal.
           </p>
         </div>
 

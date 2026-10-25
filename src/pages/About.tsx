@@ -432,9 +432,9 @@ export default function About() {
   return (
     <div className="font-[Inter,sans-serif] text-gray-800 bg-white">
       <SEOHead
-        title="About Optiverse IT Solution | Digital Marketing, SEO &amp; Creative Agency Nepal"
-        description="Optiverse IT Solution Pvt. Ltd. (est. 2020, Lalitpur, Nepal) is a full-service agency specializing in digital marketing, SEO, branding, video creation &amp; production, graphic designing, social media management &amp; web development."
-        keywords="about Optiverse IT Solution, digital marketing company Nepal, SEO agency Nepal, branding agency Lalitpur, video production company Nepal, video creation Nepal, graphic design agency Kathmandu, social media agency Nepal, web development company Nepal, IT company Lalitpur"
+        title="About Optiverse IT Solution Pvt. Ltd. | Leading IT Company in Nepal"
+        description="Optiverse IT Solution Pvt. Ltd. (OptiverseIT / OptiverseITSolution) is a premier IT company in Lalitpur, Nepal founded in 2020. Specializing in complete IT solutions, web development, SEO, and digital marketing."
+        keywords="about Optiverse IT Solution, Optiverse IT Solution Pvt Ltd, optiverseit, optiverseitsolution, it solution nepal, IT company Lalitpur Kathmandu, digital marketing company Nepal, SEO agency Nepal, web development company Nepal"
         canonicalPath="/about"
         structuredData={[aboutPageSchema, faqPageSchema, breadcrumbSchema]}
       />

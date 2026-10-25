@@ -73,13 +73,19 @@ export default function HeroSection() {
 
       <div className="relative z-10 mx-auto flex h-full max-w-7xl items-center px-4 py-16 sm:px-6 sm:pt-12 sm:pb-8 lg:px-8 lg:pt-14">
         <div className="max-w-3xl text-white">
+          {/* Company Badge */}
+          <div className="inline-flex items-center gap-2 rounded-full border border-amber-400/30 bg-amber-400/10 px-3.5 py-1 text-xs sm:text-sm font-semibold tracking-wide text-amber-300 backdrop-blur-sm mb-4">
+            <span className="inline-block h-2 w-2 rounded-full bg-amber-400 animate-pulse" />
+            Optiverse IT Solution Pvt. Ltd. (OptiverseIT)
+          </div>
+
           {/* H1 Heading */}
           <h1 className="text-4xl font-black leading-[1.2] tracking-tight drop-shadow-[0_4px_16px_rgba(0,0,0,0.4)] sm:text-5xl md:text-5xl lg:text-[52px] lg:leading-[1.16]">
-            Digital Success in Tomorrow's World
+            Optiverse IT Solution <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-200 to-white block sm:inline">— Digital Success in Tomorrow's World</span>
           </h1>
 
           <p className="mt-4 sm:mt-6 max-w-2xl text-sm leading-relaxed text-white/90 sm:text-base md:text-justify">
-            We design, build, and scale digital solutions for the businesses by providing best services of website development, digital marketing and tech consulting – engineered to accelerate business growth.
+            Welcome to <strong className="font-semibold text-white">Optiverse IT Solution Pvt. Ltd. (OptiverseIT)</strong>. We engineer high-performance <strong className="font-semibold text-white">IT solutions</strong>, custom website development, digital marketing, SEO, and commercial video creation to accelerate business growth in Nepal and worldwide.
           </p>
 
           <h2 className="mt-12 sm:mt-16 text-lg font-extrabold tracking-wide sm:text-xl md:text-2xl">
