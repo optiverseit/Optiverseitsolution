@@ -8,7 +8,6 @@ import {
   CheckCircle2,
   ChevronRight,
   ArrowRight,
-  Sparkles,
 } from "lucide-react";
 
 type Highlight = {
@@ -805,10 +804,6 @@ export default function OurServicesSection() {
                 {activeCategory.id === "web" && (
                   <div className="mt-6 rounded-2xl bg-gradient-to-r from-emerald-950/80 via-green-900/60 to-slate-900 p-4 sm:p-5 border border-emerald-500/40 shadow-lg flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
                     <div>
-                      <div className="inline-flex items-center gap-1.5 text-xs font-bold text-yellow-300 mb-1">
-                        <Sparkles size={13} />
-                        <span>Fixed Pricing for Nepal</span>
-                      </div>
                       <h4 className="text-sm sm:text-base font-bold text-white">
                         Looking for SME Website Packages? (Starter, Growth, Custom)
                       </h4>
