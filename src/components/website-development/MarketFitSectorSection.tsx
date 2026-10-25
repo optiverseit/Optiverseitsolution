@@ -118,11 +118,6 @@ export default function MarketFitSectorSection() {
             {/* Right Column: Recommended Package Card */}
             <div className="lg:col-span-5 rounded-3xl bg-gradient-to-br from-slate-800 to-slate-900 border-2 border-emerald-500/40 p-6 sm:p-8 flex flex-col justify-between shadow-xl">
               <div>
-                <div className="inline-flex items-center gap-1.5 rounded-full bg-emerald-500/20 px-3 py-1 text-xs font-black uppercase tracking-wider text-emerald-300 mb-3">
-                  <Sparkles size={13} />
-                  <span>Optimal Optiverse Package</span>
-                </div>
-
                 <h4 className="text-2xl sm:text-3xl font-black text-white">
                   {selected.bestPackage}
                 </h4>

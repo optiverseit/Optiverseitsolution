@@ -25,6 +25,7 @@ import {
   websitePackages,
   type WebsitePackage,
   type IndividualSectorCard,
+  type SectorTier,
 } from "../data/websitePackagesData";
 
 export default function WebsiteDevelopmentPage() {
@@ -45,10 +46,15 @@ export default function WebsiteDevelopmentPage() {
     setIsModalOpen(true);
   };
 
-  const handleOpenSectorInquiry = (sector: IndividualSectorCard) => {
-    const pkg = websitePackages.find((p) => p.id === sector.packageId) || websitePackages[1];
+  const handleOpenSectorInquiry = (sector: IndividualSectorCard, tier?: SectorTier) => {
+    const pkgId = tier?.packageId || sector.packageId;
+    const pkg = websitePackages.find((p) => p.id === pkgId) || websitePackages[1];
     setSelectedPkgForModal(pkg);
-    setSelectedSectorForModal(`${sector.title} (${sector.subtitle})`);
+    setSelectedSectorForModal(
+      tier
+        ? `${sector.title} — ${tier.name} Package (${tier.price})`
+        : `${sector.title} (${sector.subtitle})`
+    );
     setIsAuditModal(false);
     setIsModalOpen(true);
   };

@@ -1,4 +1,28 @@
 // src/data/websitePackagesData.ts
+import travelToursWebImg from "../assets/sectors/travel-tours.jpg";
+import trekkingWebImg from "../assets/sectors/trekking.jpg";
+import packageTravelWebImg from "../assets/sectors/package-based-travel.jpg";
+import clinicDentalWebImg from "../assets/sectors/clinic-dental.jpg";
+import schoolCollegeWebImg from "../assets/sectors/school-college-consultancy.jpg";
+import hotelRestaurantWebImg from "../assets/sectors/hotel-restaurant.jpg";
+import retailEcommerceWebImg from "../assets/sectors/retail-ecommerce.jpg";
+import constructionLegalWebImg from "../assets/sectors/construction-legal-accounting.jpg";
+import startupCompanyWebImg from "../assets/sectors/startup-growing-company.jpg";
+import travelStarterWebImg from "../assets/sectors/travel-starter.jpg";
+import travelBudgetWebImg from "../assets/sectors/travel-budget.jpg";
+import travelPremiumWebImg from "../assets/sectors/travel-premium.jpg";
+import hotelStarterWebImg from "../assets/sectors/hotel-starter.jpg";
+import hotelPremiumWebImg from "../assets/sectors/hotel-premium.jpg";
+import clinicStarterWebImg from "../assets/sectors/clinic-starter.jpg";
+import clinicPremiumWebImg from "../assets/sectors/clinic-premium.jpg";
+import schoolStarterWebImg from "../assets/sectors/school-starter.jpg";
+import schoolPremiumWebImg from "../assets/sectors/school-premium.jpg";
+import retailStarterWebImg from "../assets/sectors/retail-starter.jpg";
+import retailPremiumWebImg from "../assets/sectors/retail-premium.jpg";
+import corporateStarterWebImg from "../assets/sectors/corporate-starter.jpg";
+import corporatePremiumWebImg from "../assets/sectors/corporate-premium.jpg";
+import startupStarterWebImg from "../assets/sectors/startup-starter.jpg";
+import startupPremiumWebImg from "../assets/sectors/startup-premium.jpg";
 
 export type DeliverableItem = {
   title: string;
@@ -540,6 +564,19 @@ export type SectorMarketFit = {
   whyItFits: string;
 };
 
+export type SectorTier = {
+  tierId: "starter" | "budget" | "premium";
+  name: string;
+  badge?: string;
+  price: string;
+  pagesCount: string;
+  deliveryTimeline: string;
+  packageId: string;
+  imageUrl?: string;
+  requirements: string[];
+  features: string[];
+};
+
 export type IndividualSectorCard = {
   id: string;
   title: string;
@@ -552,6 +589,8 @@ export type IndividualSectorCard = {
   mainNeed: string;
   whyItFits: string;
   keyFeatures: string[];
+  imageUrl: string;
+  tiers: SectorTier[];
 };
 
 export const individualSectorCards: IndividualSectorCard[] = [
@@ -561,15 +600,96 @@ export const individualSectorCards: IndividualSectorCard[] = [
     subtitle: "National & International",
     iconName: "Globe",
     badge: "Inbound & Outbound",
-    bestPackage: "Growth + SEO Website",
+    bestPackage: "Budget-Friendly Website",
     packageId: "growth-website-marketing",
     startingPrice: "44,999/-",
+    imageUrl: travelToursWebImg,
     mainNeed: "Visual credibility, multi-destination package pages, WhatsApp/Messenger inquiries, Google Maps visibility, and dynamic booking forms.",
     whyItFits: "Tourism buyers research visually and contact through WhatsApp/Viber; dynamic SEO and Google Business Profile strongly influence bookings.",
     keyFeatures: [
       "International & domestic holiday package pages",
       "Multi-channel WhatsApp/Viber inquiry button",
       "Mid-level SEO setup & API integration",
+    ],
+    tiers: [
+      {
+        tierId: "starter",
+        name: "Starter",
+        badge: "Starter Package",
+        price: "24,999/-",
+        pagesCount: "6–8 Pages",
+        deliveryTimeline: "15–20 Working Days",
+        packageId: "starter-website",
+        imageUrl: travelStarterWebImg,
+        requirements: [
+          "Client provides destination itineraries & trip photos",
+          "Standard brand logo & contact details",
+          "Domain & cPanel / DNS configuration access",
+        ],
+        features: [
+          "National & international destination showcase pages",
+          "Direct WhatsApp & Viber instant booking button",
+          "Google Maps location indexing & local profile setup",
+          "Mobile-first responsive layout (100% 4G speed)",
+          "Standard SSL security & inquiry contact forms",
+          "Official .np / .com domain configuration & DNS setup",
+          "1 Professional business email setup (e.g. info@company.com)",
+          "Click-to-call mobile buttons & email inquiry notifications",
+          "Social media integration (Facebook, Instagram & TikTok)",
+        ],
+      },
+      {
+        tierId: "budget",
+        name: "Budget-Friendly",
+        badge: "Budget-Friendly Package",
+        price: "44,999/-",
+        pagesCount: "12–18 Pages",
+        deliveryTimeline: "3–4 Weeks",
+        packageId: "growth-website-marketing",
+        imageUrl: travelBudgetWebImg,
+        requirements: [
+          "Custom branding guidelines & logo vector files",
+          "Destination package breakdown & pricing tables",
+          "Staged milestone preview & approval feedback",
+        ],
+        features: [
+          "Full Dynamic CMS for tours, packages, notices & blogs",
+          "Day-by-day itinerary view with high-res photo gallery",
+          "Mid-level SEO optimization & local Nepal schema",
+          "Multi-channel inquiry triggers (WhatsApp, Viber, Call)",
+          "1 Month post-launch dedicated technical maintenance",
+          "Downloadable PDF tour itinerary brochure button",
+          "Customer reviews, star ratings & traveler testimonial slider",
+          "Dual currency display (NPR & USD estimated rates)",
+          "2X Speed optimization (under 2s load time) & daily backups",
+        ],
+      },
+      {
+        tierId: "premium",
+        name: "Premium",
+        badge: "Premium Package",
+        price: "79,999/-",
+        pagesCount: "20+ Custom Pages",
+        deliveryTimeline: "6–8 Weeks",
+        packageId: "custom-business-system",
+        imageUrl: travelPremiumWebImg,
+        requirements: [
+          "Official business registration & payment receiving details",
+          "Complete tour packages, inclusions/exclusions & departure schedules",
+          "Multi-role administrative access specifications",
+        ],
+        features: [
+          "Complete online booking & departure calendar system",
+          "Integrated eSewa, Khalti & Fonepay deposit payments",
+          "Interactive custom tour builder & inquiry workflows",
+          "Dominant local & international organic SEO ranking",
+          "3 Months priority SLA support & performance tuning",
+          "Automated booking vouchers & instant PDF invoice generation",
+          "Multi-language toggle (English & Nepali visitor interface)",
+          "Email notification system for instant customer booking alerts",
+          "Centralized booking & inquiry management dashboard with exports",
+        ],
+      },
     ],
   },
   {
@@ -578,15 +698,96 @@ export const individualSectorCards: IndividualSectorCard[] = [
     subtitle: "Himalayan Adventures",
     iconName: "Compass",
     badge: "Permits & Itineraries",
-    bestPackage: "Growth + SEO Website",
+    bestPackage: "Budget-Friendly Website",
     packageId: "growth-website-marketing",
     startingPrice: "44,999/-",
+    imageUrl: trekkingWebImg,
     mainNeed: "Detailed day-by-day itineraries, altitude maps, permit checklists, verified trekker testimonials, and interactive route showcases.",
     whyItFits: "Foreign and domestic trekkers demand transparency on elevation, permits, and guides; dynamic pages and reviews convert leads rapidly.",
     keyFeatures: [
       "Day-by-day trek itineraries & altitude charts",
       "Permit, packing & season guidelines",
       "Google Business Profile local SEO ranking",
+    ],
+    tiers: [
+      {
+        tierId: "starter",
+        name: "Starter",
+        badge: "Starter Package",
+        price: "24,999/-",
+        pagesCount: "6–8 Pages",
+        deliveryTimeline: "15–20 Working Days",
+        packageId: "starter-website",
+        imageUrl: travelStarterWebImg,
+        requirements: [
+          "Trek descriptions, route highlights & elevation data",
+          "Guide profiles & agency registration details",
+          "Standard hosting & domain credentials",
+        ],
+        features: [
+          "Top Nepal trek showcases (EBC, Annapurna, Langtang)",
+          "Permit checklists, packing lists & season guidelines",
+          "Direct WhatsApp & Viber trek booking trigger",
+          "Google Maps local registration & business profile",
+          "Mobile-first responsive design for international visitors",
+          "Free .np domain setup & DNS configuration",
+          "1 Professional business email account",
+          "Click-to-call direct trek inquiry & email alerts",
+          "Social media profiles & mountain photo gallery integration",
+        ],
+      },
+      {
+        tierId: "budget",
+        name: "Budget-Friendly",
+        badge: "Budget-Friendly Package",
+        price: "44,999/-",
+        pagesCount: "14–18 Pages",
+        deliveryTimeline: "3–4 Weeks",
+        packageId: "growth-website-marketing",
+        imageUrl: travelBudgetWebImg,
+        requirements: [
+          "Detailed day-by-day trek breakdown & altitude profiles",
+          "High-res mountain photography & verified reviews",
+          "Design approval feedback at each development stage",
+        ],
+        features: [
+          "Self-managed dynamic CMS for unlimited trek packages",
+          "Interactive day-by-day altitude charts & teahouse info",
+          "Verified trekker review engine & testimonial slider",
+          "Mid-level international & Nepal local SEO rankings",
+          "1 Month post-launch support & Google Search indexing",
+          "Downloadable PDF trek itinerary & elevation map guide",
+          "Currency converter display (USD, EUR, NPR)",
+          "Inquiry lead capture with gear rental checklist",
+          "Fast cloud CDN caching & daily automated backup",
+        ],
+      },
+      {
+        tierId: "premium",
+        name: "Premium",
+        badge: "Premium Package",
+        price: "79,999/-",
+        pagesCount: "20+ Custom Pages",
+        deliveryTimeline: "6–8 Weeks",
+        packageId: "custom-business-system",
+        imageUrl: travelPremiumWebImg,
+        requirements: [
+          "Official business registration & payment receiving details",
+          "Complete tour packages, inclusions/exclusions & departure schedules",
+          "Team role permissions for expedition operations desk",
+        ],
+        features: [
+          "Interactive 3D elevation maps & GPS route coordinates",
+          "Online permit, guide & gear reservation booking engine",
+          "Instant eSewa, Khalti & international deposit checkout",
+          "Automated WhatsApp follow-ups",
+          "3 Months priority SLA support & CDN global acceleration",
+          "Automated booking confirmation voucher & invoice PDF",
+          "Multi-language switcher for global travelers (English, German, Nepali)",
+          "Email notification system for guide & client",
+          "Dedicated operations admin dashboard with CSV/Excel exports",
+        ],
+      },
     ],
   },
   {
@@ -595,15 +796,84 @@ export const individualSectorCards: IndividualSectorCard[] = [
     subtitle: "Fixed Departures & Groups",
     iconName: "Calendar",
     badge: "Departure Calendars",
-    bestPackage: "Growth + SEO Website",
+    bestPackage: "Budget-Friendly Website",
     packageId: "growth-website-marketing",
     startingPrice: "44,999/-",
+    imageUrl: packageTravelWebImg,
     mainNeed: "Fixed departure dates, transparent pricing tables with inclusions/exclusions, instant group booking flow, and seasonal campaign calendars.",
     whyItFits: "Pilgrimage and holiday groups book on fixed schedules; timely booking workflows and search rankings fill departure seats fast.",
     keyFeatures: [
       "Fixed departure calendar & group seat slots",
       "Pricing tables with clear inclusions/exclusions",
       "Blogs with videos & inquiry triggers",
+    ],
+    tiers: [
+      {
+        tierId: "starter",
+        name: "Starter",
+        badge: "Starter Package",
+        price: "24,999/-",
+        pagesCount: "6–8 Pages",
+        deliveryTimeline: "15–20 Working Days",
+        packageId: "starter-website",
+        imageUrl: travelStarterWebImg,
+        requirements: [
+          "Holiday package descriptions & fixed departure dates",
+          "Transparent pricing table with inclusions/exclusions",
+          "Agency telephone & WhatsApp contact setup",
+        ],
+        features: [
+          "Fixed departure holiday & pilgrimage group tour cards",
+          "Seasonal pricing tables with inclusion/exclusion tabs",
+          "Direct WhatsApp & Viber group inquiry button",
+          "Google Business Profile location indexing",
+          "Fast loading across mobile 4G networks in Nepal",
+        ],
+      },
+      {
+        tierId: "budget",
+        name: "Budget-Friendly",
+        badge: "Budget-Friendly Package",
+        price: "44,999/-",
+        pagesCount: "12–18 Pages",
+        deliveryTimeline: "3–4 Weeks",
+        packageId: "growth-website-marketing",
+        imageUrl: packageTravelWebImg,
+        requirements: [
+          "Departure calendar schedule & available seat quotas",
+          "High-res group tour photos & marketing videos",
+          "Milestone review schedule and approval sign-off",
+        ],
+        features: [
+          "Interactive departure calendar with live month filter",
+          "Seat vacancy status tags & group booking flow",
+          "Dynamic CMS for publishing seasonal group packages",
+          "Local SEO optimization for domestic & international leads",
+          "1 Month post-launch maintenance & security backups",
+        ],
+      },
+      {
+        tierId: "premium",
+        name: "Premium",
+        badge: "Premium Package",
+        price: "79,999/-",
+        pagesCount: "20+ Custom Pages",
+        deliveryTimeline: "6–8 Weeks",
+        packageId: "custom-business-system",
+        imageUrl: travelPremiumWebImg,
+        requirements: [
+          "Payment merchant account for advance seat deposits",
+          "Passenger allocation rules & early-bird discount logic",
+          "Admin access permissions for travel booking desk",
+        ],
+        features: [
+          "Real-time seat reservation & passenger booking engine",
+          "Instant eSewa, Khalti & Fonepay online deposit checkout",
+          "Automated booking confirmation emails & manifest export",
+          "Dynamic group pricing rules & promotional voucher codes",
+          "3 Months enterprise SLA support & CDN acceleration",
+        ],
+      },
     ],
   },
   {
@@ -612,15 +882,84 @@ export const individualSectorCards: IndividualSectorCard[] = [
     subtitle: "Healthcare & Polyclinics",
     iconName: "Stethoscope",
     badge: "Doctor Appointments",
-    bestPackage: "Growth + SEO Website",
+    bestPackage: "Budget-Friendly Website",
     packageId: "growth-website-marketing",
     startingPrice: "44,999/-",
+    imageUrl: clinicDentalWebImg,
     mainNeed: "Doctor specialty profiles, treatment service cards, clinic timings, interactive location map, and repeatable appointment inquiry workflows.",
     whyItFits: "Patients seek immediate trust and location clarity; 'dentist near me' local SEO combined with WhatsApp booking captures walk-ins and appointments.",
     keyFeatures: [
       "Doctor profiles & clinic timing schedules",
       "Direct appointment inquiry booking workflow",
       "Local search SEO & patient education posts",
+    ],
+    tiers: [
+      {
+        tierId: "starter",
+        name: "Starter",
+        badge: "Starter Package",
+        price: "24,999/-",
+        pagesCount: "6–8 Pages",
+        deliveryTimeline: "15–20 Working Days",
+        packageId: "starter-website",
+        imageUrl: clinicStarterWebImg,
+        requirements: [
+          "Doctor bio, medical degrees & clinic timings",
+          "Core treatment services & clinic contact telephone",
+          "Domain & hosting configuration access",
+        ],
+        features: [
+          "Doctor & dental specialist profile cards",
+          "Core medical treatments & consultation fee guide",
+          "Direct WhatsApp appointment request trigger",
+          "Google Maps local SEO setup for 'doctor near me'",
+          "Fast mobile-friendly layout with SSL encryption",
+        ],
+      },
+      {
+        tierId: "budget",
+        name: "Budget-Friendly",
+        badge: "Budget-Friendly Package",
+        price: "44,999/-",
+        pagesCount: "12–16 Pages",
+        deliveryTimeline: "3–4 Weeks",
+        packageId: "growth-website-marketing",
+        imageUrl: clinicDentalWebImg,
+        requirements: [
+          "Department breakdowns & treatment descriptions",
+          "Clinic interior & equipment high-res photos",
+          "Patient intake questionnaire guidelines",
+        ],
+        features: [
+          "Online appointment inquiry scheduling workflow",
+          "Department treatment cards with procedure details",
+          "Patient education blog & hygiene notice CMS",
+          "Local Nepal healthcare schema & top Google Maps ranking",
+          "1 Month post-launch support & reception staff training",
+        ],
+      },
+      {
+        tierId: "premium",
+        name: "Premium",
+        badge: "Premium Package",
+        price: "79,999/-",
+        pagesCount: "18+ Custom Pages",
+        deliveryTimeline: "6–8 Weeks",
+        packageId: "custom-business-system",
+        imageUrl: clinicPremiumWebImg,
+        requirements: [
+          "Doctor consultation fee payment rules",
+          "Clinic doctor shift schedule calendar specs",
+          "Patient privacy consent & data guidelines",
+        ],
+        features: [
+          "Doctor shift schedule & online time-slot booking portal",
+          "Consultation fee prepayment via eSewa, Khalti & cards",
+          "Automated SMS/WhatsApp appointment reminders",
+          "Patient inquiry management dashboard for reception",
+          "3 Months priority SLA support & encrypted cloud backup",
+        ],
+      },
     ],
   },
   {
@@ -629,15 +968,84 @@ export const individualSectorCards: IndividualSectorCard[] = [
     subtitle: "Education & Abroad Studies",
     iconName: "GraduationCap",
     badge: "Admission CRM",
-    bestPackage: "Growth + SEO Website",
+    bestPackage: "Budget-Friendly Website",
     packageId: "growth-website-marketing",
     startingPrice: "44,999/-",
+    imageUrl: schoolCollegeWebImg,
     mainNeed: "Academic program pages, study abroad destination hubs, counselor appointment funnel, notice announcements, and student articles.",
     whyItFits: "Students and parents demand clear course details and quick counseling access; counselor follow-up workflows convert inquiries into enrollments.",
     keyFeatures: [
       "Course & study-abroad destination listings",
       "Online admission & counselor lead funnel",
       "Notice board & blogs with video",
+    ],
+    tiers: [
+      {
+        tierId: "starter",
+        name: "Starter",
+        badge: "Starter Package",
+        price: "24,999/-",
+        pagesCount: "6–10 Pages",
+        deliveryTimeline: "15–20 Working Days",
+        packageId: "starter-website",
+        imageUrl: schoolStarterWebImg,
+        requirements: [
+          "Course curriculum & admission criteria brochures",
+          "Faculty directory & campus photography",
+          "Official contact emails & telephone numbers",
+        ],
+        features: [
+          "Academic program & course listing cards",
+          "Campus photo gallery & student achievement showcase",
+          "Direct admission inquiry form & WhatsApp trigger",
+          "Google Maps location indexing for prospective students",
+          "Mobile-responsive ultra-fast layout",
+        ],
+      },
+      {
+        tierId: "budget",
+        name: "Budget-Friendly",
+        badge: "Budget-Friendly Package",
+        price: "44,999/-",
+        pagesCount: "14–18 Pages",
+        deliveryTimeline: "3–4 Weeks",
+        packageId: "growth-website-marketing",
+        imageUrl: schoolCollegeWebImg,
+        requirements: [
+          "Study abroad destination hubs & university partner lists",
+          "Student visa success stories & testimonial videos",
+          "Notice board publishing guidelines",
+        ],
+        features: [
+          "Dynamic CMS for daily notices, events & exam routines",
+          "Study abroad destination hubs (USA, UK, Australia, Canada)",
+          "Counselor appointment booking & student lead funnel",
+          "Educational local SEO for higher Google ranking",
+          "1 Month included technical maintenance & support",
+        ],
+      },
+      {
+        tierId: "premium",
+        name: "Premium",
+        badge: "Premium Package",
+        price: "79,999/-",
+        pagesCount: "20+ Custom Pages",
+        deliveryTimeline: "6–8 Weeks",
+        packageId: "custom-business-system",
+        imageUrl: schoolPremiumWebImg,
+        requirements: [
+          "Student application document upload specifications",
+          "Multi-counselor assignment workflow rules",
+          "Payment gateway for online admission fee collection",
+        ],
+        features: [
+          "Full online student admission portal with file uploads",
+          "Application status tracking & counselor CRM dashboard",
+          "Online application fee collection via eSewa & Khalti",
+          "Automated student notification emails & SMS",
+          "3 Months dedicated SLA support & high-traffic tuning",
+        ],
+      },
     ],
   },
   {
@@ -646,15 +1054,84 @@ export const individualSectorCards: IndividualSectorCard[] = [
     subtitle: "Hospitality & Dining",
     iconName: "Utensils",
     badge: "Room & Table Booking",
-    bestPackage: "Growth + SEO Website",
+    bestPackage: "Budget-Friendly Website",
     packageId: "growth-website-marketing",
     startingPrice: "44,999/-",
+    imageUrl: hotelRestaurantWebImg,
     mainNeed: "Digital food/drink menus, room suite photo tours, location mapping, and table/room reservation inquiry forms.",
     whyItFits: "Diners and travelers choose venues based on visual menus and Google Maps ratings; simple WhatsApp reserve eliminates booking commission.",
     keyFeatures: [
       "Digital food menu / room showcase gallery",
       "Google Maps 3-Pack ranking optimization",
       "Reservation inquiry integration",
+    ],
+    tiers: [
+      {
+        tierId: "starter",
+        name: "Starter",
+        badge: "Starter Package",
+        price: "24,999/-",
+        pagesCount: "6–8 Pages",
+        deliveryTimeline: "15–20 Working Days",
+        packageId: "starter-website",
+        imageUrl: hotelStarterWebImg,
+        requirements: [
+          "Food & cocktail menu items with pricing",
+          "High-res room / restaurant ambiance photos",
+          "Operating timings & Google Maps address",
+        ],
+        features: [
+          "Digital food & beverage menu showcase",
+          "Room / dining hall visual gallery with pricing",
+          "Direct table & room reservation WhatsApp button",
+          "Google Maps 3-Pack location pin setup",
+          "Fast mobile-responsive performance",
+        ],
+      },
+      {
+        tierId: "budget",
+        name: "Budget-Friendly",
+        badge: "Budget-Friendly Package",
+        price: "44,999/-",
+        pagesCount: "12–16 Pages",
+        deliveryTimeline: "3–4 Weeks",
+        packageId: "growth-website-marketing",
+        imageUrl: hotelRestaurantWebImg,
+        requirements: [
+          "Menu category breakdowns & chef specialties",
+          "Room amenities checklist & virtual tour visuals",
+          "Milestone approval feedback at each phase",
+        ],
+        features: [
+          "Self-managed digital menu & room suite CMS",
+          "Online table reservation inquiry form with guest count",
+          "Local hospitality SEO for tourists in Kathmandu & Pokhara",
+          "Interactive customer review slider & Instagram feed",
+          "1 Month dedicated technical tuning & training",
+        ],
+      },
+      {
+        tierId: "premium",
+        name: "Premium",
+        badge: "Premium Package",
+        price: "79,999/-",
+        pagesCount: "18+ Custom Pages",
+        deliveryTimeline: "6–8 Weeks",
+        packageId: "custom-business-system",
+        imageUrl: hotelPremiumWebImg,
+        requirements: [
+          "Room inventory rates & seasonal pricing rules",
+          "Payment merchant account for advance booking deposits",
+          "Table allocation logic for restaurant shifts",
+        ],
+        features: [
+          "Zero-commission direct room & suite booking engine",
+          "Real-time table availability calendar & automated reservation",
+          "Online advance deposit via eSewa, Khalti & card payments",
+          "Banquet & corporate event inquiry management system",
+          "3 Months priority SLA support & performance CDN",
+        ],
+      },
     ],
   },
   {
@@ -663,15 +1140,84 @@ export const individualSectorCards: IndividualSectorCard[] = [
     subtitle: "Online Stores & Boutiques",
     iconName: "ShoppingBag",
     badge: "eSewa & Khalti Payments",
-    bestPackage: "Custom Systems",
+    bestPackage: "Budget-Friendly Website",
     packageId: "custom-business-system",
-    startingPrice: "Based on Requirements",
+    startingPrice: "44,999/-",
+    imageUrl: retailEcommerceWebImg,
     mainNeed: "Online product catalogue, size/color variants, shopping cart, eSewa/Khalti/Fonepay payments, delivery rates, and manageable stock levels.",
     whyItFits: "Nepali consumers want instant local payment without COD drop-offs; integrated payment gateways and local delivery zones automate orders.",
     keyFeatures: [
       "Product catalogue with variants & shopping cart",
       "eSewa, Khalti & Fonepay native checkout",
       "Automated stock & delivery zone logic",
+    ],
+    tiers: [
+      {
+        tierId: "starter",
+        name: "Starter",
+        badge: "Starter Package",
+        price: "24,999/-",
+        pagesCount: "6–8 Pages",
+        deliveryTimeline: "15–20 Working Days",
+        packageId: "starter-website",
+        imageUrl: retailStarterWebImg,
+        requirements: [
+          "Product catalog list with photos & prices",
+          "Store location & delivery coverage areas",
+          "WhatsApp business order contact number",
+        ],
+        features: [
+          "Online product showcase catalog with categories",
+          "Direct WhatsApp 'Order This Item' instant button",
+          "Store location map, working hours & brand story",
+          "Google Business Profile indexing for local shoppers",
+          "Lightweight 100% mobile 4G fast loading",
+        ],
+      },
+      {
+        tierId: "budget",
+        name: "Budget-Friendly",
+        badge: "Budget-Friendly Package",
+        price: "44,999/-",
+        pagesCount: "12–18 Pages",
+        deliveryTimeline: "3–4 Weeks",
+        packageId: "growth-website-marketing",
+        imageUrl: retailEcommerceWebImg,
+        requirements: [
+          "Product variants (sizes, colors) & stock counts",
+          "Delivery charge rules for Kathmandu & outside valley",
+          "Banner promotion graphics",
+        ],
+        features: [
+          "Full e-commerce catalog with search & filter",
+          "Product variant selector (sizes, colors) & shopping cart",
+          "Cash on Delivery (COD) & WhatsApp order checkout",
+          "Self-managed CMS for adding new products & sales banners",
+          "1 Month technical support & order flow setup",
+        ],
+      },
+      {
+        tierId: "premium",
+        name: "Premium",
+        badge: "Premium Package",
+        price: "79,999/-",
+        pagesCount: "20+ Custom Pages",
+        deliveryTimeline: "6–8 Weeks",
+        packageId: "custom-business-system",
+        imageUrl: retailPremiumWebImg,
+        requirements: [
+          "eSewa, Khalti, Fonepay merchant API credentials",
+          "Courier partner API integration details",
+          "Inventory tracking and invoice tax settings",
+        ],
+        features: [
+          "Instant automated checkout with eSewa, Khalti & Fonepay",
+          "Automated inventory stock tracking & low-stock alerts",
+          "Dynamic delivery charge calculator by city/district",
+          "Customer account dashboard with past order tracking",
+          "3 Months priority SLA support & payment reconciliation",
+        ],
+      },
     ],
   },
   {
@@ -680,15 +1226,84 @@ export const individualSectorCards: IndividualSectorCard[] = [
     subtitle: "Professional Services",
     iconName: "Briefcase",
     badge: "Corporate Credibility",
-    bestPackage: "Growth + SEO Website",
+    bestPackage: "Budget-Friendly Website",
     packageId: "growth-website-marketing",
     startingPrice: "44,999/-",
+    imageUrl: constructionLegalWebImg,
     mainNeed: "Professional authority, completed project portfolios, verified credentials, case studies, quote request forms, and corporate local SEO.",
     whyItFits: "High-ticket corporate clients choose firms based on verified track records and prompt consultation funnels rather than complex e-commerce.",
     keyFeatures: [
       "Portfolio of completed projects & case studies",
       "Quotation & consultation request forms",
       "Corporate authority SEO & LinkedIn setup",
+    ],
+    tiers: [
+      {
+        tierId: "starter",
+        name: "Starter",
+        badge: "Starter Package",
+        price: "24,999/-",
+        pagesCount: "6–8 Pages",
+        deliveryTimeline: "15–20 Working Days",
+        packageId: "starter-website",
+        imageUrl: corporateStarterWebImg,
+        requirements: [
+          "Firm credentials, registration & practice areas",
+          "Completed projects list & partner biographies",
+          "Corporate telephone & email contact",
+        ],
+        features: [
+          "Corporate authority landing page with practice cards",
+          "Past completed projects & client credentials showcase",
+          "Direct consultation inquiry form & call triggers",
+          "Google Maps location indexing for corporate clients",
+          "Mobile-ready responsive architecture",
+        ],
+      },
+      {
+        tierId: "budget",
+        name: "Budget-Friendly",
+        badge: "Budget-Friendly Package",
+        price: "44,999/-",
+        pagesCount: "12–16 Pages",
+        deliveryTimeline: "3–4 Weeks",
+        packageId: "growth-website-marketing",
+        imageUrl: constructionLegalWebImg,
+        requirements: [
+          "Detailed project case studies with technical specs",
+          "Executive profiles & team member headshots",
+          "Service quote inquiry questionnaire",
+        ],
+        features: [
+          "Dynamic CMS for case studies, projects & legal articles",
+          "Comprehensive service practice pages with quote inquiry",
+          "Corporate authority SEO ranking & Google Business Profile",
+          "Lead capture funnel directly connected to email & WhatsApp",
+          "1 Month included technical assistance",
+        ],
+      },
+      {
+        tierId: "premium",
+        name: "Premium",
+        badge: "Premium Package",
+        price: "79,999/-",
+        pagesCount: "18+ Custom Pages",
+        deliveryTimeline: "6–8 Weeks",
+        packageId: "custom-business-system",
+        imageUrl: corporatePremiumWebImg,
+        requirements: [
+          "Client portal document privacy specifications",
+          "Custom project estimation fee calculation formula",
+          "Multi-department quote routing logic",
+        ],
+        features: [
+          "Interactive project cost estimator & quote generator",
+          "Secure client portal for document sharing & case tracking",
+          "Multi-branch / department lead distribution dashboard",
+          "Enterprise SSL security & high-availability cloud architecture",
+          "3 Months dedicated SLA support & technical account lead",
+        ],
+      },
     ],
   },
   {
@@ -697,15 +1312,84 @@ export const individualSectorCards: IndividualSectorCard[] = [
     subtitle: "Emerging Local Brands",
     iconName: "Rocket",
     badge: "Fast Launch MVP",
-    bestPackage: "Starter Website",
+    bestPackage: "Budget-Friendly Website",
     packageId: "starter-website",
     startingPrice: "24,999/-",
+    imageUrl: startupCompanyWebImg,
     mainNeed: "High-impact MVP landing page, founder story section, clear value proposition explanation, lead capture funnel, and a staged upgrade path.",
     whyItFits: "A low-friction entry price gets startups launched fast in 15–20 working days, creating a natural upgrade path into Growth as revenue expands.",
     keyFeatures: [
       "Rapid 15–20 working day live deployment",
       "6–10 Mobile-Responsive Pages",
       "Basic CMS & Social media integration",
+    ],
+    tiers: [
+      {
+        tierId: "starter",
+        name: "Starter",
+        badge: "Starter Package",
+        price: "24,999/-",
+        pagesCount: "6–8 Pages",
+        deliveryTimeline: "15–20 Working Days",
+        packageId: "starter-website",
+        imageUrl: startupStarterWebImg,
+        requirements: [
+          "Product value proposition & problem statement",
+          "Founder bio & company vision assets",
+          "Waitlist / early-access email collection",
+        ],
+        features: [
+          "High-converting MVP product launch landing page",
+          "Founder story & early investor traction showcase",
+          "Early-bird lead capture form & WhatsApp trigger",
+          "Fast 15–20 working day delivery for rapid market validation",
+          "Mobile-first 4G ultra-fast performance",
+        ],
+      },
+      {
+        tierId: "budget",
+        name: "Budget-Friendly",
+        badge: "Budget-Friendly Package",
+        price: "44,999/-",
+        pagesCount: "12–18 Pages",
+        deliveryTimeline: "3–4 Weeks",
+        packageId: "growth-website-marketing",
+        imageUrl: startupCompanyWebImg,
+        requirements: [
+          "Feature release roadmaps & product screenshots",
+          "Customer persona case studies & demo videos",
+          "Analytics & tracking pixel integration access",
+        ],
+        features: [
+          "Full multi-page company website with product tour",
+          "Interactive demo showcase & video reels integration",
+          "Self-managed CMS for company blogs, updates & press",
+          "Local & international organic SEO for product keywords",
+          "1 Month technical maintenance & conversion tuning",
+        ],
+      },
+      {
+        tierId: "premium",
+        name: "Premium",
+        badge: "Premium Package",
+        price: "79,999/-",
+        pagesCount: "20+ Custom Pages",
+        deliveryTimeline: "6–8 Weeks",
+        packageId: "custom-business-system",
+        imageUrl: startupPremiumWebImg,
+        requirements: [
+          "SaaS web app API endpoints or webhook specs",
+          "User registration / trial workflow logic",
+          "Database architecture requirements",
+        ],
+        features: [
+          "Custom web application landing with interactive preview",
+          "User signup, trial onboarding & lead qualification funnel",
+          "API documentation portal & developer changelog",
+          "Payment gateway integration for recurring SaaS or deposits",
+          "3 Months priority SLA support & scalable cloud CDN",
+        ],
+      },
     ],
   },
 ];

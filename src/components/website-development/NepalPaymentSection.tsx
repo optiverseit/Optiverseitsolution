@@ -2,7 +2,6 @@
 import { useState } from "react";
 import {
   CreditCard,
-  ShieldCheck,
   CheckCircle2,
   Percent,
   Calendar,
@@ -139,11 +138,6 @@ export default function NepalPaymentSection() {
                   {selectedPkg.paymentStructure.maintenanceNote} Save up to 10% by opting for quarterly or annual advance billing.
                 </p>
               </div>
-            </div>
-
-            <div className="shrink-0 flex items-center gap-2 text-xs font-bold text-slate-800 bg-white px-4 py-2.5 rounded-xl border border-amber-200 shadow-xs">
-              <ShieldCheck size={16} className="text-[#166534]" />
-              <span>Full Corporate VAT Bill Provided</span>
             </div>
           </div>
         </div>
