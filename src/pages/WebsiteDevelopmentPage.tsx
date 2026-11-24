@@ -22,6 +22,7 @@ import PackageComparisonTable from "../components/website-development/PackageCom
 import AuditCTASection from "../components/website-development/AuditCTASection";
 import PackageInquiryModal from "../components/website-development/PackageInquiryModal";
 import {
+  coreWebsitePackages,
   websitePackages,
   type WebsitePackage,
   type IndividualSectorCard,
@@ -73,11 +74,11 @@ export default function WebsiteDevelopmentPage() {
     },
     {
       q: "Why should my business choose an SME Package rather than a random custom quote?",
-      a: "Custom quotes from Nepali agencies often lead to hidden costs, scope creep, and unexpected delays. Optiverse's 3 SME packages provide guaranteed deliverables, transparent pricing, verified delivery timelines (15–20 days for Starter, 4–6 weeks for Growth), and full local SEO & Google Business Profile setup without hidden surprises.",
+      a: "Custom quotes from Nepali agencies often lead to hidden costs, scope creep, and unexpected delays. Optiverse's 3 SME packages provide guaranteed deliverables, transparent pricing, verified delivery timelines (4–6 weeks for Starter, 5–7 weeks for Growth), and full local SEO & Google Business Profile setup without hidden surprises.",
     },
     {
       q: "What makes the 'Growth + SEO Website' package Optiverse's most popular choice?",
-      a: "Most technical agencies only hand over basic templates. The Growth + SEO Website package delivers a custom 12–18 page dynamic CMS platform with API integrations, 2X faster performance, blogs with video, local and mid-level SEO ranking, and direct inquiry workflows.",
+      a: "Most technical agencies only hand over basic templates. The Growth + SEO Website package delivers a custom 8–12 page dynamic platform with API integrations, 2X faster performance, day-by-day itineraries, booking system integration, local and SEO-friendly ranking, and direct inquiry workflows.",
     },
     {
       q: "Can we integrate local Nepali payment gateways like eSewa, Khalti, and Fonepay?",
@@ -134,7 +135,7 @@ export default function WebsiteDevelopmentPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7 items-stretch pt-2">
-            {websitePackages.map((pkg) => (
+            {coreWebsitePackages.map((pkg) => (
               <PackageCard
                 key={pkg.id}
                 pkg={pkg}

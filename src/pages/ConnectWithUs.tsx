@@ -62,10 +62,10 @@ export default function ConnectWithUs() {
                 </div>
                 <p className="text-white/50 text-[11px] font-semibold uppercase tracking-wider">Email Us</p>
                 <a
-                  href="mailto:info@optiverseits.com.np"
+                  href="mailto:optiverseitsolution@gmail.com"
                   className="break-all text-white text-sm font-semibold leading-snug hover:text-[#d97706] transition-colors"
                 >
-                  info@optiverseits.com.np
+                  optiverseitsolution@gmail.com
                 </a>
               </div>
 

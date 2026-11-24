@@ -859,7 +859,7 @@ export default function About() {
                 From concept to deployment — we deliver results that matter.
               </p>
               <p className="mt-3 text-xs text-white/70">
-                Average response time: under 4 hours · info@optiverseits.com.np
+                Average response time: under 4 hours · optiverseitsolution@gmail.com
               </p>
             </div>
           </div>

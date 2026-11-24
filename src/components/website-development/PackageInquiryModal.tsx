@@ -1,7 +1,7 @@
 // src/components/website-development/PackageInquiryModal.tsx
 import { useState, useEffect } from "react";
 import { X, Send, MessageCircle, CheckCircle2, ShieldCheck } from "lucide-react";
-import { websitePackages, type WebsitePackage } from "../../data/websitePackagesData";
+import { coreWebsitePackages, websitePackages, type WebsitePackage } from "../../data/websitePackagesData";
 
 interface PackageInquiryModalProps {
   isOpen: boolean;
@@ -28,6 +28,21 @@ export default function PackageInquiryModal({
   const [sector, setSector] = useState(initialSector || "Travel / Tourism");
   const [message, setMessage] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // Group related packages for modal's quick selection
+  const modalPackageList = initialPackage
+    ? websitePackages.filter((p) => {
+        if (initialPackage.id.startsWith("travel-")) return p.id.startsWith("travel-");
+        if (initialPackage.id.startsWith("clinic-")) return p.id.startsWith("clinic-");
+        if (initialPackage.id.startsWith("school-")) return p.id.startsWith("school-");
+        if (initialPackage.id.startsWith("hotel-")) return p.id.startsWith("hotel-");
+        if (initialPackage.id.startsWith("retail-")) return p.id.startsWith("retail-");
+        if (initialPackage.id.startsWith("corporate-")) return p.id.startsWith("corporate-");
+        if (initialPackage.id.startsWith("startup-")) return p.id.startsWith("startup-");
+        return coreWebsitePackages.some((cp) => cp.id === p.id);
+      })
+    : coreWebsitePackages;
 
   useEffect(() => {
     if (initialPackage) {
@@ -56,9 +71,45 @@ export default function PackageInquiryModal({
 
   const currentPkg = websitePackages.find((p) => p.id === selectedPkgId) || websitePackages[1];
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
+    setIsSubmitting(true);
+
+    try {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 3500);
+
+      await fetch("https://formsubmit.co/optiverseitsolution@gmail.com", {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: new URLSearchParams({
+          _subject: isAudit
+            ? `Audit Request: ${fullName || "Client"} (${businessName || phone})`
+            : `Inquiry: ${currentPkg.name} - ${fullName || "Client"} (${phone})`,
+          "Full Name": fullName || "Client",
+          "Phone / WhatsApp": phone || "Not provided",
+          "Business Name": businessName || "Not provided",
+          "Industry / Sector": sector,
+          "Email Address": email || "Not provided",
+          "Selected Package": currentPkg.name,
+          "Package Price": currentPkg.startingPrice,
+          "Project Notes": message || "No additional notes",
+          _template: "table",
+          _captcha: "false",
+        }),
+        signal: controller.signal,
+      });
+
+      clearTimeout(timeoutId);
+    } catch (err) {
+      console.warn("Package inquiry dispatched:", err);
+    } finally {
+      setIsSubmitting(false);
+      setSubmitted(true);
+    }
   };
 
   const generateWhatsAppUrl = () => {
@@ -126,14 +177,39 @@ export default function PackageInquiryModal({
             </div>
           </div>
         ) : (
-          <form onSubmit={handleSubmit} className="p-6 sm:p-7 space-y-4 max-h-[75vh] overflow-y-auto">
+          <form
+            onSubmit={handleSubmit}
+            className="p-6 sm:p-7 space-y-4 max-h-[75vh] overflow-y-auto"
+          >
+              {/* FormSubmit Configuration */}
+              <input
+                type="hidden"
+                name="_subject"
+                value={
+                  isAudit
+                    ? `Audit Request: ${fullName || "Client"} (${businessName || phone})`
+                    : `Inquiry: ${currentPkg.name} - ${fullName || "Client"} (${phone})`
+                }
+              />
+              <input type="hidden" name="_captcha" value="false" />
+              <input type="hidden" name="_template" value="table" />
+              <input
+                type="hidden"
+                name="Inquiry Type"
+                value={isAudit ? "Free 30-Min Audit" : "SME Package Inquiry"}
+              />
+              <input
+                type="hidden"
+                name="Selected Package"
+                value={`${currentPkg.name} (${currentPkg.startingPrice})`}
+              />
             {!isAudit && (
               <div>
                 <label className="block text-xs font-bold uppercase tracking-wider text-slate-600 mb-1.5">
                   Select Desired Package
                 </label>
                 <div className="grid grid-cols-3 gap-2">
-                  {websitePackages.map((p) => (
+                  {modalPackageList.map((p) => (
                     <button
                       key={p.id}
                       type="button"
@@ -162,6 +238,7 @@ export default function PackageInquiryModal({
                 <input
                   type="text"
                   required
+                  name="Full Name"
                   placeholder="e.g. Ramesh Shrestha"
                   value={fullName}
                   onChange={(e) => setFullName(e.target.value)}
@@ -176,6 +253,7 @@ export default function PackageInquiryModal({
                 <input
                   type="tel"
                   required
+                  name="Mobile / WhatsApp Number"
                   placeholder="+977-98xxxxxxxx"
                   value={phone}
                   onChange={(e) => setPhone(e.target.value)}
@@ -191,6 +269,7 @@ export default function PackageInquiryModal({
                 </label>
                 <input
                   type="text"
+                  name="Business / Company Name"
                   placeholder="e.g. Everest Himalayan Treks"
                   value={businessName}
                   onChange={(e) => setBusinessName(e.target.value)}
@@ -203,6 +282,7 @@ export default function PackageInquiryModal({
                   Industry / Sector
                 </label>
                 <select
+                  name="Industry / Sector"
                   value={sector}
                   onChange={(e) => setSector(e.target.value)}
                   className="w-full rounded-xl border border-gray-300 px-3.5 py-2.5 text-sm focus:border-[#166534] focus:outline-none focus:ring-1 focus:ring-[#166534] bg-white"
@@ -225,6 +305,7 @@ export default function PackageInquiryModal({
               </label>
               <input
                 type="email"
+                name="Email Address"
                 placeholder="info@yourcompany.com.np"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
@@ -238,6 +319,7 @@ export default function PackageInquiryModal({
               </label>
               <textarea
                 rows={2}
+                name="Project Notes / Requirements"
                 placeholder="Mention desired pages, eSewa payment requirement, domain status, or questions..."
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
@@ -248,10 +330,20 @@ export default function PackageInquiryModal({
             <div className="pt-2 space-y-2">
               <button
                 type="submit"
-                className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#166534] py-3 px-4 text-sm font-bold text-white hover:bg-green-900 transition shadow-md"
+                disabled={isSubmitting}
+                className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#166534] py-3 px-4 text-sm font-bold text-white hover:bg-green-900 transition shadow-md disabled:opacity-75 disabled:cursor-not-allowed"
               >
-                <Send size={15} />
-                <span>Submit Inquiry to Optiverse</span>
+                {isSubmitting ? (
+                  <span className="inline-flex items-center gap-2">
+                    <span className="h-4 w-4 animate-spin rounded-full border-2 border-white border-t-transparent" />
+                    <span>Submitting Inquiry...</span>
+                  </span>
+                ) : (
+                  <>
+                    <Send size={15} />
+                    <span>Submit Inquiry to Optiverse</span>
+                  </>
+                )}
               </button>
 
               <a

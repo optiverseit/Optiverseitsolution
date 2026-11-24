@@ -45,7 +45,7 @@ const localBusinessSchema = {
   "image": "https://optiverseits.com.np/og-image.jpg",
   "url": "https://optiverseits.com.np",
   "telephone": "+9779803713931",
-  "email": "info@optiverseits.com.np",
+  "email": "optiverseitsolution@gmail.com",
   "priceRange": "$$",
   "currenciesAccepted": "NPR, USD",
   "paymentAccepted": "Cash, Bank Transfer, eSewa, Khalti",

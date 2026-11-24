@@ -9,12 +9,12 @@ import {
   ArrowRight,
   Sparkles,
 } from "lucide-react";
-import { nepalPaymentMethods, websitePackages } from "../../data/websitePackagesData";
+import { nepalPaymentMethods, coreWebsitePackages, websitePackages } from "../../data/websitePackagesData";
 
 export default function NepalPaymentSection() {
   const [activeTier, setActiveTier] = useState<string>("growth-website-marketing");
 
-  const selectedPkg = websitePackages.find((p) => p.id === activeTier) || websitePackages[1];
+  const selectedPkg = websitePackages.find((p) => p.id === activeTier) || coreWebsitePackages[1];
 
   return (
     <section className="bg-slate-50 py-16 sm:py-24 border-t border-b border-gray-200">
@@ -73,7 +73,7 @@ export default function NepalPaymentSection() {
 
             {/* Tier Selector Buttons */}
             <div className="flex flex-wrap gap-2">
-              {websitePackages.map((pkg) => (
+              {coreWebsitePackages.map((pkg) => (
                 <button
                   key={pkg.id}
                   type="button"

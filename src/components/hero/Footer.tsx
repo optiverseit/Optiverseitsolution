@@ -35,10 +35,10 @@ export default function Footer() {
               <div className="flex items-center gap-3">
                 <Mail size={16} className="shrink-0 text-green-400" />
                 <a
-                  href="mailto:info@optiverseits.com.np"
+                  href="mailto:optiverseitsolution@gmail.com"
                   className="break-all transition hover:text-white"
                 >
-                  info@optiverseits.com.np
+                  optiverseitsolution@gmail.com
                 </a>
               </div>
 

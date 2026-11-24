@@ -250,8 +250,8 @@ export default function MainNavbar() {
         {/* Email */}
         <div className="flex items-center gap-2">
           <Mail className="h-4 w-4 text-[#166534] fill-[#166534] shrink-0" />
-          <a href="mailto:info@optiverseits.com.np" className="text-[12px] font-bold text-slate-800 hover:text-[#166534] transition">
-            info@optiverseits.com.np
+          <a href="mailto:optiverseitsolution@gmail.com" className="text-[12px] font-bold text-slate-800 hover:text-[#166534] transition">
+            optiverseitsolution@gmail.com
           </a>
         </div>
         {/* Divider */}
@@ -384,7 +384,7 @@ export default function MainNavbar() {
               </div>
               <div className="flex items-center gap-2 text-xs text-white">
                 <Mail className="h-4 w-4 text-green-300 shrink-0" />
-                <a href="mailto:info@optiverseits.com.np" className="break-all hover:text-green-300 transition">info@optiverseits.com.np</a>
+                <a href="mailto:optiverseitsolution@gmail.com" className="break-all hover:text-green-300 transition">optiverseitsolution@gmail.com</a>
               </div>
               <div className="flex items-center gap-2 pt-1">
                 <a

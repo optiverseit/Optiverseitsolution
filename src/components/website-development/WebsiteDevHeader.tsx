@@ -22,7 +22,7 @@ export default function WebsiteDevHeader({
   showBackButton = false,
 }: WebsiteDevHeaderProps) {
   return (
-    <section className="relative w-full bg-[#eaedf2] pt-8 sm:pt-10 pb-6 sm:pb-8 border-b border-gray-300/80">
+    <section className="relative w-full bg-[#eaedf2] pt-10 sm:pt-12 pb-6 sm:pb-8 border-b border-gray-300/80">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Navigation Breadcrumb when viewing package details */}
         {showBackButton && (
@@ -60,8 +60,12 @@ export default function WebsiteDevHeader({
               {packageTitle ? (
                 <div>
                   <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-amber-950/80 mb-0.5">
-                    <span>{packageTier || "Nepal SME Tier"}</span>
-                    <span>•</span>
+                    {packageTier && (
+                      <>
+                        <span>{packageTier}</span>
+                        <span>•</span>
+                      </>
+                    )}
                     <span className="inline-flex items-center gap-1 text-amber-900">
                       <ShieldCheck size={13} /> Official Optiverse Package
                     </span>

@@ -56,7 +56,7 @@ export default function WebsiteDevHero({ onOpenAudit }: WebsiteDevHeroProps) {
             </span>
             <span className="flex items-center gap-1.5">
               <CheckCircle2 size={16} className="text-[#22c55e] shrink-0" />
-              Guaranteed 15–20 Day Launch
+              Guaranteed 4–6 Week Launch
             </span>
           </div>
 

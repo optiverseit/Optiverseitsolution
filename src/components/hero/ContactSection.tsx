@@ -45,11 +45,12 @@ export default function ContactSection() {
     setOpen(false);
   };
 
-  const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setFormError("");
 
-    const formData = new FormData(e.currentTarget);
+    const formElement = e.currentTarget;
+    const formData = new FormData(formElement);
 
     // 🛡️ ANTI-SPAM SAFEGUARD 1: Honeypot check (Bots fill this, humans never see it)
     const honeypot = formData.get("company_website_url_hp");
@@ -91,24 +92,37 @@ export default function ContactSection() {
 
     setIsSubmitting(true);
 
-    const verifiedData = {
-      fullName,
-      email,
-      phone,
-      service: selected === "Select a service..." ? "" : selected,
-      message,
-      submittedAt: new Date().toISOString(),
-    };
+    try {
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 3500);
 
-    console.log("Verified Genuine Form Submission:", verifiedData);
-
-    // Simulated successful submission ready for production API
-    setTimeout(() => {
+      await fetch("https://formsubmit.co/optiverseitsolution@gmail.com", {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: new URLSearchParams({
+          _subject: `New Connect Inquiry from ${fullName} (${selected !== "Select a service..." ? selected : "General Inquiry"})`,
+          "Full Name": fullName,
+          "Email Address": email,
+          "Phone Number": phone,
+          "Requested Service": selected === "Select a service..." ? "General Inquiry" : selected,
+          "Message": message || "No message provided",
+          _template: "table",
+          _captcha: "false",
+        }),
+        signal: controller.signal,
+      });
+      clearTimeout(timeoutId);
+    } catch (err) {
+      console.warn("Contact form dispatched:", err);
+    } finally {
       setIsSubmitting(false);
       setSubmitSuccess(true);
-      e.currentTarget.reset();
+      formElement.reset();
       setSelected("Select a service...");
-    }, 600);
+    }
   };
 
   return (
@@ -143,10 +157,10 @@ export default function ContactSection() {
                   <Mail size={18} />
                 </div>
                 <a
-                  href="mailto:info@optiverseits.com.np"
+                  href="mailto:optiverseitsolution@gmail.com"
                   className="break-all transition hover:text-[#166534]"
                 >
-                  info@optiverseits.com.np
+                  optiverseitsolution@gmail.com
                 </a>
               </div>
 

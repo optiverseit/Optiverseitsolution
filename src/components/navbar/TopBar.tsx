@@ -19,10 +19,10 @@ export default function TopBar() {
           <div className="flex items-center gap-1.5">
             <Mail size={14} className="shrink-0 text-green-700" />
             <a
-              href="mailto:info@optiverseits.com.np"
+              href="mailto:optiverseitsolution@gmail.com"
               className="transition hover:text-green-700"
             >
-              info@optiverseits.com.np
+              optiverseitsolution@gmail.com
             </a>
           </div>
         </div>

@@ -23,6 +23,7 @@ import corporateStarterWebImg from "../assets/sectors/corporate-starter.jpg";
 import corporatePremiumWebImg from "../assets/sectors/corporate-premium.jpg";
 import startupStarterWebImg from "../assets/sectors/startup-starter.jpg";
 import startupPremiumWebImg from "../assets/sectors/startup-premium.jpg";
+import { domainPackages } from "./domainPackagesData";
 
 export type DeliverableItem = {
   title: string;
@@ -63,6 +64,17 @@ export type PaymentStructure = {
   steps: { percentage: string; stage: string; note: string }[];
 };
 
+export type PackageCrossLink = {
+  targetPackageId: string;
+  targetPackageName: string;
+  targetPrice: string;
+  interestTrigger: string;
+  interestBadge: string;
+  description: string;
+  keyHighlights: string[];
+  ctaText: string;
+};
+
 export type WebsitePackage = {
   id: string;
   name: string;
@@ -86,32 +98,32 @@ export type WebsitePackage = {
   paymentStructure: PaymentStructure;
   whyThisWorks: string;
   typicalMarketComparison: string;
+  crossLinks?: PackageCrossLink[];
 };
 
-export const websitePackages: WebsitePackage[] = [
+export const coreWebsitePackages: WebsitePackage[] = [
   {
     id: "starter-website",
     name: "Starter Website",
-    tier: "Low-Friction SME Launch",
-    tagline: "Modern, credible business website with Google visibility in 15–20 working days.",
+    tier: "",
+    tagline: "Modern, credible business website.",
     bestFor:
       "Startups, small retail shops, restaurants, consultancies, professionals, and businesses that need a credible online presence quickly.",
     startingPrice: "24,999/-",
     priceNumber: 24999,
     priceSubtext: "One-time investment",
     priceBadge: "Budget-Friendly",
-    timeline: "15–20 working days after content and approvals",
-    maintenance: "Optional from NPR 3,999/month",
+    timeline: "4–6 weeks after content and approvals",
+    maintenance: "3,999/- Per Year",
     badge: "Fastest Turnaround",
-    typicalMarketComparison: "Nepali market average: NPR 40,000–120,000 for standard business sites.",
+    typicalMarketComparison: "Market average: NPR 40K–60K for standard business sites.",
     summaryHighlights: [
-      "6–10 Mobile-Responsive Pages",
+      "4–8 Mobile-Responsive Pages",
       "Modern design customized with client branding",
       "Basic CMS (Content Management System)",
       "Social Media Integrations",
-      "Image and Video Integration",
+      "Image Gallery Integration",
       "Direct WhatsApp / Viber / Call inquiry integration",
-      "Google Business Profile creation / optimization",
       "1 Month of dedicated technical support",
     ],
     deliverableCategories: [
@@ -119,28 +131,24 @@ export const websitePackages: WebsitePackage[] = [
         category: "Website Design & Structure",
         items: [
           {
-            title: "6–10 Mobile-Responsive Pages",
-            desc: "Custom-designed 6 to 10 mobile-ready pages including Home, About, Services/Products, Gallery/Portfolio, Contact, and custom business pages.",
+            title: "4–8 Mobile-Responsive Pages",
+            desc: "Custom-designed 4 to 8 mobile-ready pages including Home, About, Services/Products, Gallery/Portfolio, Contact, and custom business pages.",
           },
           {
             title: "Basic CMS (Content Management System)",
             desc: "Simple, intuitive admin interface to update text, photos, services, announcements, and blog notices easily.",
           },
           {
-            title: "Image and Video Integration",
-            desc: "Optimized multimedia galleries, high-resolution photo showcases, and responsive video embedding for YouTube, Vimeo, and Reels.",
+            title: "Image Gallery Integration",
+            desc: "Optimized multimedia galleries and high-resolution photo showcases.",
           },
           {
             title: "Social Media Integrations",
-            desc: "Seamless connection with Facebook, Instagram, TikTok, LinkedIn, OpenGraph previews, and floating WhatsApp/Viber quick-chat.",
+            desc: "Seamless connection with Facebook, Instagram, TikTok, LinkedIn, and floating WhatsApp/Viber quick-chat.",
           },
           {
             title: "Premium Customized Design",
             desc: "Tailored to your brand typography, logo, and colors for an immediate trustworthy impression.",
-          },
-          {
-            title: "Ultra-Fast Loading Performance",
-            desc: "Optimized image compression and modern clean code for flawless viewing on standard Nepali mobile 4G/WiFi.",
           },
         ],
       },
@@ -148,26 +156,19 @@ export const websitePackages: WebsitePackage[] = [
         category: "Lead Capture & Communication",
         items: [
           {
-            title: "Multi-Channel Inquiry Form",
-            desc: "Instant customer inquiries connected with email alerts and direct WhatsApp/Viber quick-chat buttons.",
+            title: "Inquiry Form",
+            desc: "Instant customer inquiries connected with direct WhatsApp/Viber quick-chat buttons.",
           },
           {
             title: "Interactive Google Maps Embedding",
             desc: "Precise location pinning so local walk-in customers and delivery drivers find you effortlessly.",
           },
-          {
-            title: "Social Media Share Integration",
-            desc: "Direct links and OpenGraph previews ready for Facebook, Instagram, and LinkedIn sharing.",
-          },
         ],
       },
       {
-        category: "Google Visibility & Technical Launch",
+        category: "Hosting & Technical Launch",
+        badge: "Launch & Support",
         items: [
-          {
-            title: "Google Business Profile (GBP)",
-            desc: "Creation or complete verification optimization to capture local Kathmandu/Lalitpur/Pokhara searches.",
-          },
           {
             title: "Domain & Hosting Deployment",
             desc: "Full setup support on fast servers; domain and hosting billed transparently at actual annual cost.",
@@ -227,77 +228,156 @@ export const websitePackages: WebsitePackage[] = [
       advance: "50% Advance",
       milestone: "None (Streamlined 2-stage)",
       final: "50% Before Final Live Launch",
-      maintenanceNote: "Optional maintenance from NPR 3,999/month (covers updates, backups & security).",
+      maintenanceNote: "Optional maintenance from NPR 3,999/- Per Year (covers updates, backups & security).",
       steps: [
         { percentage: "50%", stage: "Project Kickoff", note: "Upon requirement approval and content collection" },
         { percentage: "50%", stage: "Live Handover", note: "After staging preview approval before pointing live domain" },
       ],
     },
     whyThisWorks:
-      "This package gives a business a professional presence at a price point below the typical NPR 40,000–120,000 business-website range, while still including SEO setup and Google Business Profile support—features that many low-cost template offers omit. It is designed to be an entry product that upgrades naturally into the Growth package.",
+      "This package gives a business a professional presence at a price point below the typical NPR 40K–60K business-website range, while still including SEO setup and Google Business Profile support—features that many low-cost template offers omit. It is designed to be an entry product that upgrades naturally into the Growth package.",
+    crossLinks: [
+      {
+        targetPackageId: "growth-website-marketing",
+        targetPackageName: "Growth + SEO Website",
+        targetPrice: "44,999/-",
+        interestTrigger: "Need Dynamic Pages, Booking Systems & Google SEO?",
+        interestBadge: "Most Popular Upgrade • High User Interest",
+        description: "If your business requires dynamic 8–12 pages, service or inquiry booking engines, API integrations, and SEO-friendly local search visibility, Growth is Nepal's favorite SME package.",
+        keyHighlights: [
+          "8–12 Custom Dynamic Pages with API Integration",
+          "Service, Reservation or Inquiry Booking System",
+          "Dynamic Content Modules & Multi-Category Showcases",
+          "SEO-Friendly & Local Google Search Optimization",
+          "Secured & 2X Faster Performance Engine",
+        ],
+        ctaText: "Explore Growth + SEO Website (44,999/-)",
+      },
+      {
+        targetPackageId: "custom-business-system",
+        targetPackageName: "Custom Systems",
+        targetPrice: "Based on Requirements",
+        interestTrigger: "Need Custom Databases, eSewa/Khalti Gateways & Staff Portals?",
+        interestBadge: "Full Custom Engineering",
+        description: "If your operations require multi-branch workflows, custom product catalogs, local payment checkouts (eSewa/Khalti), or tailored administrative portals.",
+        keyHighlights: [
+          "Discovery Workshop & Custom Blueprints",
+          "Local Payment Integration (eSewa, Khalti, Fonepay)",
+          "Dedicated Role-Based Admin Dashboards",
+          "Database-Backed Booking & Order Management",
+          "3 Months SLA Support & Staff Training",
+        ],
+        ctaText: "Explore Custom Business Systems",
+      },
+    ],
   },
   {
     id: "growth-website-marketing",
     name: "Growth + SEO Website",
     tier: "Flagship / Most Popular",
-    tagline: "Dynamic CMS website combined with mid-level SEO, API integrations, and fast booking workflows.",
+    tagline: "Dynamic website combined with SEO-Friendly setup, API integrations, and fast booking workflows.",
     bestFor:
       "Booking, Reservation, travel agencies, trekking companies, package-tour operators, clinics, schools, consultancies, hotels, restaurants, professional service firms, and growing businesses needing dynamic websites & SEO.",
     startingPrice: "44,999/-",
     priceNumber: 44999,
     priceSubtext: "One-time investment",
     priceBadge: "Reasonable Pricing",
-    timeline: "4–6 weeks after content and approvals",
-    maintenance: "Optional from NPR 4,999/month",
+    timeline: "5–7 weeks after content and approvals",
+    maintenance: "4,999/- Per Year",
     isPopular: true,
     badge: "Recommended",
-    typicalMarketComparison: "Website build (NPR 60K–120K) with enterprise SEO and API workflows.",
+    typicalMarketComparison: "Website build (NPR 60K–85K) with enterprise SEO and API workflows.",
     summaryHighlights: [
-      "12–18 Pages",
-      "Everything included in Starter Website",
-      "Secured and 2X Faster",
-      "Self-managed CMS for blogs, packages, notices & services",
-      "Blogs with video and articles included",
+      "8–12 Custom-Designed Dynamic Pages",
+      "Custom Brand UI/UX & 100% Mobile Responsive",
+      "Service, Reservation or Inquiry Booking System",
+      "Dynamic Content Modules & Multi-Category Showcases",
+      "Secured and 2X Faster Performance",
+      "CMS API Integration",
       "Direct WhatsApp / Viber / Call inquiry integration",
-      "Mid Level SEO & Local SEO (Schema, GBP & Location optimization)",
-      "1 Months of included technical support & speed tuning",
+      "SEO-Friendly & Local SEO (Schema & Location optimization)",
+      "Hosting Setup, Website Live & 1 Month Technical Support",
     ],
     deliverableCategories: [
       {
-        category: "Website Deliverables (12–18 Pages)",
-        badge: "Dynamic CMS Architecture",
+        category: "Website Deliverables (8–12 Pages)",
+        badge: "Dynamic Web Architecture",
         items: [
           {
-            title: "12–18 Custom-Designed Pages",
+            title: "8–12 Custom-Designed Dynamic Pages",
             desc: "Completely tailored layout reflecting enterprise polish—no cookie-cutter templates.",
           },
           {
-            title: "Everything included in Starter Website",
-            desc: "Includes all Starter features: custom branding, mobile responsiveness, social media links, image/video galleries, and inquiry integration.",
+            title: "Premium Customized UI/UX Design",
+            desc: "Tailored to your corporate brand typography, custom color palette, logo assets, and visual hierarchy for immediate authority and trust.",
+          },
+          {
+            title: "100% Mobile-First Responsive Architecture",
+            desc: "Fluid, touch-optimized layouts engineered for flawless viewing and fast interaction across smartphones, tablets, laptops, and large desktop screens.",
           },
           {
             title: "Secured and 2X Faster Performance",
             desc: "Sub-second load times with advanced caching, image optimization, SSL certificate, and robust anti-spam shielding.",
           },
           {
-            title: "Static and Dynamic Pages (API Integration)",
-            desc: "Static and Dynamic pages through api Integration for automated data sync, live updates, and external service connectors.",
+            title: "CMS API Integration",
+            desc: "Custom content management system with CMS API integration for automated data sync, dynamic page rendering, live updates, and external service connectors.",
           },
           {
-            title: "Blogs with Video and Articles Included",
-            desc: "Dynamic CMS publishing engine supporting full articles, embedded video reels/YouTube, categories, and author profiles.",
+            title: "Dynamic Content Modules & Multi-Category Showcases",
+            desc: "Custom structured layouts for service catalogs, portfolio case studies, dynamic project galleries, and multi-category business offerings.",
+          },
+          {
+            title: "High-Definition Multimedia & Gallery Integration",
+            desc: "Optimized image galleries, interactive photo showcases, lightbox previews, and responsive video embedding for YouTube, Vimeo, and Reels.",
+          },
+        ],
+      },
+      {
+        category: "Lead Capture & Booking Systems",
+        badge: "Conversion Engine",
+        items: [
+          {
+            title: "Service, Reservation or Inquiry Booking System",
+            desc: "Custom-tailored booking and reservation system suited to your business—such as service inquiries, consultation appointments, room/table reservations, or custom lead pipelines.",
           },
           {
             title: "Direct WhatsApp / Viber / Call Inquiry Integration",
-            desc: "Multi-channel lead capture with quick-action buttons connecting directly to WhatsApp, Viber, and phone lines.",
+            desc: "Multi-channel lead capture with floating quick-action buttons connecting directly to WhatsApp, Viber, and direct phone lines.",
           },
           {
-            title: "Mid-Level SEO & Local SEO",
-            desc: "Location-based landing pages, rich snippet schema markup, keyword architecture, and Google Business Profile optimization.",
+            title: "Inquiry Forms",
+            desc: "Strategic lead capture, quote inquiry forms, and contact forms.",
           },
           {
-            title: "1 Months Technical Support & Speed Tuning",
-            desc: "Priority engineering support, monthly health audits, and post-launch speed tuning included.",
+            title: "Interactive Google Maps Embedding",
+            desc: "Precise GPS location pinning so local walk-in clients, patients, or customers find your physical office or store effortlessly.",
+          },
+          {
+            title: "Social Media Ecosystem & OpenGraph Previews",
+            desc: "Seamless integration with Facebook, Instagram, TikTok, LinkedIn, and optimized OpenGraph meta tags for rich social sharing previews.",
+          },
+        ],
+      },
+      {
+        category: "SEO & Technical Launch",
+        badge: "Local SEO & Reach",
+        items: [
+          {
+            title: "SEO-Friendly & Local SEO Optimization",
+            desc: "Location-based landing pages, rich snippet schema markup, keyword architecture, and Google search indexation.",
+          },
+          {
+            title: "Domain & DNS Setup",
+            desc: "Full technical setup for official domain routing, DNS records, and SSL encryption.",
+          },
+          {
+            title: "Hosting Setup & Website Live Deployment",
+            desc: "Complete server hosting setup, production deployment, and taking your website live seamlessly.",
+          },
+          {
+            title: "1 Month Technical Support & Speed Tuning",
+            desc: "Priority engineering support, monthly health audits, post-launch bug fixes, and speed tuning included.",
           },
         ],
       },
@@ -362,7 +442,7 @@ export const websitePackages: WebsitePackage[] = [
       advance: "40% Advance Payment",
       milestone: "30% Upon Interactive Design Approval",
       final: "30% Before Live Launch",
-      maintenanceNote: "Monthly marketing retainer billed in advance on the 1st of each month.",
+      maintenanceNote: "Annual website maintenance of 4,999/- Per Year; optional marketing packages billed separately.",
       steps: [
         { percentage: "40%", stage: "Discovery & Kickoff", note: "Initial deposit upon project onboarding and asset briefing" },
         { percentage: "30%", stage: "Design & CMS Approval", note: "After full visual design and interactive prototype sign-off" },
@@ -371,6 +451,40 @@ export const websitePackages: WebsitePackage[] = [
     },
     whyThisWorks:
       "This is Optiverse's main profit and differentiation package. It combines website development with ongoing content, local visibility, and lead generation—exactly where purely technical competitors such as Webtech Nepal are less prominent, and where Optiverse's video/multimedia capability becomes a real advantage.",
+    crossLinks: [
+      {
+        targetPackageId: "starter-website",
+        targetPackageName: "Starter Website",
+        targetPrice: "24,999/-",
+        interestTrigger: "Looking for a Budget-Friendly MVP or Faster 4–6 Week Launch?",
+        interestBadge: "Budget-Friendly Alternative",
+        description: "If you don't need complex booking engines or API integrations and just want a clean, professional, mobile-friendly 4–8 page business site launched quickly at NPR 24,999/- with 3,999/- Per Year maintenance.",
+        keyHighlights: [
+          "Fixed NPR 24,999/- One-Time Investment",
+          "4–8 Mobile-Responsive Pages with Basic CMS",
+          "Direct WhatsApp / Viber Lead Inquiries",
+          "Fast 4–6 Weeks Turnaround & Low Annual Upkeep",
+          "100% Milestone-Based Release (50% / 50%)",
+        ],
+        ctaText: "Explore Starter Website (24,999/-)",
+      },
+      {
+        targetPackageId: "custom-business-system",
+        targetPackageName: "Custom Systems",
+        targetPrice: "Based on Requirements",
+        interestTrigger: "Need Complex Multi-Branch ERP, Custom DB or Automation?",
+        interestBadge: "Enterprise Scalability",
+        description: "If your business operations outgrow standard CMS workflows and require custom backend architectures, multi-user role permissions, or complex local API integrations.",
+        keyHighlights: [
+          "Bespoke Web Software & Modular Workflows",
+          "Local Payment Gateways (eSewa / Khalti / Fonepay)",
+          "Database-Backed Application & Booking Engines",
+          "Role-Based Access Control & Staff Dashboards",
+          "Custom SLA & Dedicated Engineering Support",
+        ],
+        ctaText: "Explore Custom Business Systems",
+      },
+    ],
   },
   {
     id: "custom-business-system",
@@ -384,9 +498,9 @@ export const websitePackages: WebsitePackage[] = [
     priceSubtext: "Custom scoped to your workflows, modules & integrations",
     priceBadge: "Custom Scope",
     timeline: "6–10 weeks for standard systems; 10–16 weeks for complex systems",
-    maintenance: "From NPR 7,999/month, or 10–15% of project cost annually",
+    maintenance: "10–15% Annually (or custom SLA)",
     badge: "Full Custom Engineering",
-    typicalMarketComparison: "Nepali custom ERP/e-commerce platforms often cost NPR 200,000–500,000+; Optiverse provides modular predictability.",
+    typicalMarketComparison: "Nepali custom ERP/e-commerce platforms often cost NPR 90,000–500,000+; Optiverse provides modular predictability.",
     summaryHighlights: [
       "Discovery workshop & comprehensive workflow blueprints",
       "Custom UI/UX interface designed exclusively for your workflows",
@@ -542,7 +656,7 @@ export const websitePackages: WebsitePackage[] = [
       advance: "30% Advance Payment",
       milestone: "30% Design Approval + 30% Demo Sign-off",
       final: "10% Final Live Launch Handover",
-      maintenanceNote: "Support and maintenance from NPR 7,999/month, or 10–15% of project cost annually with SLA uptime.",
+      maintenanceNote: "Support and maintenance from 10–15% of project cost annually with SLA uptime.",
       steps: [
         { percentage: "30%", stage: "Discovery & Initiation", note: "Upon project kickoff and workflow architecture sign-off" },
         { percentage: "30%", stage: "Design & UX Approval", note: "After complete wireframe, UI design, and prototype approval" },
@@ -551,9 +665,50 @@ export const websitePackages: WebsitePackage[] = [
       ],
     },
     whyThisWorks:
-      "Nepali e-commerce and booking platforms require more than a normal website: local payment integration, delivery logic, product management, and operational workflows. Market references place e-commerce development around NPR 120,000–300,000 or higher, making NPR 149,999 a credible entry point for a properly scoped custom system. This package also prevents Optiverse from being trapped in low-margin website work while creating recurring maintenance revenue.",
+      "Nepali e-commerce and booking platforms require more than a normal website: local payment integration, delivery logic, product management, and operational workflows. Market references place custom system development around NPR 90,000–500,000+ or higher, while Optiverse provides modular predictability. This package also prevents Optiverse from being trapped in low-margin website work while creating recurring maintenance revenue.",
+    crossLinks: [
+      {
+        targetPackageId: "growth-website-marketing",
+        targetPackageName: "Growth + SEO Website",
+        targetPrice: "44,999/-",
+        interestTrigger: "Prefer a Fixed-Price Turnkey Website with Booking & SEO?",
+        interestBadge: "Flagship SME Solution",
+        description: "If you don't require heavy custom software engineering and want a proven 8–12 page dynamic lead generation engine delivered within 5–7 weeks at a predictable, fixed NPR 44,999/-.",
+        keyHighlights: [
+          "Guaranteed Fixed Investment of NPR 44,999/-",
+          "Turnkey Booking Engine (Services, Clinics, Inquiries)",
+          "SEO-Friendly & Local Search Visibility",
+          "Dynamic Pages with API Integration",
+          "Fast 5–7 Weeks Delivery",
+        ],
+        ctaText: "Explore Growth + SEO Website (44,999/-)",
+      },
+      {
+        targetPackageId: "starter-website",
+        targetPackageName: "Starter Website",
+        targetPrice: "24,999/-",
+        interestTrigger: "Looking for an Affordable Starter Online Presence First?",
+        interestBadge: "Rapid Market Entry",
+        description: "Perfect for testing the market with a fast, modern 4–8 page brochure website before investing in custom enterprise engineering.",
+        keyHighlights: [
+          "Fixed NPR 24,999/- One-Time Investment",
+          "4–8 Mobile-Responsive Showcase Pages",
+          "Basic CMS for Effortless Text & Photo Updates",
+          "Direct WhatsApp & Viber Quick Inquiries",
+          "Fastest 4–6 Weeks Turnaround",
+        ],
+        ctaText: "Explore Starter Website (24,999/-)",
+      },
+    ],
   },
 ];
+
+export const allWebsitePackages: WebsitePackage[] = [
+  ...coreWebsitePackages,
+  ...domainPackages,
+];
+
+export const websitePackages: WebsitePackage[] = allWebsitePackages;
 
 export type SectorMarketFit = {
   buyerGroup: string;
@@ -600,16 +755,16 @@ export const individualSectorCards: IndividualSectorCard[] = [
     subtitle: "National & International",
     iconName: "Globe",
     badge: "Inbound & Outbound",
-    bestPackage: "Budget-Friendly Website",
-    packageId: "growth-website-marketing",
-    startingPrice: "44,999/-",
+    bestPackage: "Travel & Tours Growth Website",
+    packageId: "travel-growth-website",
+    startingPrice: "39,999/-",
     imageUrl: travelToursWebImg,
     mainNeed: "Visual credibility, multi-destination package pages, WhatsApp/Messenger inquiries, Google Maps visibility, and dynamic booking forms.",
     whyItFits: "Tourism buyers research visually and contact through WhatsApp/Viber; dynamic SEO and Google Business Profile strongly influence bookings.",
     keyFeatures: [
       "International & domestic holiday package pages",
       "Multi-channel WhatsApp/Viber inquiry button",
-      "Mid-level SEO setup & API integration",
+      "SEO-Friendly setup & API integration",
     ],
     tiers: [
       {
@@ -617,9 +772,9 @@ export const individualSectorCards: IndividualSectorCard[] = [
         name: "Starter",
         badge: "Starter Package",
         price: "24,999/-",
-        pagesCount: "6–8 Pages",
-        deliveryTimeline: "15–20 Working Days",
-        packageId: "starter-website",
+        pagesCount: "4–8 Pages",
+        deliveryTimeline: "4–6 Weeks",
+        packageId: "travel-starter-website",
         imageUrl: travelStarterWebImg,
         requirements: [
           "Client provides destination itineraries & trip photos",
@@ -642,10 +797,10 @@ export const individualSectorCards: IndividualSectorCard[] = [
         tierId: "budget",
         name: "Budget-Friendly",
         badge: "Budget-Friendly Package",
-        price: "44,999/-",
-        pagesCount: "12–18 Pages",
+        price: "39,999/-",
+        pagesCount: "8–12 Pages",
         deliveryTimeline: "3–4 Weeks",
-        packageId: "growth-website-marketing",
+        packageId: "travel-growth-website",
         imageUrl: travelBudgetWebImg,
         requirements: [
           "Custom branding guidelines & logo vector files",
@@ -653,14 +808,14 @@ export const individualSectorCards: IndividualSectorCard[] = [
           "Staged milestone preview & approval feedback",
         ],
         features: [
-          "Full Dynamic CMS for tours, packages, notices & blogs",
+          "Dynamic CMS for tours & travel packages",
           "Day-by-day itinerary view with high-res photo gallery",
-          "Mid-level SEO optimization & local Nepal schema",
+          "Tours, Travel, Trekking or Any One Fully Functional Booking System",
+          "SEO-Friendly optimization & local Nepal schema",
           "Multi-channel inquiry triggers (WhatsApp, Viber, Call)",
           "1 Month post-launch dedicated technical maintenance",
           "Downloadable PDF tour itinerary brochure button",
           "Customer reviews, star ratings & traveler testimonial slider",
-          "Dual currency display (NPR & USD estimated rates)",
           "2X Speed optimization (under 2s load time) & daily backups",
         ],
       },
@@ -671,7 +826,7 @@ export const individualSectorCards: IndividualSectorCard[] = [
         price: "79,999/-",
         pagesCount: "20+ Custom Pages",
         deliveryTimeline: "6–8 Weeks",
-        packageId: "custom-business-system",
+        packageId: "travel-custom-system",
         imageUrl: travelPremiumWebImg,
         requirements: [
           "Official business registration & payment receiving details",
@@ -698,9 +853,9 @@ export const individualSectorCards: IndividualSectorCard[] = [
     subtitle: "Himalayan Adventures",
     iconName: "Compass",
     badge: "Permits & Itineraries",
-    bestPackage: "Budget-Friendly Website",
-    packageId: "growth-website-marketing",
-    startingPrice: "44,999/-",
+    bestPackage: "Travel & Tours Growth Website",
+    packageId: "travel-growth-website",
+    startingPrice: "39,999/-",
     imageUrl: trekkingWebImg,
     mainNeed: "Detailed day-by-day itineraries, altitude maps, permit checklists, verified trekker testimonials, and interactive route showcases.",
     whyItFits: "Foreign and domestic trekkers demand transparency on elevation, permits, and guides; dynamic pages and reviews convert leads rapidly.",
@@ -715,9 +870,9 @@ export const individualSectorCards: IndividualSectorCard[] = [
         name: "Starter",
         badge: "Starter Package",
         price: "24,999/-",
-        pagesCount: "6–8 Pages",
-        deliveryTimeline: "15–20 Working Days",
-        packageId: "starter-website",
+        pagesCount: "4–8 Pages",
+        deliveryTimeline: "4–6 Weeks",
+        packageId: "travel-starter-website",
         imageUrl: travelStarterWebImg,
         requirements: [
           "Trek descriptions, route highlights & elevation data",
@@ -740,10 +895,10 @@ export const individualSectorCards: IndividualSectorCard[] = [
         tierId: "budget",
         name: "Budget-Friendly",
         badge: "Budget-Friendly Package",
-        price: "44,999/-",
-        pagesCount: "14–18 Pages",
+        price: "39,999/-",
+        pagesCount: "8–12 Pages",
         deliveryTimeline: "3–4 Weeks",
-        packageId: "growth-website-marketing",
+        packageId: "travel-growth-website",
         imageUrl: travelBudgetWebImg,
         requirements: [
           "Detailed day-by-day trek breakdown & altitude profiles",
@@ -754,10 +909,9 @@ export const individualSectorCards: IndividualSectorCard[] = [
           "Self-managed dynamic CMS for unlimited trek packages",
           "Interactive day-by-day altitude charts & teahouse info",
           "Verified trekker review engine & testimonial slider",
-          "Mid-level international & Nepal local SEO rankings",
+          "SEO-Friendly international & Nepal local SEO rankings",
           "1 Month post-launch support & Google Search indexing",
           "Downloadable PDF trek itinerary & elevation map guide",
-          "Currency converter display (USD, EUR, NPR)",
           "Inquiry lead capture with gear rental checklist",
           "Fast cloud CDN caching & daily automated backup",
         ],
@@ -769,7 +923,7 @@ export const individualSectorCards: IndividualSectorCard[] = [
         price: "79,999/-",
         pagesCount: "20+ Custom Pages",
         deliveryTimeline: "6–8 Weeks",
-        packageId: "custom-business-system",
+        packageId: "travel-custom-system",
         imageUrl: travelPremiumWebImg,
         requirements: [
           "Official business registration & payment receiving details",
@@ -796,16 +950,16 @@ export const individualSectorCards: IndividualSectorCard[] = [
     subtitle: "Fixed Departures & Groups",
     iconName: "Calendar",
     badge: "Departure Calendars",
-    bestPackage: "Budget-Friendly Website",
-    packageId: "growth-website-marketing",
-    startingPrice: "44,999/-",
+    bestPackage: "Travel & Tours Growth Website",
+    packageId: "travel-growth-website",
+    startingPrice: "39,999/-",
     imageUrl: packageTravelWebImg,
     mainNeed: "Fixed departure dates, transparent pricing tables with inclusions/exclusions, instant group booking flow, and seasonal campaign calendars.",
     whyItFits: "Pilgrimage and holiday groups book on fixed schedules; timely booking workflows and search rankings fill departure seats fast.",
     keyFeatures: [
       "Fixed departure calendar & group seat slots",
       "Pricing tables with clear inclusions/exclusions",
-      "Blogs with videos & inquiry triggers",
+      "Interactive package showcases & inquiry triggers",
     ],
     tiers: [
       {
@@ -813,9 +967,9 @@ export const individualSectorCards: IndividualSectorCard[] = [
         name: "Starter",
         badge: "Starter Package",
         price: "24,999/-",
-        pagesCount: "6–8 Pages",
-        deliveryTimeline: "15–20 Working Days",
-        packageId: "starter-website",
+        pagesCount: "4–8 Pages",
+        deliveryTimeline: "4–6 Weeks",
+        packageId: "travel-starter-website",
         imageUrl: travelStarterWebImg,
         requirements: [
           "Holiday package descriptions & fixed departure dates",
@@ -834,10 +988,10 @@ export const individualSectorCards: IndividualSectorCard[] = [
         tierId: "budget",
         name: "Budget-Friendly",
         badge: "Budget-Friendly Package",
-        price: "44,999/-",
-        pagesCount: "12–18 Pages",
+        price: "39,999/-",
+        pagesCount: "8–12 Pages",
         deliveryTimeline: "3–4 Weeks",
-        packageId: "growth-website-marketing",
+        packageId: "travel-growth-website",
         imageUrl: packageTravelWebImg,
         requirements: [
           "Departure calendar schedule & available seat quotas",
@@ -859,7 +1013,7 @@ export const individualSectorCards: IndividualSectorCard[] = [
         price: "79,999/-",
         pagesCount: "20+ Custom Pages",
         deliveryTimeline: "6–8 Weeks",
-        packageId: "custom-business-system",
+        packageId: "travel-custom-system",
         imageUrl: travelPremiumWebImg,
         requirements: [
           "Payment merchant account for advance seat deposits",
@@ -882,9 +1036,9 @@ export const individualSectorCards: IndividualSectorCard[] = [
     subtitle: "Healthcare & Polyclinics",
     iconName: "Stethoscope",
     badge: "Doctor Appointments",
-    bestPackage: "Budget-Friendly Website",
-    packageId: "growth-website-marketing",
-    startingPrice: "44,999/-",
+    bestPackage: "Clinic Growth & SEO Website",
+    packageId: "clinic-growth-website",
+    startingPrice: "39,999/-",
     imageUrl: clinicDentalWebImg,
     mainNeed: "Doctor specialty profiles, treatment service cards, clinic timings, interactive location map, and repeatable appointment inquiry workflows.",
     whyItFits: "Patients seek immediate trust and location clarity; 'dentist near me' local SEO combined with WhatsApp booking captures walk-ins and appointments.",
@@ -899,9 +1053,9 @@ export const individualSectorCards: IndividualSectorCard[] = [
         name: "Starter",
         badge: "Starter Package",
         price: "24,999/-",
-        pagesCount: "6–8 Pages",
-        deliveryTimeline: "15–20 Working Days",
-        packageId: "starter-website",
+        pagesCount: "4–8 Pages",
+        deliveryTimeline: "4–6 Weeks",
+        packageId: "clinic-starter-website",
         imageUrl: clinicStarterWebImg,
         requirements: [
           "Doctor bio, medical degrees & clinic timings",
@@ -911,7 +1065,7 @@ export const individualSectorCards: IndividualSectorCard[] = [
         features: [
           "Doctor & dental specialist profile cards",
           "Core medical treatments & consultation fee guide",
-          "Direct WhatsApp appointment request trigger",
+          "Direct WhatsApp doctor appointment booking trigger",
           "Google Maps local SEO setup for 'doctor near me'",
           "Fast mobile-friendly layout with SSL encryption",
         ],
@@ -920,10 +1074,10 @@ export const individualSectorCards: IndividualSectorCard[] = [
         tierId: "budget",
         name: "Budget-Friendly",
         badge: "Budget-Friendly Package",
-        price: "44,999/-",
-        pagesCount: "12–16 Pages",
-        deliveryTimeline: "3–4 Weeks",
-        packageId: "growth-website-marketing",
+        price: "39,999/-",
+        pagesCount: "8–12 Pages",
+        deliveryTimeline: "4–6 Weeks",
+        packageId: "clinic-growth-website",
         imageUrl: clinicDentalWebImg,
         requirements: [
           "Department breakdowns & treatment descriptions",
@@ -931,9 +1085,9 @@ export const individualSectorCards: IndividualSectorCard[] = [
           "Patient intake questionnaire guidelines",
         ],
         features: [
-          "Online appointment inquiry scheduling workflow",
+          "Doctor Appointment Booking & Real-Time Slot Management",
           "Department treatment cards with procedure details",
-          "Patient education blog & hygiene notice CMS",
+          "Patient treatment guides & notice CMS",
           "Local Nepal healthcare schema & top Google Maps ranking",
           "1 Month post-launch support & reception staff training",
         ],
@@ -944,8 +1098,8 @@ export const individualSectorCards: IndividualSectorCard[] = [
         badge: "Premium Package",
         price: "79,999/-",
         pagesCount: "18+ Custom Pages",
-        deliveryTimeline: "6–8 Weeks",
-        packageId: "custom-business-system",
+        deliveryTimeline: "6–10 Weeks",
+        packageId: "clinic-custom-system",
         imageUrl: clinicPremiumWebImg,
         requirements: [
           "Doctor consultation fee payment rules",
@@ -953,7 +1107,7 @@ export const individualSectorCards: IndividualSectorCard[] = [
           "Patient privacy consent & data guidelines",
         ],
         features: [
-          "Doctor shift schedule & online time-slot booking portal",
+          "Doctor shift schedule & online appointment booking portal with tokens",
           "Consultation fee prepayment via eSewa, Khalti & cards",
           "Automated SMS/WhatsApp appointment reminders",
           "Patient inquiry management dashboard for reception",
@@ -968,16 +1122,16 @@ export const individualSectorCards: IndividualSectorCard[] = [
     subtitle: "Education & Abroad Studies",
     iconName: "GraduationCap",
     badge: "Admission CRM",
-    bestPackage: "Budget-Friendly Website",
-    packageId: "growth-website-marketing",
-    startingPrice: "44,999/-",
+    bestPackage: "Education Growth & Counselor Website",
+    packageId: "school-growth-website",
+    startingPrice: "39,999/-",
     imageUrl: schoolCollegeWebImg,
     mainNeed: "Academic program pages, study abroad destination hubs, counselor appointment funnel, notice announcements, and student articles.",
     whyItFits: "Students and parents demand clear course details and quick counseling access; counselor follow-up workflows convert inquiries into enrollments.",
     keyFeatures: [
       "Course & study-abroad destination listings",
       "Online admission & counselor lead funnel",
-      "Notice board & blogs with video",
+      "Notice board & program announcements",
     ],
     tiers: [
       {
@@ -985,9 +1139,9 @@ export const individualSectorCards: IndividualSectorCard[] = [
         name: "Starter",
         badge: "Starter Package",
         price: "24,999/-",
-        pagesCount: "6–10 Pages",
-        deliveryTimeline: "15–20 Working Days",
-        packageId: "starter-website",
+        pagesCount: "4–8 Pages",
+        deliveryTimeline: "4–6 Weeks",
+        packageId: "school-starter-website",
         imageUrl: schoolStarterWebImg,
         requirements: [
           "Course curriculum & admission criteria brochures",
@@ -1006,10 +1160,10 @@ export const individualSectorCards: IndividualSectorCard[] = [
         tierId: "budget",
         name: "Budget-Friendly",
         badge: "Budget-Friendly Package",
-        price: "44,999/-",
-        pagesCount: "14–18 Pages",
-        deliveryTimeline: "3–4 Weeks",
-        packageId: "growth-website-marketing",
+        price: "39,999/-",
+        pagesCount: "8–12 Pages",
+        deliveryTimeline: "4–6 Weeks",
+        packageId: "school-growth-website",
         imageUrl: schoolCollegeWebImg,
         requirements: [
           "Study abroad destination hubs & university partner lists",
@@ -1030,8 +1184,8 @@ export const individualSectorCards: IndividualSectorCard[] = [
         badge: "Premium Package",
         price: "79,999/-",
         pagesCount: "20+ Custom Pages",
-        deliveryTimeline: "6–8 Weeks",
-        packageId: "custom-business-system",
+        deliveryTimeline: "6–10 Weeks",
+        packageId: "school-custom-system",
         imageUrl: schoolPremiumWebImg,
         requirements: [
           "Student application document upload specifications",
@@ -1054,9 +1208,9 @@ export const individualSectorCards: IndividualSectorCard[] = [
     subtitle: "Hospitality & Dining",
     iconName: "Utensils",
     badge: "Room & Table Booking",
-    bestPackage: "Budget-Friendly Website",
-    packageId: "growth-website-marketing",
-    startingPrice: "44,999/-",
+    bestPackage: "Hospitality Growth & Table Booking Website",
+    packageId: "hotel-growth-website",
+    startingPrice: "39,999/-",
     imageUrl: hotelRestaurantWebImg,
     mainNeed: "Digital food/drink menus, room suite photo tours, location mapping, and table/room reservation inquiry forms.",
     whyItFits: "Diners and travelers choose venues based on visual menus and Google Maps ratings; simple WhatsApp reserve eliminates booking commission.",
@@ -1071,9 +1225,9 @@ export const individualSectorCards: IndividualSectorCard[] = [
         name: "Starter",
         badge: "Starter Package",
         price: "24,999/-",
-        pagesCount: "6–8 Pages",
-        deliveryTimeline: "15–20 Working Days",
-        packageId: "starter-website",
+        pagesCount: "4–8 Pages",
+        deliveryTimeline: "4–6 Weeks",
+        packageId: "hotel-starter-website",
         imageUrl: hotelStarterWebImg,
         requirements: [
           "Food & cocktail menu items with pricing",
@@ -1092,10 +1246,10 @@ export const individualSectorCards: IndividualSectorCard[] = [
         tierId: "budget",
         name: "Budget-Friendly",
         badge: "Budget-Friendly Package",
-        price: "44,999/-",
-        pagesCount: "12–16 Pages",
-        deliveryTimeline: "3–4 Weeks",
-        packageId: "growth-website-marketing",
+        price: "39,999/-",
+        pagesCount: "8–12 Pages",
+        deliveryTimeline: "4–6 Weeks",
+        packageId: "hotel-growth-website",
         imageUrl: hotelRestaurantWebImg,
         requirements: [
           "Menu category breakdowns & chef specialties",
@@ -1116,8 +1270,8 @@ export const individualSectorCards: IndividualSectorCard[] = [
         badge: "Premium Package",
         price: "79,999/-",
         pagesCount: "18+ Custom Pages",
-        deliveryTimeline: "6–8 Weeks",
-        packageId: "custom-business-system",
+        deliveryTimeline: "6–10 Weeks",
+        packageId: "hotel-custom-system",
         imageUrl: hotelPremiumWebImg,
         requirements: [
           "Room inventory rates & seasonal pricing rules",
@@ -1140,9 +1294,9 @@ export const individualSectorCards: IndividualSectorCard[] = [
     subtitle: "Online Stores & Boutiques",
     iconName: "ShoppingBag",
     badge: "eSewa & Khalti Payments",
-    bestPackage: "Budget-Friendly Website",
-    packageId: "custom-business-system",
-    startingPrice: "44,999/-",
+    bestPackage: "Full E-Commerce Website with Shopping Cart",
+    packageId: "retail-growth-website",
+    startingPrice: "39,999/-",
     imageUrl: retailEcommerceWebImg,
     mainNeed: "Online product catalogue, size/color variants, shopping cart, eSewa/Khalti/Fonepay payments, delivery rates, and manageable stock levels.",
     whyItFits: "Nepali consumers want instant local payment without COD drop-offs; integrated payment gateways and local delivery zones automate orders.",
@@ -1157,9 +1311,9 @@ export const individualSectorCards: IndividualSectorCard[] = [
         name: "Starter",
         badge: "Starter Package",
         price: "24,999/-",
-        pagesCount: "6–8 Pages",
-        deliveryTimeline: "15–20 Working Days",
-        packageId: "starter-website",
+        pagesCount: "4–8 Pages",
+        deliveryTimeline: "4–6 Weeks",
+        packageId: "retail-starter-website",
         imageUrl: retailStarterWebImg,
         requirements: [
           "Product catalog list with photos & prices",
@@ -1178,10 +1332,10 @@ export const individualSectorCards: IndividualSectorCard[] = [
         tierId: "budget",
         name: "Budget-Friendly",
         badge: "Budget-Friendly Package",
-        price: "44,999/-",
-        pagesCount: "12–18 Pages",
-        deliveryTimeline: "3–4 Weeks",
-        packageId: "growth-website-marketing",
+        price: "39,999/-",
+        pagesCount: "8–12 Pages",
+        deliveryTimeline: "4–6 Weeks",
+        packageId: "retail-growth-website",
         imageUrl: retailEcommerceWebImg,
         requirements: [
           "Product variants (sizes, colors) & stock counts",
@@ -1202,8 +1356,8 @@ export const individualSectorCards: IndividualSectorCard[] = [
         badge: "Premium Package",
         price: "79,999/-",
         pagesCount: "20+ Custom Pages",
-        deliveryTimeline: "6–8 Weeks",
-        packageId: "custom-business-system",
+        deliveryTimeline: "6–10 Weeks",
+        packageId: "retail-custom-system",
         imageUrl: retailPremiumWebImg,
         requirements: [
           "eSewa, Khalti, Fonepay merchant API credentials",
@@ -1226,9 +1380,9 @@ export const individualSectorCards: IndividualSectorCard[] = [
     subtitle: "Professional Services",
     iconName: "Briefcase",
     badge: "Corporate Credibility",
-    bestPackage: "Budget-Friendly Website",
-    packageId: "growth-website-marketing",
-    startingPrice: "44,999/-",
+    bestPackage: "Corporate Authority & Lead Generation Website",
+    packageId: "corporate-growth-website",
+    startingPrice: "39,999/-",
     imageUrl: constructionLegalWebImg,
     mainNeed: "Professional authority, completed project portfolios, verified credentials, case studies, quote request forms, and corporate local SEO.",
     whyItFits: "High-ticket corporate clients choose firms based on verified track records and prompt consultation funnels rather than complex e-commerce.",
@@ -1243,9 +1397,9 @@ export const individualSectorCards: IndividualSectorCard[] = [
         name: "Starter",
         badge: "Starter Package",
         price: "24,999/-",
-        pagesCount: "6–8 Pages",
-        deliveryTimeline: "15–20 Working Days",
-        packageId: "starter-website",
+        pagesCount: "4–8 Pages",
+        deliveryTimeline: "4–6 Weeks",
+        packageId: "corporate-starter-website",
         imageUrl: corporateStarterWebImg,
         requirements: [
           "Firm credentials, registration & practice areas",
@@ -1264,10 +1418,10 @@ export const individualSectorCards: IndividualSectorCard[] = [
         tierId: "budget",
         name: "Budget-Friendly",
         badge: "Budget-Friendly Package",
-        price: "44,999/-",
-        pagesCount: "12–16 Pages",
-        deliveryTimeline: "3–4 Weeks",
-        packageId: "growth-website-marketing",
+        price: "39,999/-",
+        pagesCount: "8–12 Pages",
+        deliveryTimeline: "4–6 Weeks",
+        packageId: "corporate-growth-website",
         imageUrl: constructionLegalWebImg,
         requirements: [
           "Detailed project case studies with technical specs",
@@ -1288,8 +1442,8 @@ export const individualSectorCards: IndividualSectorCard[] = [
         badge: "Premium Package",
         price: "79,999/-",
         pagesCount: "18+ Custom Pages",
-        deliveryTimeline: "6–8 Weeks",
-        packageId: "custom-business-system",
+        deliveryTimeline: "6–10 Weeks",
+        packageId: "corporate-custom-system",
         imageUrl: corporatePremiumWebImg,
         requirements: [
           "Client portal document privacy specifications",
@@ -1312,15 +1466,15 @@ export const individualSectorCards: IndividualSectorCard[] = [
     subtitle: "Emerging Local Brands",
     iconName: "Rocket",
     badge: "Fast Launch MVP",
-    bestPackage: "Budget-Friendly Website",
-    packageId: "starter-website",
-    startingPrice: "24,999/-",
+    bestPackage: "SaaS & Product Landing Growth Website",
+    packageId: "startup-growth-website",
+    startingPrice: "39,999/-",
     imageUrl: startupCompanyWebImg,
     mainNeed: "High-impact MVP landing page, founder story section, clear value proposition explanation, lead capture funnel, and a staged upgrade path.",
-    whyItFits: "A low-friction entry price gets startups launched fast in 15–20 working days, creating a natural upgrade path into Growth as revenue expands.",
+    whyItFits: "An accessible entry price gets startups launched fast in 4–6 weeks, creating a natural upgrade path into Growth as revenue expands.",
     keyFeatures: [
-      "Rapid 15–20 working day live deployment",
-      "6–10 Mobile-Responsive Pages",
+      "Rapid 4–6 week live deployment",
+      "4–8 Mobile-Responsive Pages",
       "Basic CMS & Social media integration",
     ],
     tiers: [
@@ -1329,9 +1483,9 @@ export const individualSectorCards: IndividualSectorCard[] = [
         name: "Starter",
         badge: "Starter Package",
         price: "24,999/-",
-        pagesCount: "6–8 Pages",
-        deliveryTimeline: "15–20 Working Days",
-        packageId: "starter-website",
+        pagesCount: "4–8 Pages",
+        deliveryTimeline: "4–6 Weeks",
+        packageId: "startup-starter-website",
         imageUrl: startupStarterWebImg,
         requirements: [
           "Product value proposition & problem statement",
@@ -1342,7 +1496,7 @@ export const individualSectorCards: IndividualSectorCard[] = [
           "High-converting MVP product launch landing page",
           "Founder story & early investor traction showcase",
           "Early-bird lead capture form & WhatsApp trigger",
-          "Fast 15–20 working day delivery for rapid market validation",
+          "Fast 4–6 week delivery for rapid market validation",
           "Mobile-first 4G ultra-fast performance",
         ],
       },
@@ -1350,10 +1504,10 @@ export const individualSectorCards: IndividualSectorCard[] = [
         tierId: "budget",
         name: "Budget-Friendly",
         badge: "Budget-Friendly Package",
-        price: "44,999/-",
-        pagesCount: "12–18 Pages",
-        deliveryTimeline: "3–4 Weeks",
-        packageId: "growth-website-marketing",
+        price: "39,999/-",
+        pagesCount: "8–12 Pages",
+        deliveryTimeline: "4–6 Weeks",
+        packageId: "startup-growth-website",
         imageUrl: startupCompanyWebImg,
         requirements: [
           "Feature release roadmaps & product screenshots",
@@ -1363,7 +1517,7 @@ export const individualSectorCards: IndividualSectorCard[] = [
         features: [
           "Full multi-page company website with product tour",
           "Interactive demo showcase & video reels integration",
-          "Self-managed CMS for company blogs, updates & press",
+          "Dynamic updates for company announcements & press",
           "Local & international organic SEO for product keywords",
           "1 Month technical maintenance & conversion tuning",
         ],
@@ -1374,8 +1528,8 @@ export const individualSectorCards: IndividualSectorCard[] = [
         badge: "Premium Package",
         price: "79,999/-",
         pagesCount: "20+ Custom Pages",
-        deliveryTimeline: "6–8 Weeks",
-        packageId: "custom-business-system",
+        deliveryTimeline: "6–10 Weeks",
+        packageId: "startup-custom-system",
         imageUrl: startupPremiumWebImg,
         requirements: [
           "SaaS web app API endpoints or webhook specs",
@@ -1399,8 +1553,8 @@ export const sectorMarketFitData: SectorMarketFit[] = [
     buyerGroup: "Travel/Tours, Trekking, Package Travel, Hotels, Restaurants",
     iconName: "Compass",
     mainNeed: "Visual credibility, itinerary/package pages, inquiries, Google Maps visibility, Facebook/Instagram content",
-    bestPackage: "Growth + SEO Website",
-    packageId: "growth-website-marketing",
+    bestPackage: "Travel & Tours Growth Website",
+    packageId: "travel-growth-website",
     whyItFits:
       "Tourism buyers research visually and contact through WhatsApp/Viber/Messenger; dynamic SEO and Google Business Profile strongly influence bookings.",
   },
@@ -1495,19 +1649,20 @@ export const strategicPositioning = {
 export const comparisonMatrix = [
   { feature: "Suitable For", starter: "Startups, Small Shops, Local Clinics", growth: "Booking, Reservations, Travel, Clinics, Consultancies", custom: "E-Commerce, Booking Portals, ERP Systems" },
   { feature: "Starting Price", starter: "24,999/-", growth: "44,999/-", custom: "Based on Requirements" },
-  { feature: "Delivery Timeline", starter: "15–20 Working Days", growth: "4–6 Weeks", custom: "6–16 Weeks" },
-  { feature: "Total Page Architecture", starter: "6–10 Pages", growth: "12–18 Pages", custom: "Unlimited Custom Screens & Modules" },
-  { feature: "Content Management System (CMS)", starter: "Basic CMS (Content Management)", growth: "Full CMS (Blogs, Notices, Services)", custom: "Enterprise Headless/Custom CMS & DB" },
+  { feature: "Delivery Timeline", starter: "4–6 Weeks", growth: "5–7 Weeks", custom: "6–16 Weeks" },
+  { feature: "Total Page Architecture", starter: "4–8 Pages", growth: "8–12 Pages", custom: "Unlimited Custom Screens & Modules" },
+  { feature: "Content Management System (CMS)", starter: "Basic CMS (Content Management)", growth: "Dynamic API Integration", custom: "Enterprise Headless/Custom CMS & DB" },
   { feature: "Mobile-First Responsive Design", starter: "Yes (100% Mobile Ready)", growth: "Yes (Custom UI/UX)", growthCheck: true, starterCheck: true, customCheck: true, custom: "Yes (Bespoke Application Design)" },
   { feature: "WhatsApp & Viber Quick-Chat", starter: "Yes", growth: "Yes (Integrated Direct Triggers)", custom: "Yes (Automated Workflows)" },
-  { feature: "Google Business Profile Setup", starter: "Yes (Creation/Opt)", growth: "Yes (Posts + Optimization)", custom: "Yes (Enterprise Setup)" },
-  { feature: "SEO Optimization", starter: "Optional Add-on", growth: "Mid-Level SEO & Local SEO + Schema", custom: "Full Dynamic SEO & Architecture" },
-  { feature: "Blogs with Video & Articles", starter: "Standard CMS", growth: "Included (Full Video/Article Engine)", custom: "Custom Multi-Author CMS & Media Portal" },
-  { feature: "Static & Dynamic Pages (API)", starter: "Static Only", growth: "Included (API Integration)", custom: "Enterprise Custom Microservices & API" },
+  { feature: "Booking & Reservation System", starter: "Inquiry Form Only", growth: "Included (Package/Tour/Trek/Custom)", custom: "Full Dynamic Booking Engine & DB" },
+  { feature: "Google Business Profile Setup", starter: "Optional Add-on", growth: "Optional Add-on", custom: "Yes (Enterprise Setup)" },
+  { feature: "SEO Optimization", starter: "Optional Add-on", growth: "SEO-Friendly & Local SEO + Schema", custom: "Full Dynamic SEO & Architecture" },
+  { feature: "Blogs with Video & Articles", starter: "Standard CMS", growth: "Optional Add-on", custom: "Custom Multi-Author CMS & Media Portal" },
+  { feature: "CMS & Dynamic Pages (API)", starter: "Static Only", growth: "CMS API Integration", custom: "Enterprise Custom Microservices & API" },
   { feature: "Speed & Performance", starter: "Standard Speed", growth: "Secured & 2X Faster Performance", custom: "Enterprise CDN & Hardened Cloud" },
   { feature: "Local Digital Payments (eSewa/Khalti)", starter: "Manual Inquiries Only", growth: "Inquiry/Deposit Forms", custom: "Full API Integration (eSewa, Khalti, Fonepay)" },
   { feature: "Admin Management Dashboard", starter: "Standard Admin", growth: "CMS Admin Panel", custom: "Custom Role-Based Admin Portal" },
   { feature: "Database & Workflow Engine", starter: "Form Submissions", growth: "Inquiry & Booking Logging", custom: "Full Relational/Document DB Architecture" },
   { feature: "Technical Support Duration", starter: "1 Month Included", growth: "1 Month Included", custom: "3 Months Dedicated SLA Support" },
-  { feature: "Ongoing Maintenance Options", starter: "From NPR 3,999/mo", growth: "From NPR 4,999/mo", custom: "From NPR 7,999/mo or 10-15% annually" },
+  { feature: "Ongoing Maintenance Options", starter: "3,999/- Per Year", growth: "4,999/- Per Year", custom: "10–15% Annually" },
 ];

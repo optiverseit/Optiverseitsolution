@@ -23,7 +23,9 @@ import Footer from "../components/hero/Footer";
 import WebsiteDevHeader from "../components/website-development/WebsiteDevHeader";
 import SectorAdaptationTabs from "../components/website-development/SectorAdaptationTabs";
 import PackageInquiryModal from "../components/website-development/PackageInquiryModal";
-import { websitePackages, type WebsitePackage } from "../data/websitePackagesData";
+import PackageCrossLinks from "../components/website-development/PackageCrossLinks";
+import ClinicAppointmentBookingDemo from "../components/website-development/ClinicAppointmentBookingDemo";
+import { coreWebsitePackages, websitePackages, type WebsitePackage } from "../data/websitePackagesData";
 
 export default function WebsitePackageDetailPage() {
   const { packageId } = useParams<{ packageId: string }>();
@@ -65,8 +67,36 @@ export default function WebsitePackageDetailPage() {
     );
   }
 
-  const isGrowth = pkg.id === "growth-website-marketing";
-  const isCustom = pkg.id === "custom-business-system";
+  // Group related packages for the top switcher bar and sidebar
+  const getRelatedPackages = () => {
+    if (pkg.id.startsWith("travel-")) {
+      return websitePackages.filter((p) => p.id.startsWith("travel-"));
+    }
+    if (pkg.id.startsWith("clinic-")) {
+      return websitePackages.filter((p) => p.id.startsWith("clinic-"));
+    }
+    if (pkg.id.startsWith("school-")) {
+      return websitePackages.filter((p) => p.id.startsWith("school-"));
+    }
+    if (pkg.id.startsWith("hotel-")) {
+      return websitePackages.filter((p) => p.id.startsWith("hotel-"));
+    }
+    if (pkg.id.startsWith("retail-")) {
+      return websitePackages.filter((p) => p.id.startsWith("retail-"));
+    }
+    if (pkg.id.startsWith("corporate-")) {
+      return websitePackages.filter((p) => p.id.startsWith("corporate-"));
+    }
+    if (pkg.id.startsWith("startup-")) {
+      return websitePackages.filter((p) => p.id.startsWith("startup-"));
+    }
+    return coreWebsitePackages;
+  };
+
+  const domainGroupPackages = getRelatedPackages();
+
+  const isGrowth = pkg.id === "growth-website-marketing" || pkg.id.includes("-growth-");
+  const isCustom = pkg.id === "custom-business-system" || pkg.id.includes("-custom-");
 
   return (
     <>
@@ -85,7 +115,7 @@ export default function WebsitePackageDetailPage() {
         packageTier={pkg.tier}
         startingPrice={pkg.startingPrice}
         priceSubtext={pkg.priceSubtext}
-        showBackButton={true}
+        showBackButton={false}
       />
 
       {/* Package Quick Switcher Bar */}
@@ -94,9 +124,11 @@ export default function WebsitePackageDetailPage() {
           <div className="flex items-center justify-between py-3 overflow-x-auto [scrollbar-width:none]">
             <div className="flex items-center gap-2 sm:gap-3 shrink-0">
               <span className="text-xs font-extrabold uppercase tracking-wider text-slate-400 mr-1 hidden sm:inline">
-                Packages:
+                {pkg.id.includes("-") && !coreWebsitePackages.some((p) => p.id === pkg.id)
+                  ? "Sector Tiers:"
+                  : "Packages:"}
               </span>
-              {websitePackages.map((item) => (
+              {domainGroupPackages.map((item) => (
                 <Link
                   key={item.id}
                   to={`/services/website-development/${item.id}`}
@@ -116,6 +148,13 @@ export default function WebsitePackageDetailPage() {
                   </span>
                 </Link>
               ))}
+              <Link
+                to="/services/website-development#sectors-section"
+                className="hidden sm:inline-flex items-center gap-1 rounded-xl px-3 py-2 text-xs font-bold text-slate-600 bg-slate-100 hover:bg-slate-200 hover:text-[#166534] transition whitespace-nowrap"
+              >
+                <span>All Sectors</span>
+                <ArrowRight size={12} />
+              </Link>
             </div>
 
             <div className="shrink-0 pl-4">
@@ -176,7 +215,7 @@ export default function WebsitePackageDetailPage() {
                       Maintenance
                     </span>
                     <span className="font-extrabold text-slate-900 text-sm">
-                      {pkg.maintenance.split(",")[0]}
+                      {pkg.maintenance.split(", or")[0]}
                     </span>
                   </div>
                   <div className="rounded-xl border border-slate-200 p-3 bg-white col-span-2 sm:col-span-1">
@@ -250,13 +289,13 @@ export default function WebsitePackageDetailPage() {
                 <div className="rounded-3xl border-2 border-emerald-600/40 bg-gradient-to-br from-white via-green-50/20 to-white p-6 sm:p-8 shadow-md">
                   <div className="mb-6">
                     <span className="text-xs font-extrabold uppercase tracking-widest text-[#166534]">
-                      Flexible Growth Retainers
+                      Flexible Marketing Packages
                     </span>
                     <h3 className="text-2xl font-black text-slate-900 mt-1">
                       Ongoing Monthly Visibility & Care Options
                     </h3>
                     <p className="mt-1 text-xs sm:text-sm text-slate-600">
-                      Prices aligned with Nepal's standard social media management range (NPR 15K–45K/mo), backed by Optiverse's in-house video studio.
+                      Standard social media management range (NPR 15K–40K/mo), backed by Optiverse's in-house video studio.
                     </p>
                   </div>
 
@@ -333,6 +372,18 @@ export default function WebsitePackageDetailPage() {
                 </div>
               )}
 
+              {/* Specialized Clinic Appointment Booking Interactive Engine */}
+              {pkg.id.startsWith("clinic-") && (
+                <div id="appointment-booking-system" className="scroll-mt-36">
+                  <ClinicAppointmentBookingDemo
+                    onOpenInquiry={() => {
+                      setIsAuditModal(false);
+                      setIsModalOpen(true);
+                    }}
+                  />
+                </div>
+              )}
+
               {/* Sector Specific Adaptations */}
               <SectorAdaptationTabs
                 adaptations={pkg.sectorAdaptations}
@@ -381,7 +432,7 @@ export default function WebsitePackageDetailPage() {
                   </div>
                   <div className="flex items-center justify-between">
                     <span className="text-slate-500">Maintenance:</span>
-                    <span className="font-bold text-slate-900">{pkg.maintenance.split(",")[0]}</span>
+                    <span className="font-bold text-slate-900">{pkg.maintenance.split(", or")[0]}</span>
                   </div>
                   <div className="flex items-center justify-between">
                     <span className="text-slate-500">Milestone Model:</span>
@@ -401,6 +452,16 @@ export default function WebsitePackageDetailPage() {
                     <span>Inquire for {pkg.name.split(" ")[0]}</span>
                     <ArrowRight size={15} />
                   </button>
+
+                  {pkg.id.startsWith("clinic-") && (
+                    <a
+                      href="#appointment-booking-system"
+                      className="flex w-full items-center justify-center gap-2 rounded-xl border border-emerald-600 bg-emerald-50/90 py-2.5 px-4 text-xs font-bold text-emerald-900 hover:bg-emerald-100 transition shadow-2xs"
+                    >
+                      <Calendar size={14} className="text-[#166534]" />
+                      <span>Test Appointment Booking System</span>
+                    </a>
+                  )}
 
                   <a
                     href={`https://wa.me/9779803713931?text=Hello%20Optiverse,%20I%20am%20interested%20in%20the%20${encodeURIComponent(
@@ -475,7 +536,46 @@ export default function WebsitePackageDetailPage() {
                   <span>Book Free 30-Min Audit</span>
                 </button>
               </div>
+
+              {/* Sidebar Quick Cross-Package Switcher Widget */}
+              <div className="rounded-3xl border border-gray-200 bg-white p-5 shadow-sm space-y-3">
+                <span className="text-[10px] font-extrabold uppercase tracking-wider text-slate-400 block">
+                  Switch / Compare Tiers
+                </span>
+                <div className="space-y-2">
+                  {domainGroupPackages
+                    .filter((p) => p.id !== pkg.id)
+                    .map((other) => (
+                      <Link
+                        key={other.id}
+                        to={`/services/website-development/${other.id}`}
+                        className="group flex items-center justify-between p-3 rounded-2xl border border-slate-200/80 bg-slate-50/60 hover:border-[#166534] hover:bg-emerald-50/40 transition"
+                      >
+                        <div>
+                          <div className="text-xs font-bold text-slate-900 group-hover:text-[#166534] transition">
+                            {other.name}
+                          </div>
+                          <div className="text-[11px] text-slate-500 font-medium">
+                            {other.startingPrice} • {other.timeline.split(" ")[0]} {other.timeline.split(" ")[1]}
+                          </div>
+                        </div>
+                        <ArrowRight size={13} className="text-slate-400 group-hover:text-[#166534] group-hover:translate-x-0.5 transition shrink-0 ml-2" />
+                      </Link>
+                    ))}
+                </div>
+              </div>
             </div>
+          </div>
+
+          {/* Full-Width Cross-Package Backlinks by User Interest */}
+          <div id="other-packages">
+            <PackageCrossLinks
+              currentPkg={pkg}
+              onOpenAudit={() => {
+                setIsAuditModal(true);
+                setIsModalOpen(true);
+              }}
+            />
           </div>
         </div>
       </div>

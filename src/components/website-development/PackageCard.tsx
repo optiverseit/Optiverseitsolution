@@ -8,7 +8,7 @@ import {
   MessageCircle,
   ShieldCheck,
 } from "lucide-react";
-import type { WebsitePackage } from "../../data/websitePackagesData";
+import { coreWebsitePackages, type WebsitePackage } from "../../data/websitePackagesData";
 
 interface PackageCardProps {
   pkg: WebsitePackage;
@@ -164,10 +164,10 @@ export default function PackageCard({ pkg, onSelectForInquiry }: PackageCardProp
           <div className="rounded-xl bg-emerald-50 border border-emerald-200/80 p-2.5 text-xs text-emerald-950">
             <div className="flex items-center gap-1 font-bold text-[#166534] text-[11px] mb-0.5">
               <Zap size={12} className="text-[#166534]" />
-              <span>API & Dynamic Engine Included</span>
+              <span>CMS API Integration Included</span>
             </div>
             <p className="text-emerald-900/90 text-[11px] leading-tight font-medium">
-              Static and Dynamic pages through api Integration
+              CMS API integration with dynamic content modules
             </p>
           </div>
         )}
@@ -219,6 +219,27 @@ export default function PackageCard({ pkg, onSelectForInquiry }: PackageCardProp
           <MessageCircle size={14} className="text-slate-400 transition-transform duration-200 group-hover:text-[#166534] group-hover:scale-110" />
           <span>Quick Inquiry</span>
         </button>
+
+        {/* User Interest Cross-Package Redirects */}
+        <div className="pt-2 border-t border-slate-100 flex items-center justify-between text-[11px] text-slate-500">
+          <span className="text-[10px] uppercase font-bold text-slate-400">Also explore:</span>
+          <div className="flex items-center gap-1.5 font-bold">
+            {coreWebsitePackages
+              .filter((p) => p.id !== pkg.id)
+              .map((other, oIdx) => (
+                <span key={other.id} className="flex items-center gap-1.5">
+                  {oIdx > 0 && <span className="text-slate-300">•</span>}
+                  <Link
+                    to={`/services/website-development/${other.id}`}
+                    className="text-slate-700 hover:text-[#166534] hover:underline transition"
+                    title={`View ${other.name}`}
+                  >
+                    {other.name.split(" ")[0]} ({other.startingPrice.split("/")[0]})
+                  </Link>
+                </span>
+              ))}
+          </div>
+        </div>
       </div>
     </div>
   );
