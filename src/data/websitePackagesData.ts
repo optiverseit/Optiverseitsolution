@@ -497,7 +497,7 @@ export const coreWebsitePackages: WebsitePackage[] = [
     priceNumber: 0,
     priceSubtext: "Custom scoped to your workflows, modules & integrations",
     priceBadge: "Custom Scope",
-    timeline: "6–10 weeks for standard systems; 10–16 weeks for complex systems",
+    timeline: "8–16 weeks or more, depends on requirements",
     maintenance: "10–15% Annually (or custom SLA)",
     badge: "Full Custom Engineering",
     typicalMarketComparison: "Nepali custom ERP/e-commerce platforms often cost NPR 90,000–500,000+; Optiverse provides modular predictability.",
@@ -799,7 +799,7 @@ export const individualSectorCards: IndividualSectorCard[] = [
         badge: "Budget-Friendly Package",
         price: "39,999/-",
         pagesCount: "8–12 Pages",
-        deliveryTimeline: "3–4 Weeks",
+        deliveryTimeline: "5–7 Weeks",
         packageId: "travel-growth-website",
         imageUrl: travelBudgetWebImg,
         requirements: [
@@ -825,7 +825,7 @@ export const individualSectorCards: IndividualSectorCard[] = [
         badge: "Premium Package",
         price: "79,999/-",
         pagesCount: "20+ Custom Pages",
-        deliveryTimeline: "6–8 Weeks",
+        deliveryTimeline: "8–16 Weeks+",
         packageId: "travel-custom-system",
         imageUrl: travelPremiumWebImg,
         requirements: [
@@ -897,7 +897,7 @@ export const individualSectorCards: IndividualSectorCard[] = [
         badge: "Budget-Friendly Package",
         price: "39,999/-",
         pagesCount: "8–12 Pages",
-        deliveryTimeline: "3–4 Weeks",
+        deliveryTimeline: "5–7 Weeks",
         packageId: "travel-growth-website",
         imageUrl: travelBudgetWebImg,
         requirements: [
@@ -922,7 +922,7 @@ export const individualSectorCards: IndividualSectorCard[] = [
         badge: "Premium Package",
         price: "79,999/-",
         pagesCount: "20+ Custom Pages",
-        deliveryTimeline: "6–8 Weeks",
+        deliveryTimeline: "8–16 Weeks+",
         packageId: "travel-custom-system",
         imageUrl: travelPremiumWebImg,
         requirements: [
@@ -990,7 +990,7 @@ export const individualSectorCards: IndividualSectorCard[] = [
         badge: "Budget-Friendly Package",
         price: "39,999/-",
         pagesCount: "8–12 Pages",
-        deliveryTimeline: "3–4 Weeks",
+        deliveryTimeline: "5–7 Weeks",
         packageId: "travel-growth-website",
         imageUrl: packageTravelWebImg,
         requirements: [
@@ -1012,7 +1012,7 @@ export const individualSectorCards: IndividualSectorCard[] = [
         badge: "Premium Package",
         price: "79,999/-",
         pagesCount: "20+ Custom Pages",
-        deliveryTimeline: "6–8 Weeks",
+        deliveryTimeline: "8–16 Weeks+",
         packageId: "travel-custom-system",
         imageUrl: travelPremiumWebImg,
         requirements: [
@@ -1076,7 +1076,7 @@ export const individualSectorCards: IndividualSectorCard[] = [
         badge: "Budget-Friendly Package",
         price: "39,999/-",
         pagesCount: "8–12 Pages",
-        deliveryTimeline: "4–6 Weeks",
+        deliveryTimeline: "5–7 Weeks",
         packageId: "clinic-growth-website",
         imageUrl: clinicDentalWebImg,
         requirements: [
@@ -1098,7 +1098,7 @@ export const individualSectorCards: IndividualSectorCard[] = [
         badge: "Premium Package",
         price: "79,999/-",
         pagesCount: "18+ Custom Pages",
-        deliveryTimeline: "6–10 Weeks",
+        deliveryTimeline: "8–16 Weeks+",
         packageId: "clinic-custom-system",
         imageUrl: clinicPremiumWebImg,
         requirements: [
@@ -1162,7 +1162,7 @@ export const individualSectorCards: IndividualSectorCard[] = [
         badge: "Budget-Friendly Package",
         price: "39,999/-",
         pagesCount: "8–12 Pages",
-        deliveryTimeline: "4–6 Weeks",
+        deliveryTimeline: "5–7 Weeks",
         packageId: "school-growth-website",
         imageUrl: schoolCollegeWebImg,
         requirements: [
@@ -1184,7 +1184,7 @@ export const individualSectorCards: IndividualSectorCard[] = [
         badge: "Premium Package",
         price: "79,999/-",
         pagesCount: "20+ Custom Pages",
-        deliveryTimeline: "6–10 Weeks",
+        deliveryTimeline: "8–16 Weeks+",
         packageId: "school-custom-system",
         imageUrl: schoolPremiumWebImg,
         requirements: [
@@ -1248,7 +1248,7 @@ export const individualSectorCards: IndividualSectorCard[] = [
         badge: "Budget-Friendly Package",
         price: "39,999/-",
         pagesCount: "8–12 Pages",
-        deliveryTimeline: "4–6 Weeks",
+        deliveryTimeline: "5–7 Weeks",
         packageId: "hotel-growth-website",
         imageUrl: hotelRestaurantWebImg,
         requirements: [
@@ -1270,7 +1270,7 @@ export const individualSectorCards: IndividualSectorCard[] = [
         badge: "Premium Package",
         price: "79,999/-",
         pagesCount: "18+ Custom Pages",
-        deliveryTimeline: "6–10 Weeks",
+        deliveryTimeline: "8–16 Weeks+",
         packageId: "hotel-custom-system",
         imageUrl: hotelPremiumWebImg,
         requirements: [
@@ -1334,7 +1334,7 @@ export const individualSectorCards: IndividualSectorCard[] = [
         badge: "Budget-Friendly Package",
         price: "39,999/-",
         pagesCount: "8–12 Pages",
-        deliveryTimeline: "4–6 Weeks",
+        deliveryTimeline: "5–7 Weeks",
         packageId: "retail-growth-website",
         imageUrl: retailEcommerceWebImg,
         requirements: [
@@ -1356,7 +1356,7 @@ export const individualSectorCards: IndividualSectorCard[] = [
         badge: "Premium Package",
         price: "79,999/-",
         pagesCount: "20+ Custom Pages",
-        deliveryTimeline: "6–10 Weeks",
+        deliveryTimeline: "8–16 Weeks+",
         packageId: "retail-custom-system",
         imageUrl: retailPremiumWebImg,
         requirements: [
@@ -1420,7 +1420,7 @@ export const individualSectorCards: IndividualSectorCard[] = [
         badge: "Budget-Friendly Package",
         price: "39,999/-",
         pagesCount: "8–12 Pages",
-        deliveryTimeline: "4–6 Weeks",
+        deliveryTimeline: "5–7 Weeks",
         packageId: "corporate-growth-website",
         imageUrl: constructionLegalWebImg,
         requirements: [
@@ -1442,7 +1442,7 @@ export const individualSectorCards: IndividualSectorCard[] = [
         badge: "Premium Package",
         price: "79,999/-",
         pagesCount: "18+ Custom Pages",
-        deliveryTimeline: "6–10 Weeks",
+        deliveryTimeline: "8–16 Weeks+",
         packageId: "corporate-custom-system",
         imageUrl: corporatePremiumWebImg,
         requirements: [
@@ -1506,7 +1506,7 @@ export const individualSectorCards: IndividualSectorCard[] = [
         badge: "Budget-Friendly Package",
         price: "39,999/-",
         pagesCount: "8–12 Pages",
-        deliveryTimeline: "4–6 Weeks",
+        deliveryTimeline: "5–7 Weeks",
         packageId: "startup-growth-website",
         imageUrl: startupCompanyWebImg,
         requirements: [
@@ -1528,7 +1528,7 @@ export const individualSectorCards: IndividualSectorCard[] = [
         badge: "Premium Package",
         price: "79,999/-",
         pagesCount: "20+ Custom Pages",
-        deliveryTimeline: "6–10 Weeks",
+        deliveryTimeline: "8–16 Weeks+",
         packageId: "startup-custom-system",
         imageUrl: startupPremiumWebImg,
         requirements: [
@@ -1649,7 +1649,7 @@ export const strategicPositioning = {
 export const comparisonMatrix = [
   { feature: "Suitable For", starter: "Startups, Small Shops, Local Clinics", growth: "Booking, Reservations, Travel, Clinics, Consultancies", custom: "E-Commerce, Booking Portals, ERP Systems" },
   { feature: "Starting Price", starter: "24,999/-", growth: "44,999/-", custom: "Based on Requirements" },
-  { feature: "Delivery Timeline", starter: "4–6 Weeks", growth: "5–7 Weeks", custom: "6–16 Weeks" },
+  { feature: "Delivery Timeline", starter: "4–6 Weeks", growth: "5–7 Weeks", custom: "8–16 Weeks+" },
   { feature: "Total Page Architecture", starter: "4–8 Pages", growth: "8–12 Pages", custom: "Unlimited Custom Screens & Modules" },
   { feature: "Content Management System (CMS)", starter: "Basic CMS (Content Management)", growth: "Dynamic API Integration", custom: "Enterprise Headless/Custom CMS & DB" },
   { feature: "Mobile-First Responsive Design", starter: "Yes (100% Mobile Ready)", growth: "Yes (Custom UI/UX)", growthCheck: true, starterCheck: true, customCheck: true, custom: "Yes (Bespoke Application Design)" },
